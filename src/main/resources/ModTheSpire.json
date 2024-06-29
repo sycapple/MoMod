@@ -1,0 +1,14 @@
+{
+  "modid": "MoMod",
+  "name": "MoMod",
+  "author_list": [
+    "REME"
+  ],
+  "description": "MoMod。",
+  "version": "0.0.1",
+  "sts_version": "12-22-2020",
+  "mts_version": "3.23.2",
+  "dependencies": [
+    "basemod"
+  ]
+}

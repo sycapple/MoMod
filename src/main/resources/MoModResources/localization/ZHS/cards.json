@@ -1,0 +1,18 @@
+{
+  "MoMod:AttackDog": {
+    "NAME": "军犬",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "MoMod:Walls": {
+    "NAME": "围墙",
+    "DESCRIPTION": "获得 !B! 点伤害。"
+  },
+  "MoMod:Conscript": {
+    "NAME": "动员兵",
+    "DESCRIPTION": "造成 !D! 点格挡。"
+  },
+  "MoMod:Engineer": {
+    "NAME": "工程师",
+    "DESCRIPTION": "获得 !B! 点格挡。"
+  }
+}
