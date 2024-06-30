@@ -2,7 +2,7 @@ package MoMod.cards.skill;
 
 
 import MoMod.util.MoModHelper;
-import MoMod.patches.AbstractCardEnum;
+import MoMod.Enums.AbstractCardEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

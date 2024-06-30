@@ -14,5 +14,9 @@
   "MoMod:Engineer": {
     "NAME": "工程师",
     "DESCRIPTION": "获得 !B! 点格挡。"
+  },
+  "MoMod:EmptyConstructionSlot": {
+    "NAME": "空槽位",
+    "DESCRIPTION": "这是一个空建筑槽位"
   }
 }

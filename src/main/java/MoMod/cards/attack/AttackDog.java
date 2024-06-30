@@ -1,7 +1,7 @@
 package MoMod.cards.attack;
 
 import MoMod.util.MoModHelper;
-import MoMod.patches.AbstractCardEnum;
+import MoMod.Enums.AbstractCardEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;

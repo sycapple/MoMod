@@ -2,6 +2,9 @@
 
 package MoMod.panels;
 
+import MoMod.cards.Special.EmptyConstructionSlot;
+import MoMod.patches.ConstructionFontPatch;
+import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
 import MoMod.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
@@ -10,15 +13,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.ui.panels.AbstractPanel;
@@ -38,7 +37,7 @@ public class AbstractConstructionPanel extends AbstractPanel {
     public static int totalCount;
     private Hitbox tipHitbox;
     private static final Color ANIMA_TEXT_COLOR;
-//    private static final PowerStrings tutorialStrings;
+    //    private static final PowerStrings tutorialStrings;
     private static final int Max_Anima = 999;
     private static final float AbstractCard_HB_W;
     private static final float AbstractCard_HB_H;
@@ -54,6 +53,28 @@ public class AbstractConstructionPanel extends AbstractPanel {
     public static Texture backMecha;
     public static Texture boxMecha;
     private static Field frameShadowColorField;
+
+    static {
+        AnimaP_locx = 235.0F * Settings.xScale;
+        AnimaP_locy = 780.0F * Settings.yScale;
+        hide_x = -480.0F * Settings.scale;
+        shadow_offset = 12.0F * Settings.scale;
+        ANIMA_TEXT_COLOR = new Color(1.0F, 1.0F, 1.0F, 1.0F);
+//        tutorialStrings = CardCrawlGame.languagePack.getPowerStrings();
+        AbstractCard_HB_W = 300.0F * Settings.scale;
+        AbstractCard_HB_H = 420.0F * Settings.scale;
+        mechaLength = 1600.0F * Settings.scale;
+        boxWidth = 2266.279F * Settings.scale;
+        boxHeight = 831.3953F * Settings.scale;
+        boxLeftMove = 332.5581F * Settings.scale;
+        boxDownMove = 197.6744F * Settings.scale;
+        distanceBetweenMechaAndBox = 6.0F * Settings.scale;
+        ret = null;
+        emptyMecha = TextureLoader.getTexture(MoModHelper.assetPath("/img/UI/Panel/EmptyConstructionSlot.png"));
+        backMecha = TextureLoader.getTexture(MoModHelper.assetPath("/img/UI/Panel/BackConstructionPanel.png"));
+        boxMecha = TextureLoader.getTexture(MoModHelper.assetPath("/img/UI/Panel/BoxConstruction.png"));
+        frameShadowColorField = null;
+    }
 
     public AbstractConstructionPanel() {
         super(AnimaP_locx, AnimaP_locy, hide_x, AnimaP_locy, shadow_offset, -shadow_offset, (Texture) null, true);
@@ -96,78 +117,91 @@ public class AbstractConstructionPanel extends AbstractPanel {
 
     }
 
-//    private BitmapFont getPanelFont() {
-//        return (BitmapFont) MechaFontField.FightHardFont.get();
-//    }
+    private BitmapFont getPanelFont() {
+        return (BitmapFont) ConstructionFontPatch.ConstructionFontField.FightHardFont.get();
+    }
 
     public void render(SpriteBatch sb) {
         sb.setColor(Color.WHITE);
-        int maxMechas = 5;
-        if (!this.isHidden && maxMechas > 1) {
-            float extendMoveOnce = (mechaLength - AbstractCard_HB_W) * 0.38F / (float) (maxMechas - 1);
+        int maxConstruction = ConstructionPileManager.getMaxConstruction();
+        if (!this.isHidden && maxConstruction > 1) {
+            float extendMoveOnce = (mechaLength - AbstractCard_HB_W) * 0.38F / (float) (maxConstruction - 1);
             float leftMove = 0.0F;
-            if (maxMechas <= 5) {
-                extendMoveOnce -= distanceBetweenMechaAndBox * 2.0F / (float) (maxMechas - 1);
+            if (maxConstruction <= 5) {
+                extendMoveOnce -= distanceBetweenMechaAndBox * 2.0F / (float) (maxConstruction - 1);
                 leftMove = distanceBetweenMechaAndBox;
             }
 
             this.tipHitbox.render(sb);
-//            CardGroup mp = TxwzModHelper.getMechaPile();
+            CardGroup mp = ConstructionPileManager.getConstructionPile();
+            // 渲染放牌的盒子
             sb.draw(boxMecha, this.tipHitbox.x - boxLeftMove * 0.38F, this.tipHitbox.y - boxDownMove * 0.38F, boxWidth * 0.38F, boxHeight * 0.38F);
 
-//            for (int i = maxMechas - 1; i >= 0; --i) {
-//                AbstractCard hovered;
-//                if (mp.group.size() <= i) {
-//                    AbstractCard c = new KongCaoWei();
-//                    c.flash();
-//                    hovered = renderCard(this.tipHitbox.x + leftMove + extendMoveOnce * (float) i, this.tipHitbox.y, sb, c, i, 0.38F, true);
-//                    if (hovered != null) {
-//                        ret = hovered;
-//                    }
-//
-//                    if (ret != null && !ret.hb.hovered && hovered == null) {
-//                        ret = null;
-//                    }
-//
-//                    if (hovered != null) {
-//                        TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, "空槽位", "这是一个空机甲槽位。");
-//                    }
-//                } else {
-//                    AbstractCard c = (AbstractCard) mp.group.get(i);
-//                    c.flash();
-//                    hovered = renderCard(this.tipHitbox.x + leftMove + extendMoveOnce * (float) i, this.tipHitbox.y, sb, c, i, 0.38F, true);
-//                    if (hovered != null) {
-//                        ret = hovered;
-//                    }
-//
-//                    if (ret != null && !ret.hb.hovered && hovered == null) {
-//                        ret = null;
-//                    }
-//
-//                    String getS2;
-//                    AbstractPower p2;
-//                    if (hovered != null) {
+            for (int i = maxConstruction - 1; i >= 0; --i) {
+                AbstractCard hovered;
+                if (mp.group.size() <= i) {
+                     // 槽位中一张牌都没有就全部渲染空槽位提示
+                    AbstractCard c = new EmptyConstructionSlot();
+                    c.flash();
+                    hovered = renderCard(this.tipHitbox.x + leftMove + extendMoveOnce * (float) i, this.tipHitbox.y, sb, c, i, 0.38F, true);
+                    if (hovered != null) {
+                        ret = hovered;
+                    }
+
+                    if (ret != null && !ret.hb.hovered && hovered == null) {
+                        ret = null;
+                    }
+                    // 渲染提示气泡
+                    //renderGenericTip
+                    //{
+                    //    float x,
+                    //    float y,
+                    //    String header,
+                    //    String body
+                    //}
+                    if (hovered != null) {
+                        TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, "空槽位", "这是一个空建筑槽位。");
+                    }
+                } else {
+                    // 有牌就分类渲染
+                    AbstractCard c = (AbstractCard) mp.group.get(i);
+                    //Todo：暂时不知道这个flash有什么用
+                    c.flash();
+                    hovered = renderCard(this.tipHitbox.x + leftMove + extendMoveOnce * (float) i, this.tipHitbox.y, sb, c, i, 0.38F, true);
+                    if (hovered != null) {
+                        ret = hovered;
+                    }
+
+                    if (ret != null && !ret.hb.hovered && hovered == null) {
+                        ret = null;
+                    }
+
+                    String getS2;
+                    AbstractPower p2;
+                    if (hovered != null) {
 //                        getS2 = TxwzModHelper.MakePath("Mecha" + TxwzModHelper.pureId(hovered.cardID) + c.uuid);
 //                        p2 = AbstractDungeon.player.getPower(getS2);
+                        //Todo: 如果不是空槽位如何显示
 //                        if (ret != null && ret.hb.hovered && p2 != null && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp) {
 //                            TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, p2.name, p2.description);
-//                        } else if (ret == null && this.tipHitbox.hovered && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp) {
-//                            TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, "空槽位", "这是一个空机甲槽位。");
-//                        }
-//                    }
-//
+                    } else if (ret == null && this.tipHitbox.hovered && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp) {
+                        TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, "空槽位", "`这是一个空建筑槽位`。");
+                    }
+                }
+                // 根据取得的卡牌取得对应的能力牌
 //                    getS2 = TxwzModHelper.MakePath("Mecha" + TxwzModHelper.pureId(c.cardID) + c.uuid);
-//                    p2 = AbstractDungeon.player.getPower(getS2);
-//                    if (p2 != null && p2.amount != -1) {
-//                        String animaMsg = " " + p2.amount + " ";
-//                        BitmapFont f = this.getPanelFont();
-//                        FontHelper.renderRotatedText(sb, f, animaMsg, this.current_x + extendMoveOnce * (float) i, this.current_y, (AbstractCard_HB_W / 2.0F - 13.0F * Settings.scale) * 0.38F, (-AbstractCard_HB_H / 2.0F + 29.0F * Settings.scale) * 0.38F, 0.0F, false, Color.WHITE);
-//                    }
+                //这个应该是显示这个牌的能力
+//                p2 = AbstractDungeon.player.getPower(getS2);
+//                if (p2 != null && p2.amount != -1) {
+//                    String animaMsg = " " + p2.amount + " ";
+//                    BitmapFont f = this.getPanelFont();
+                // 这个是在卡牌槽位右下角显示能力的点数
+//                    FontHelper.renderRotatedText(sb, f, animaMsg, this.current_x + extendMoveOnce * (float) i, this.current_y, (AbstractCard_HB_W / 2.0F - 13.0F * Settings.scale) * 0.38F, (-AbstractCard_HB_H / 2.0F + 29.0F * Settings.scale) * 0.38F, 0.0F, false, Color.WHITE);
 //                }
-//            }
+            }
         }
-
     }
+
 
     private static AbstractCard renderCard(float x, float y, SpriteBatch sb, AbstractCard card, int i, float scale, boolean hitbox) {
         AbstractCard hovered = null;
@@ -179,7 +213,11 @@ public class AbstractConstructionPanel extends AbstractPanel {
         card.current_y = y + AbstractCard_HB_H * 0.38F / 2.0F;
         card.drawScale = scale;
         card.angle = 0.0F;
+
+        // 边框高亮?
         card.lighten(true);
+
+        // 这个应该是鼠标放上去然后让卡片放大显示
         if (hitbox) {
             card.hb.move(card.current_x, card.current_y);
             card.hb.resize(AbstractCard_HB_W * card.drawScale, AbstractCard_HB_H * card.drawScale);
@@ -218,25 +256,5 @@ public class AbstractConstructionPanel extends AbstractPanel {
         return hovered;
     }
 
-    static {
-        AnimaP_locx = 235.0F * Settings.xScale;
-        AnimaP_locy = 780.0F * Settings.yScale;
-        hide_x = -480.0F * Settings.scale;
-        shadow_offset = 12.0F * Settings.scale;
-        ANIMA_TEXT_COLOR = new Color(1.0F, 1.0F, 1.0F, 1.0F);
-//        tutorialStrings = CardCrawlGame.languagePack.getPowerStrings();
-        AbstractCard_HB_W = 300.0F * Settings.scale;
-        AbstractCard_HB_H = 420.0F * Settings.scale;
-        mechaLength = 1600.0F * Settings.scale;
-        boxWidth = 2266.279F * Settings.scale;
-        boxHeight = 831.3953F * Settings.scale;
-        boxLeftMove = 332.5581F * Settings.scale;
-        boxDownMove = 197.6744F * Settings.scale;
-        distanceBetweenMechaAndBox = 6.0F * Settings.scale;
-        ret = null;
-        emptyMecha = TextureLoader.getTexture(MoModHelper.assetPath("/img/UI/Panel/EmptyMecha.png"));
-        backMecha = TextureLoader.getTexture(MoModHelper.assetPath("/img/UI/Panel/BackMecha.png"));
-        boxMecha = TextureLoader.getTexture(MoModHelper.assetPath("/img/UI/Panel/BoxMecha.png"));
-        frameShadowColorField = null;
-    }
+
 }

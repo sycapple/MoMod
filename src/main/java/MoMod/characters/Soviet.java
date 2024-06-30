@@ -4,8 +4,8 @@ import MoMod.cards.attack.AttackDog;
 import MoMod.cards.attack.Conscript;
 import MoMod.cards.skill.Walls;
 import MoMod.util.MoModHelper;
-import MoMod.patches.AbstractCardEnum;
-import MoMod.patches.AbstractCharactersEnum;
+import MoMod.Enums.AbstractCardEnum;
+import MoMod.Enums.AbstractCharactersEnum;
 import MoMod.colorSet.SovietColorSet;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
@@ -54,7 +54,7 @@ public class Soviet extends CustomPlayer {
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(MoModHelper.makeID("Soviet"));
 
     public Soviet(String name) {
-        super(name, AbstractCharactersEnum.SOVIET, ORB_TEXTURES, MoModHelper.assetPath("img/cardUi/dollar.png"), LAYER_SPEED, null, null);
+        super(name, AbstractCharactersEnum.SOVIET, ORB_TEXTURES, MoModHelper.assetPath("img/UI/Card/dollar.png"), LAYER_SPEED, null, null);
 
 
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）

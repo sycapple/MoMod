@@ -2,7 +2,9 @@
 
 package MoMod.panels;
 
+import MoMod.Enums.AbstractCharactersEnum;
 import MoMod.panels.AbstractConstructionPanel;
+import MoMod.util.ConstructionPileManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -12,7 +14,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.OverlayMenu;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-//import txwzmod.Characters.txwz.Enums;
+//import txwzmod.Characters.txwz.MoMod.Enums;
 //import txwzmod.Helpers.TxwzModHelper;
 
 public class RenderConstructionPanelPatch {
@@ -92,11 +94,10 @@ public class RenderConstructionPanelPatch {
 
         @SpirePrefixPatch
         public static void Prefix(OverlayMenu _OM, SpriteBatch _sb) {
-//            CardGroup mp = TxwzModHelper.getMechaPile();
-//            if (AbstractDungeon.player != null && AbstractDungeon.player.chosenClass.equals(Enums.TXWZ) || !mp.isEmpty()) {
-//                RenderMechaPanelPatch.MechaPanel.render(_sb);
-//            }
+            CardGroup mp = ConstructionPileManager.getConstructionPile();
+            if (AbstractDungeon.player != null && AbstractDungeon.player.chosenClass.equals(AbstractCharactersEnum.SOVIET) || !mp.isEmpty()) {
                 RenderConstructionPanelPatch.ConstructionPanel.render(_sb);
+            }
         }
     }
 }
