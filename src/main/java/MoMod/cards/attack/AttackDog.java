@@ -32,18 +32,11 @@ public class AttackDog extends MoCard {
     }
 
     @Override
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.limitedUpgrade();
-        }
-    }
-    @Override
-    public void limitedUpgrade(){
+    public void limitedUpgrade() {
         super.limitedUpgrade();
         this.upgradeDamage(3);
     }
-    @Override
+
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.damageToEnemy(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
     }

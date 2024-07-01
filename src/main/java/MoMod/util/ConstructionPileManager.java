@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 
@@ -26,7 +27,7 @@ public class ConstructionPileManager {
         return (Integer) PlayerHasConstructionPilePatch.ConstructionPileField.maxConstruction.get(AbstractDungeon.player);
     }
 
-    public static void addConstruction(AbstractCard c) {
+    public static void buildingConstruction(AbstractCard c) {
         CardGroup mp = ConstructionPileManager.getConstructionPile();
         if (mp.size() >= ConstructionPileManager.getMaxConstruction()) {
             AbstractCard lc = mp.group.get(ConstructionPileManager.getMaxConstruction() - 1);

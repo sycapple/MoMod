@@ -9,7 +9,7 @@
   },
   "MoMod:Conscript": {
     "NAME": "动员兵",
-    "DESCRIPTION": "造成 !D! 点格挡。"
+    "DESCRIPTION": "对一名随机敌人 !D! 点伤害。"
   },
   "MoMod:Engineer": {
     "NAME": "工程师",

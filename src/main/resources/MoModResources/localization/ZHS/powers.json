@@ -1,0 +1,10 @@
+{
+  "MoMod:SovietBarracksPower": {
+    "NAME": "兵营",
+    "DESCRIPTIONS": [
+      "现在你有",
+      "个兵营建筑,在每回合开始将有",
+      "张步兵单位放入你的手牌中"
+    ]
+  }
+}

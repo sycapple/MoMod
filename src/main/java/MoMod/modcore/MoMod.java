@@ -9,6 +9,7 @@ import MoMod.cards.skill.Engineer;
 import MoMod.cards.skill.Walls;
 import MoMod.characters.Soviet;
 import MoMod.colorSet.SovietColorSet;
+import MoMod.power.SovietBarracksPower;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.Enums.AbstractCharactersEnum;
@@ -16,11 +17,13 @@ import basemod.BaseMod;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,12 +62,20 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
     @Override
     public void receiveEditCards() {
         // TODO 这里写添加你卡牌的代码
+        logger.info("========================= 开始加载卡牌 =========================");
         BaseMod.addCard(new Conscript());
         BaseMod.addCard(new Engineer());
         BaseMod.addCard(new Walls());
         BaseMod.addCard(new AttackDog());
         BaseMod.addCard(new Build0SovietBarracks());
         BaseMod.addCard(new SovietBarracks());
+        logger.info("========================= 卡牌加载完毕 =========================");
+        logger.info("========================= 开始加载能力 =========================");
+        BaseMod.addPower(SovietBarracksPower.class, SovietBarracksPower.POWER_ID);
+        logger.info("========================= 能力加载完毕 =========================");
+    }
+
+    public void receiveEditPowers() {
     }
 
     @Override
@@ -86,6 +97,7 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.loadCustomStringsFile(CardStrings.class, MoModHelper.assetPath("localization/" + lang + "/cards.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class, MoModHelper.assetPath("localization/" + lang + "/characters.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class, MoModHelper.assetPath("localization/" + lang + "/ui.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, MoModHelper.assetPath("localization/" + lang + "/powers.json"));
     }
 }
 

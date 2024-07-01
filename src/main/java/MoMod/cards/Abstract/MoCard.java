@@ -5,11 +5,7 @@ package MoMod.cards.Abstract;
 import MoMod.util.MoModHelper;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -115,6 +111,10 @@ public abstract class MoCard extends CustomCard {
     // 群体伤害
     public void damageToAllEnemies(AbstractGameAction.AttackEffect effect) {
         this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, this.damageTypeForTurn, effect));
+    }
+
+    public void damageToRandomEnemies(AbstractGameAction.AttackEffect effect) {
+        this.addToBot(new AttackDamageRandomEnemyAction(this, effect));
     }
 
     // 获得牌的定义格挡点数
