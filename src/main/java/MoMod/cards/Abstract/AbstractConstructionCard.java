@@ -1,24 +1,17 @@
 package MoMod.cards.Abstract;
 
-import MoMod.Actions.AddCardToConstructionPileAction;
 import MoMod.Actions.ConstructionDestroyedAction;
 import MoMod.Enums.AbstractTagEnum;
-import MoMod.cards.power.constrcution.SovietBarracks;
-import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.power.AbstractMoPower;
 import MoMod.power.SovietBarracksPower;
 import MoMod.power.SovietWarFactoryPower;
-import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public abstract class AbstractConstructionCard extends MoCard {
 

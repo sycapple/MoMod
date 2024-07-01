@@ -21,6 +21,7 @@ public class TechnologyUpgradeAction extends AbstractGameAction {
                 AbstractDungeon.player.powers.remove(technologyLevel);
                 this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechnologyLevelPower(AbstractDungeon.player)));
             } else {
+                technologyLevel.flash();
                 technologyLevel.amount++;
                 technologyLevel.updateDescription();
             }
