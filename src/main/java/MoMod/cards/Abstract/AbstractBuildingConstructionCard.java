@@ -48,7 +48,7 @@ public abstract class AbstractBuildingConstructionCard extends MoCard {
     public void building() {
         AbstractConstructionCard c = this.getConstruction();
         this.addToTop(new AddCardToConstructionPileAction(c));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, c.getPower(true)));
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, c.getPower(true)));
 
     }
 

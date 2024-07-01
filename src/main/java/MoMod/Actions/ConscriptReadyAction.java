@@ -31,9 +31,9 @@ public class ConscriptReadyAction extends AbstractGameAction {
             card.applyPowers();
             this.addToTop(new NewQueueCardAction(card, target, false, true));
             if (!Settings.FAST_MODE) {
-                this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+                this.addToBot(new WaitAction(Settings.ACTION_DUR_MED));
             } else {
-                this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+                this.addToBot(new WaitAction(Settings.ACTION_DUR_FASTER));
             }
         this.isDone = true;
     }

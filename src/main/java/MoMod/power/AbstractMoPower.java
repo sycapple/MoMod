@@ -23,6 +23,9 @@ public abstract class AbstractMoPower extends AbstractPower {
     public void updateDescription() {
     }
 
+    public void updateTexture() {
+    }
+
     public void onWear() {
     }
 

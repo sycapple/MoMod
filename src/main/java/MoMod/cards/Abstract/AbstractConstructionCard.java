@@ -12,6 +12,7 @@ import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -45,8 +46,8 @@ public abstract class AbstractConstructionCard extends MoCard {
 
     public void triggerOnExhaust() {
         AbstractMoPower po = this.getPower(false);
-        this.addToTop(new ConstructionDestroyedAction());
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, po));
+        this.addToBot(new ConstructionDestroyedAction());
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, po));
     }
 
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {

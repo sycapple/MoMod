@@ -22,48 +22,28 @@ public class TechnologyLevelPower extends AbstractMoPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public TechnologyLevelPower(AbstractCreature owner, boolean AD) {
+    public TechnologyLevelPower(AbstractCreature owner) {
+        this.amount = 0;
+        this.InitialTechnologyLevelPower(owner);
+    }
+
+    public TechnologyLevelPower(AbstractCreature owner, int amount) {
+        this.amount = amount;
+        this.InitialTechnologyLevelPower(owner);
+    }
+
+    public void InitialTechnologyLevelPower(AbstractCreature owner) {
         this.greenColor2 = Color.GREEN.cpy();
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
-        this.amount = AD ? 1 : -1;
-        String path128;
-        String path48;
-        switch (this.amount) {
-            case 0: {
-                path128 = MoModHelper.assetPath("img/powers/") + TechnologyLevelPower.class.getSimpleName() + "B.png";
-                path48 = MoModHelper.assetPath("img/powers/") + TechnologyLevelPower.class.getSimpleName() + ".png";
-                break;
-            }
-            case 1: {
-                path128 = MoModHelper.assetPath("img/powers/") + TechnologyLevelPower.class.getSimpleName() + "B.png";
-                path48 = MoModHelper.assetPath("img/powers/") + TechnologyLevelPower.class.getSimpleName() + ".png";
-                break;
-            }
-            case 2: {
-                path128 = MoModHelper.assetPath("img/powers/") + TechnologyLevelPower.class.getSimpleName() + "B.png";
-                path48 = MoModHelper.assetPath("img/powers/") + TechnologyLevelPower.class.getSimpleName() + ".png";
-                break;
-            }
-            case 3: {
-                path128 = MoModHelper.assetPath("img/powers/") + TechnologyLevelPower.class.getSimpleName() + "B.png";
-                path48 = MoModHelper.assetPath("img/powers/") + TechnologyLevelPower.class.getSimpleName() + ".png";
-                break;
-            }
-            default: {
-                path128 = MoModHelper.assetPath("/img/powers/TestPower84.png");
-                path48 = MoModHelper.assetPath("/img/powers/TestPower32.png");
-            }
-        }
+        String path128 = MoModHelper.assetPath("img/powers/SovietConstructionYardB.png");
+        String path48 = MoModHelper.assetPath("img/powers/SovietConstructionYard.png");
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
-    }
 
-    //todo:每回合生产单位
-    public void atStartOfTurn() {
     }
 
     public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
@@ -80,9 +60,7 @@ public class TechnologyLevelPower extends AbstractMoPower {
     }
 
     public void updateDescription() {
-        if (this.amount > 0) {
-            this.description = DESCRIPTIONS[0] + this.amount;
-            this.type = PowerType.BUFF;
-        }
+        this.description = DESCRIPTIONS[0] + this.amount;
+        this.type = PowerType.BUFF;
     }
 }

@@ -38,5 +38,9 @@
   "MoMod:Build0SovietWarFactory": {
     "NAME": "苏联重工",
     "DESCRIPTION": "在建筑槽位中建造一座苏联重工"
+  },
+  "MoMod:TestLevelUpgrade": {
+    "NAME": "测试升级",
+    "DESCRIPTION": "测试升级"
   }
 }
