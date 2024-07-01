@@ -3,13 +3,17 @@ package MoMod.modcore;
 
 import MoMod.cards.attack.AttackDog;
 import MoMod.cards.attack.Conscript;
+import MoMod.cards.attack.RhinoHeavyTank;
 import MoMod.cards.power.Build0SovietBarracks;
+import MoMod.cards.power.Build0SovietWarFactory;
 import MoMod.cards.power.constrcution.SovietBarracks;
+import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.cards.skill.Engineer;
 import MoMod.cards.skill.Walls;
 import MoMod.characters.Soviet;
 import MoMod.colorSet.SovietColorSet;
 import MoMod.power.SovietBarracksPower;
+import MoMod.power.SovietWarFactoryPower;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.Enums.AbstractCharactersEnum;
@@ -69,9 +73,13 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new AttackDog());
         BaseMod.addCard(new Build0SovietBarracks());
         BaseMod.addCard(new SovietBarracks());
+        BaseMod.addCard(new SovietWarFactory());
+        BaseMod.addCard(new Build0SovietWarFactory());
+        BaseMod.addCard(new RhinoHeavyTank());
         logger.info("========================= 卡牌加载完毕 =========================");
         logger.info("========================= 开始加载能力 =========================");
         BaseMod.addPower(SovietBarracksPower.class, SovietBarracksPower.POWER_ID);
+        BaseMod.addPower(SovietWarFactoryPower.class, SovietWarFactoryPower.POWER_ID);
         logger.info("========================= 能力加载完毕 =========================");
     }
 

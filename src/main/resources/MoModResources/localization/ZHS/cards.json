@@ -3,9 +3,13 @@
     "NAME": "军犬",
     "DESCRIPTION": "造成 !D! 点伤害。"
   },
+  "MoMod:RhinoHeavyTank": {
+    "NAME": "犀牛重型坦克",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
   "MoMod:Walls": {
     "NAME": "围墙",
-    "DESCRIPTION": "获得 !B! 点伤害。"
+    "DESCRIPTION": "获得 !B! 点格挡。"
   },
   "MoMod:Conscript": {
     "NAME": "动员兵",
@@ -26,5 +30,13 @@
   "MoMod:Build0SovietBarracks": {
     "NAME": "苏联兵营",
     "DESCRIPTION": "在建筑槽位中建造一座苏联军营"
+  },
+  "MoMod:SovietWarFactory": {
+    "NAME": "苏联重工",
+    "DESCRIPTION": "在每回合开始阶段在手牌中加入一张装甲牌"
+  },
+  "MoMod:Build0SovietWarFactory": {
+    "NAME": "苏联重工",
+    "DESCRIPTION": "在建筑槽位中建造一座苏联重工"
   }
 }

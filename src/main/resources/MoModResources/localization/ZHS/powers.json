@@ -1,10 +1,24 @@
 {
   "MoMod:SovietBarracksPower": {
-    "NAME": "兵营",
+    "NAME": "苏联兵营",
     "DESCRIPTIONS": [
       "现在你有",
       "个兵营建筑,在每回合开始将有",
       "张步兵单位放入你的手牌中"
+    ]
+  },
+  "MoMod:SovietWarFactoryPower": {
+    "NAME": "苏联重工",
+    "DESCRIPTIONS": [
+      "现在你有",
+      "个重工建筑,在每回合开始将有",
+      "张坦克单位放入你的手牌中"
+    ]
+  },
+  "MoMod:TechnologyLevelPower": {
+    "NAME": "科技等级",
+    "DESCRIPTIONS": [
+      "目前您的科技等级为:"
     ]
   }
 }

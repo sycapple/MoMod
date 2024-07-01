@@ -3,6 +3,7 @@ package MoMod.characters;
 import MoMod.cards.attack.AttackDog;
 import MoMod.cards.attack.Conscript;
 import MoMod.cards.power.Build0SovietBarracks;
+import MoMod.cards.power.Build0SovietWarFactory;
 import MoMod.cards.skill.Walls;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
@@ -87,11 +88,12 @@ public class Soviet extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int x = 0; x < 5; x++) {
+        for (int x = 0; x < 4; x++) {
             retVal.add(AttackDog.ID);
             retVal.add(Walls.ID);
         }
         retVal.add(Build0SovietBarracks.ID);
+        retVal.add(Build0SovietWarFactory.ID);
         return retVal;
     }
 

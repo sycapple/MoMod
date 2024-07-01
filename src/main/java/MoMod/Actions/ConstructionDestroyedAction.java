@@ -19,9 +19,8 @@ public class ConstructionDestroyedAction extends AbstractGameAction {
     }
 
     public void update() {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++)
             this.addToTop(new ConscriptReadyAction());
-        }
         this.addToTop(new GainEnergyAction(1));
         this.isDone = true;
     }

@@ -3,8 +3,10 @@ package MoMod.cards.Abstract;
 import MoMod.Actions.AddCardToConstructionPileAction;
 import MoMod.Enums.AbstractTagEnum;
 import MoMod.cards.power.constrcution.SovietBarracks;
+import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.power.AbstractMoPower;
 import MoMod.power.SovietBarracksPower;
+import MoMod.power.SovietWarFactoryPower;
 import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -30,17 +32,24 @@ public abstract class AbstractBuildingConstructionCard extends MoCard {
         String getCs = this.cardID.split("0")[1];
         AbstractConstructionCard c = null;
         switch (getCs) {
-            case "SovietBarracks":
+            case "SovietBarracks": {
                 c = new SovietBarracks();
                 break;
+            }
+            case "SovietWarFactory": {
+                c = new SovietWarFactory();
+                break;
+            }
         }
         return c;
     }
 
 
     public void building() {
-        this.addToTop(new AddCardToConstructionPileAction(this.getConstruction()));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SovietBarracksPower(AbstractDungeon.player, true)));
+        AbstractConstructionCard c = this.getConstruction();
+        this.addToTop(new AddCardToConstructionPileAction(c));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, c.getPower(true)));
+
     }
 
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {

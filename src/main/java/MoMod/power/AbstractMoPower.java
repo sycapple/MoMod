@@ -2,12 +2,10 @@ package MoMod.power;
 
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import java.util.Objects;
+
 import java.util.UUID;
 
 public abstract class AbstractMoPower extends AbstractPower {

@@ -25,7 +25,7 @@ public class Walls extends MoCard {
     public Walls() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, 1, TYPE, COLOR, RARITY, TARGET);
-        this.setupBlock(6);
+        this.setupBlock(5);
     }
 
     @Override
