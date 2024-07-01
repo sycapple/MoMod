@@ -140,7 +140,7 @@ public class AbstractConstructionPanel extends AbstractPanel {
             for (int i = maxConstruction - 1; i >= 0; --i) {
                 AbstractCard hovered;
                 if (mp.group.size() <= i) {
-                     // 槽位中一张牌都没有就全部渲染空槽位提示
+                    // 槽位中一张牌都没有就全部渲染空槽位提示
                     AbstractCard c = new EmptyConstructionSlot();
                     c.flash();
                     hovered = renderCard(this.tipHitbox.x + leftMove + extendMoveOnce * (float) i, this.tipHitbox.y, sb, c, i, 0.38F, true);
@@ -182,10 +182,8 @@ public class AbstractConstructionPanel extends AbstractPanel {
 //                        getS2 = TxwzModHelper.MakePath("Mecha" + TxwzModHelper.pureId(hovered.cardID) + c.uuid);
 //                        p2 = AbstractDungeon.player.getPower(getS2);
                         //Todo: 如果不是空槽位如何显示
-//                        if (ret != null && ret.hb.hovered && p2 != null && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp) {
-//                            TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, p2.name, p2.description);
-                    } else if (ret == null && this.tipHitbox.hovered && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp) {
-                        TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, "空槽位", "`这是一个空建筑槽位`。");
+                        if (ret != null && ret.hb.hovered && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp)
+                            TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, hovered.name, hovered.rawDescription);
                     }
                 }
                 // 根据取得的卡牌取得对应的能力牌

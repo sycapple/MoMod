@@ -2,6 +2,7 @@ package MoMod.characters;
 
 import MoMod.cards.attack.AttackDog;
 import MoMod.cards.attack.Conscript;
+import MoMod.cards.power.Build0SovietBarracks;
 import MoMod.cards.skill.Walls;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
@@ -90,6 +91,7 @@ public class Soviet extends CustomPlayer {
             retVal.add(AttackDog.ID);
             retVal.add(Walls.ID);
         }
+        retVal.add(Build0SovietBarracks.ID);
         return retVal;
     }
 

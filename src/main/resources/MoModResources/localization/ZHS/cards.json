@@ -18,5 +18,13 @@
   "MoMod:EmptyConstructionSlot": {
     "NAME": "空槽位",
     "DESCRIPTION": "这是一个空建筑槽位"
+  },
+  "MoMod:SovietBarracks": {
+    "NAME": "苏联兵营",
+    "DESCRIPTION": "在每回合开始阶段在手牌中加入一张步兵牌"
+  },
+  "MoMod:Build0SovietBarracks": {
+    "NAME": "苏联兵营",
+    "DESCRIPTION": "在建筑槽位中建造一座苏联军营"
   }
 }

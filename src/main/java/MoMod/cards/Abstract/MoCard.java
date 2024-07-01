@@ -75,8 +75,7 @@ public abstract class MoCard extends CustomCard {
             case SKILL:
                 type = "skill";
         }
-
-        return String.format(MoModHelper.assetPath("/img/cards/%s/%s.png"), type, name.replace(MoModHelper.makeID(""), ""));
+        return String.format(MoModHelper.assetPath("img/cards/%s/%s.png"), type, name.replace(MoModHelper.makeID(""), ""));
     }
 
     // 初始化伤害点数

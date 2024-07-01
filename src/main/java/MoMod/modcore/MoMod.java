@@ -3,6 +3,8 @@ package MoMod.modcore;
 
 import MoMod.cards.attack.AttackDog;
 import MoMod.cards.attack.Conscript;
+import MoMod.cards.power.Build0SovietBarracks;
+import MoMod.cards.power.constrcution.SovietBarracks;
 import MoMod.cards.skill.Engineer;
 import MoMod.cards.skill.Walls;
 import MoMod.characters.Soviet;
@@ -19,6 +21,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -60,6 +63,8 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new Engineer());
         BaseMod.addCard(new Walls());
         BaseMod.addCard(new AttackDog());
+        BaseMod.addCard(new Build0SovietBarracks());
+        BaseMod.addCard(new SovietBarracks());
     }
 
     @Override
@@ -77,9 +82,10 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         } else {
             lang = "ENG";
         }
-        BaseMod.loadCustomStringsFile(CardStrings.class, MoModHelper.assetPath("localization/" + lang + "/cards.json"));
         // 这里添加注册本地化文本
+        BaseMod.loadCustomStringsFile(CardStrings.class, MoModHelper.assetPath("localization/" + lang + "/cards.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class, MoModHelper.assetPath("localization/" + lang + "/characters.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, MoModHelper.assetPath("localization/" + lang + "/ui.json"));
     }
 }
 
