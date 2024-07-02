@@ -1,45 +1,69 @@
 {
-  "MoMod:AttackDog": {
+  "momod:AttackDog": {
     "NAME": "军犬",
     "DESCRIPTION": "造成 !D! 点伤害。"
   },
-  "MoMod:RhinoHeavyTank": {
+  "momod:RhinoHeavyTank": {
     "NAME": "犀牛重型坦克",
     "DESCRIPTION": "造成 !D! 点伤害。"
   },
-  "MoMod:Walls": {
+  "momod:Walls": {
     "NAME": "围墙",
-    "DESCRIPTION": "获得 !B! 点格挡。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
   },
-  "MoMod:Conscript": {
+  "momod:Conscript": {
     "NAME": "动员兵",
-    "DESCRIPTION": "对一名随机敌人 !D! 点伤害。"
+    "DESCRIPTION": "对一名随机敌人 !D! 点伤害。 "
   },
-  "MoMod:Engineer": {
+  "momod:Pyro": {
+    "NAME": "喷火工兵",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。"
+  },
+  "momod:ShockTrooper": {
+    "NAME": "闪流步兵",
+    "DESCRIPTION": "对一名敌人造成 !D! 点伤害。 NL 同时施加 !M! 点 虚弱 和 脆弱 "
+  },
+  "momod:TeslaCruiser": {
+    "NAME": "磁能巡航坦克",
+    "DESCRIPTION": "对一名敌人造成 !D! 点伤害。 NL 同时施加 !M! 点 虚弱 和 脆弱 "
+  },
+  "momod:Arsonist": {
+    "NAME": "纵火狂",
+    "DESCRIPTION": "对一名敌人施加 !M! 点 momod:点燃 NL "
+  },
+  "momod:Buratino": {
+    "NAME": "布拉提诺",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 NL "
+  },
+  "momod:IronDragon": {
+    "NAME": "铁龙坦克",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 NL 获得 !M! 层 无实体 NL "
+  },
+  "momod:Engineer": {
     "NAME": "工程师",
-    "DESCRIPTION": "获得 !B! 点格挡。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
   },
-  "MoMod:EmptyConstructionSlot": {
+  "momod:EmptyConstructionSlot": {
     "NAME": "空槽位",
     "DESCRIPTION": "这是一个空建筑槽位"
   },
-  "MoMod:SovietBarracks": {
+  "momod:SovietBarracks": {
     "NAME": "苏联兵营",
     "DESCRIPTION": "在每回合开始阶段在手牌中加入一张步兵牌"
   },
-  "MoMod:Build0SovietBarracks": {
+  "momod:Build0SovietBarracks": {
     "NAME": "苏联兵营",
-    "DESCRIPTION": "在建筑槽位中建造一座苏联军营"
+    "DESCRIPTION": "在 建筑槽位 中建造一座 momod:苏联兵营 "
   },
-  "MoMod:SovietWarFactory": {
+  "momod:SovietWarFactory": {
     "NAME": "苏联重工",
     "DESCRIPTION": "在每回合开始阶段在手牌中加入一张装甲牌"
   },
-  "MoMod:Build0SovietWarFactory": {
+  "momod:Build0SovietWarFactory": {
     "NAME": "苏联重工",
-    "DESCRIPTION": "在建筑槽位中建造一座苏联重工"
+    "DESCRIPTION": "在建筑槽位中建造一座 momod:苏联重工 "
   },
-  "MoMod:TestLevelUpgrade": {
+  "momod:TestLevelUpgrade": {
     "NAME": "测试升级",
     "DESCRIPTION": "测试升级"
   }

@@ -13,6 +13,7 @@ import MoMod.colorSet.SovietColorSet;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -54,7 +55,7 @@ public class Soviet extends CustomPlayer {
     // 每个图层的旋转速度
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
-    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(MoModHelper.makeID("Soviet"));
+    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(MoModHelper.makeID(Soviet.class.getSimpleName()));
 
     public Soviet(String name) {
         super(name, AbstractCharactersEnum.SOVIET, ORB_TEXTURES, MoModHelper.assetPath("img/UI/Card/dollar.png"), LAYER_SPEED, null, null);
@@ -160,6 +161,7 @@ public class Soviet extends CustomPlayer {
     // 人物选择界面点击你的人物按钮时触发的方法，这里为屏幕轻微震动
     @Override
     public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.playA("SOVIET_SELECT", MathUtils.random(0, 0));
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
     }
 
@@ -177,8 +179,9 @@ public class Soviet extends CustomPlayer {
     // 自定义模式选择你的人物时播放的音效
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_HEAVY";
+        return "SovietSelect";
     }
+
 
     // 游戏中左上角显示在你的名字之后的人物名称
     @Override

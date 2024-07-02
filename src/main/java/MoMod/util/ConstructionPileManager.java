@@ -1,12 +1,11 @@
 package MoMod.util;
 
-import MoMod.cards.Abstract.AbstractConstructionCard;
+
 import MoMod.patches.PlayerHasConstructionPilePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 

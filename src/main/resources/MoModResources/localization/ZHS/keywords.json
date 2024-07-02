@@ -1,0 +1,44 @@
+[
+  {
+    "NAMES": [
+      "苏联兵营",
+      "SovietBarracksPower"
+    ],
+    "DESCRIPTION": ""
+  },
+  {
+    "NAMES": [
+      "科技等级",
+      "TechnologyLevelPower"
+    ],
+    "DESCRIPTION": "科技等级决定单位产出质量"
+  },
+  {
+    "NAMES": [
+      "点燃",
+      "FireUpPower"
+    ],
+    "DESCRIPTION": "每回合点燃点数+2,回合结束造成伤害"
+  },
+  {
+    "NAMES": [
+      "动员兵",
+      "Conscript"
+    ],
+    "DESCRIPTION": "对一名随机敌人 !D! 点伤害。 NL 消耗"
+  },
+  {
+    "NAMES": [
+      "苏联兵营",
+      "SovietBarracks"
+    ],
+    "DESCRIPTION": "在每回合开始阶段在手牌中加入一张步兵牌"
+  },
+  {
+    "NAMES": [
+      "苏联重工",
+      "SovietWarFactory"
+    ],
+    "DESCRIPTION": "在每回合开始阶段在手牌中加入一张装甲牌"
+  }
+]

@@ -8,4 +8,6 @@ public class AbstractTagEnum {
     public static AbstractCard.CardTags CONSTRUCTION_CARD;
     @SpireEnum
     public static AbstractCard.CardTags BUILDING_CONSTRUCTION_CARD;
+    @SpireEnum
+    public static AbstractCard.CardTags TRAINED_UNIT;
 }

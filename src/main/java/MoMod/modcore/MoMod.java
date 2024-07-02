@@ -1,9 +1,9 @@
 package MoMod.modcore;
 
 
-import MoMod.cards.attack.AttackDog;
-import MoMod.cards.attack.Conscript;
-import MoMod.cards.attack.RhinoHeavyTank;
+import MoMod.Enums.AbstractSovietRewardsEnum;
+import MoMod.Rewards.SovietCardReward;
+import MoMod.cards.attack.*;
 import MoMod.cards.power.Build0SovietBarracks;
 import MoMod.cards.power.Build0SovietWarFactory;
 import MoMod.cards.power.constrcution.SovietBarracks;
@@ -13,6 +13,7 @@ import MoMod.cards.skill.TestLevelUpgrade;
 import MoMod.cards.skill.Walls;
 import MoMod.characters.Soviet;
 import MoMod.colorSet.SovietColorSet;
+import MoMod.power.FireUpPower;
 import MoMod.power.SovietBarracksPower;
 import MoMod.power.SovietWarFactoryPower;
 import MoMod.power.TechnologyLevelPower;
@@ -21,22 +22,25 @@ import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.Enums.AbstractCharactersEnum;
 import basemod.BaseMod;
+import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rewards.RewardSave;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.nio.charset.StandardCharsets;
+
 
 @SpireInitializer
-public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, EditStringsSubscriber, EditRelicsSubscriber { // 实现接口
+public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, EditStringsSubscriber, EditRelicsSubscriber, AddAudioSubscriber, StartGameSubscriber, PostInitializeSubscriber, EditKeywordsSubscriber { // 实现接口
     public static final Logger logger = LogManager.getLogger(MoMod.class.getSimpleName());
 
     public MoMod() {
@@ -56,12 +60,27 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         logger.debug("Constructor finished.");
     }
 
+    public void receivePostInitialize() {
+        BaseMod.registerCustomReward(AbstractSovietRewardsEnum.SOVIET_CARD_REWARD, (rewardSave) -> {
+            SovietCardReward db = new SovietCardReward();
+            return db;
+        }, (customReward) -> new RewardSave(customReward.type.toString(), (String) null));
+    }
 
     public static void initialize() {
 
         logger.info("========================= 开始初始化 =========================");
         new MoMod();
         logger.info("========================= 初始化完成 =========================");
+    }
+
+    public void receiveAddAudio() {
+        logger.info("========================= 开始加载音效 =========================");
+        BaseMod.addAudio("SOVIET_SELECT", MoModHelper.assetPath("sound/SovietSelect.ogg"));
+        logger.info("========================= 音效加载完毕 =========================");
+    }
+
+    public void receiveStartGame() {
     }
 
     // 当basemod开始注册mod卡牌时，便会调用这个函数
@@ -79,11 +98,18 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new Build0SovietWarFactory());
         BaseMod.addCard(new RhinoHeavyTank());
         BaseMod.addCard(new TestLevelUpgrade());
+        BaseMod.addCard(new Pyro());
+        BaseMod.addCard(new ShockTrooper());
+        BaseMod.addCard(new Arsonist());
+        BaseMod.addCard(new Buratino());
+        BaseMod.addCard(new IronDragon());
+        BaseMod.addCard(new TeslaCruiser());
         logger.info("========================= 卡牌加载完毕 =========================");
         logger.info("========================= 开始加载能力 =========================");
         BaseMod.addPower(SovietBarracksPower.class, SovietBarracksPower.POWER_ID);
         BaseMod.addPower(SovietWarFactoryPower.class, SovietWarFactoryPower.POWER_ID);
         BaseMod.addPower(TechnologyLevelPower.class, TechnologyLevelPower.POWER_ID);
+        BaseMod.addPower(FireUpPower.class, FireUpPower.POWER_ID);
         logger.info("========================= 能力加载完毕 =========================");
     }
 
@@ -99,6 +125,29 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         logger.info("========================= 开始加载人物 =========================");
         BaseMod.addCharacter(new Soviet(CardCrawlGame.playerName), MoModHelper.assetPath("img/character/SovietButton.png"), MoModHelper.assetPath("img/character/SovietCover.png"), AbstractCharactersEnum.SOVIET);
         logger.info("========================= 人物加载完毕 =========================");
+    }
+
+    public void receiveEditKeywords() {
+        logger.info("========================= 加载关键词 =========================");
+        Gson gson = new Gson();
+        String lang = "ENG";
+        if (Settings.language == Settings.GameLanguage.ZHS) {
+            lang = "ZHS";
+        } else if (Settings.language == Settings.GameLanguage.RUS) {
+            lang = "RUS";
+        }
+
+        String json = Gdx.files.internal(MoModHelper.assetPath("localization/" + lang + "/keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = (Keyword[]) gson.fromJson(json, Keyword[].class);
+        if (keywords != null) {
+            Keyword[] var5 = keywords;
+            int var6 = keywords.length;
+            for (int var7 = 0; var7 < var6; ++var7) {
+                Keyword keyword = var5[var7];
+                BaseMod.addKeyword("momod", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }
+        logger.info("========================= 关键词加载毕 =========================");
     }
 
     public void receiveEditStrings() {

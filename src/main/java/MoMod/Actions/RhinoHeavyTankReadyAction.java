@@ -1,6 +1,7 @@
 package MoMod.Actions;
 
 import MoMod.cards.attack.Conscript;
+import MoMod.cards.attack.RhinoHeavyTank;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -8,13 +9,13 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class ConscriptReadyAction extends AbstractGameAction {
+public class RhinoHeavyTankReadyAction extends AbstractGameAction {
 
     private AbstractCard card;
     private int amount = 0;
 
-    public ConscriptReadyAction() {
-        this.card = new Conscript(true);
+    public RhinoHeavyTankReadyAction() {
+        this.card = new RhinoHeavyTank(true);
     }
 
     @Override

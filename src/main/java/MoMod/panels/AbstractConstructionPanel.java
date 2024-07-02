@@ -165,7 +165,7 @@ public class AbstractConstructionPanel extends AbstractPanel {
                 } else {
                     // 有牌就分类渲染
                     AbstractCard c = (AbstractCard) mp.group.get(i);
-                    //Todo：暂时不知道这个flash有什么用
+                    //闪一下
                     c.flash();
                     hovered = renderCard(this.tipHitbox.x + leftMove + extendMoveOnce * (float) i, this.tipHitbox.y, sb, c, i, 0.38F, true);
                     if (hovered != null) {
