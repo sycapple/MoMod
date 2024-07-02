@@ -1,0 +1,9 @@
+{
+  "MoMod:SovietRelic": {
+    "NAME": "苏联徽章",
+    "FLAVOR": "战痕累累的徽章",
+    "DESCRIPTIONS": [
+      "每建造两张建筑,提升一次科技等级"
+    ]
+  }
+}

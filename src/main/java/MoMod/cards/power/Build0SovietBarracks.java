@@ -15,7 +15,7 @@ public class Build0SovietBarracks extends AbstractBuildingConstructionCard {
     public static final String ID = MoModHelper.makeID(Build0SovietBarracks.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final int COST = 2;
-    private static final AbstractCard.CardType TYPE = CardType.POWER;
+    private static final AbstractCard.CardType TYPE = CardType.SKILL;
     private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
     private static final AbstractCard.CardColor COLOR = AbstractCardEnum.SOVIET;

@@ -24,8 +24,7 @@ public abstract class AbstractBuildingConstructionCard extends MoCard {
 
     public AbstractBuildingConstructionCard(String ID, boolean useTmpArt, CardStrings strings, int cost, CardType Type, CardColor color, CardRarity RARITY, CardTarget TARGET) {
         super(ID, useTmpArt, strings, cost, Type, color, RARITY, TARGET);
-        this.tags.add(AbstractTagEnum.CONSTRUCTION_CARD);
-        this.exhaust = true;
+        this.tags.add(AbstractTagEnum.BUILDING_CONSTRUCTION_CARD);
     }
 
     public AbstractConstructionCard getConstruction() {

@@ -5,6 +5,7 @@ import MoMod.cards.attack.Conscript;
 import MoMod.cards.power.Build0SovietBarracks;
 import MoMod.cards.power.Build0SovietWarFactory;
 import MoMod.cards.skill.Walls;
+import MoMod.relics.SovietRelic;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.Enums.AbstractCharactersEnum;
@@ -100,7 +101,7 @@ public class Soviet extends CustomPlayer {
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(Vajra.ID);
+        retVal.add(SovietRelic.ID);
         return retVal;
     }
 

@@ -16,27 +16,27 @@ import MoMod.colorSet.SovietColorSet;
 import MoMod.power.SovietBarracksPower;
 import MoMod.power.SovietWarFactoryPower;
 import MoMod.power.TechnologyLevelPower;
+import MoMod.relics.SovietRelic;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.Enums.AbstractCharactersEnum;
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
+import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
 @SpireInitializer
-public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, EditStringsSubscriber { // 实现接口
+public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, EditStringsSubscriber, EditRelicsSubscriber { // 实现接口
     public static final Logger logger = LogManager.getLogger(MoMod.class.getSimpleName());
 
     public MoMod() {
@@ -87,14 +87,17 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         logger.info("========================= 能力加载完毕 =========================");
     }
 
-    public void receiveEditPowers() {
+    public void receiveEditRelics() {
+        logger.info("========================= 开始加载遗物 =========================");
+        BaseMod.addRelic(new SovietRelic(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+        logger.info("========================= 遗物加载完毕 =========================");
     }
 
     @Override
     public void receiveEditCharacters() {
         // 向basemod注册人物
         logger.info("========================= 开始加载人物 =========================");
-        BaseMod.addCharacter(new Soviet(CardCrawlGame.playerName), "images/ui/charSelect/defectButton.png", MoModHelper.assetPath("/img/character/Kael/portraitKral.jpg"), AbstractCharactersEnum.SOVIET);
+        BaseMod.addCharacter(new Soviet(CardCrawlGame.playerName), MoModHelper.assetPath("img/character/SovietButton.png"), MoModHelper.assetPath("img/character/SovietCover.png"), AbstractCharactersEnum.SOVIET);
         logger.info("========================= 人物加载完毕 =========================");
     }
 
@@ -110,6 +113,7 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.loadCustomStringsFile(CharacterStrings.class, MoModHelper.assetPath("localization/" + lang + "/characters.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class, MoModHelper.assetPath("localization/" + lang + "/ui.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, MoModHelper.assetPath("localization/" + lang + "/powers.json"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, MoModHelper.assetPath("localization/" + lang + "/relics.json"));
     }
 }
 
