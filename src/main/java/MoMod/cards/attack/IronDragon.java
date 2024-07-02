@@ -1,7 +1,7 @@
 package MoMod.cards.attack;
 
 import MoMod.Enums.AbstractCardEnum;
-import MoMod.cards.Abstract.AbstractTrainedCard;
+import MoMod.cards.Abstract.TankUnitCard;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class IronDragon extends AbstractTrainedCard {
+public class IronDragon extends TankUnitCard {
     public static final String ID = MoModHelper.makeID(IronDragon.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final int COST = 3;
@@ -24,12 +24,6 @@ public class IronDragon extends AbstractTrainedCard {
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 
-    public IronDragon(boolean isTrained) {
-        // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET, isTrained);
-        this.setupDamage(15);
-        this.setupMagicNumber(1);
-    }
 
     public IronDragon() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方

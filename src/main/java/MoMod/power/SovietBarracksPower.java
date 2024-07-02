@@ -1,11 +1,14 @@
 package MoMod.power;
 
 import MoMod.Actions.SovietBarracksUnitReadyAction;
+import MoMod.Enums.AbstractTagEnum;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,6 +46,13 @@ public class SovietBarracksPower extends AbstractMoPower {
         }
     }
 
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card.tags.contains(AbstractTagEnum.TRAINED_UNIT) && card.tags.contains(AbstractTagEnum.INFANTRY_UNIT)) {
+            this.flash();
+            action.exhaustCard = true;
+        }
+    }
+
     public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
         super.renderAmount(sb, x, y, c);
         if (this.amount == 0) {
@@ -70,4 +80,5 @@ public class SovietBarracksPower extends AbstractMoPower {
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
     }
+
 }

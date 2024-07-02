@@ -13,22 +13,23 @@ import MoMod.cards.skill.TestLevelUpgrade;
 import MoMod.cards.skill.Walls;
 import MoMod.characters.Soviet;
 import MoMod.colorSet.SovietColorSet;
-import MoMod.power.FireUpPower;
-import MoMod.power.SovietBarracksPower;
-import MoMod.power.SovietWarFactoryPower;
-import MoMod.power.TechnologyLevelPower;
+import MoMod.power.*;
 import MoMod.relics.SovietRelic;
+import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.Enums.AbstractCharactersEnum;
 import basemod.BaseMod;
+import basemod.abstracts.CustomSavable;
 import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import basemod.patches.com.megacrit.cardcrawl.saveAndContinue.SaveFile.ModSaves;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
@@ -42,6 +43,7 @@ import java.nio.charset.StandardCharsets;
 @SpireInitializer
 public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, EditStringsSubscriber, EditRelicsSubscriber, AddAudioSubscriber, StartGameSubscriber, PostInitializeSubscriber, EditKeywordsSubscriber { // 实现接口
     public static final Logger logger = LogManager.getLogger(MoMod.class.getSimpleName());
+
 
     public MoMod() {
         logger.debug("Constructor started.");
@@ -110,6 +112,7 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addPower(SovietWarFactoryPower.class, SovietWarFactoryPower.POWER_ID);
         BaseMod.addPower(TechnologyLevelPower.class, TechnologyLevelPower.POWER_ID);
         BaseMod.addPower(FireUpPower.class, FireUpPower.POWER_ID);
+        BaseMod.addPower(ElectromagneticParalysisPower.class, ElectromagneticParalysisPower.POWER_ID);
         logger.info("========================= 能力加载完毕 =========================");
     }
 

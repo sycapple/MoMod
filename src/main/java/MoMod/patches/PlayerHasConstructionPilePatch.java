@@ -34,9 +34,9 @@ public class PlayerHasConstructionPilePatch {
             return PlayerHasConstructionPilePatch.MaxConstructionInitial;
         });
 
-
         public ConstructionPileField() {
         }
+
     }
 
 }

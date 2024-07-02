@@ -28,5 +28,11 @@
       "点伤害,下回合点燃状态增加",
       "层"
     ]
+  },
+  "momod:ElectromagneticParalysisPower": {
+    "NAME": "电磁干扰",
+    "DESCRIPTIONS": [
+      "本回合无法攻击"
+    ]
   }
 }

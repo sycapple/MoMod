@@ -14,7 +14,7 @@ public class ConscriptReadyAction extends AbstractGameAction {
     private int amount = 0;
 
     public ConscriptReadyAction() {
-        this.card = new Conscript(true);
+        this.card = new Conscript();
     }
 
     @Override

@@ -1,10 +1,13 @@
 package MoMod.power;
 
 import MoMod.Actions.SovietWarFactoryUnitReadyAction;
+import MoMod.Enums.AbstractTagEnum;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -57,6 +60,13 @@ public class SovietWarFactoryPower extends AbstractMoPower {
         if (this.amount > 0) {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
             this.type = PowerType.BUFF;
+        }
+    }
+
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card.tags.contains(AbstractTagEnum.TRAINED_UNIT) && card.tags.contains(AbstractTagEnum.TANK_UNIT)) {
+            this.flash();
+            action.exhaustCard = true;
         }
     }
 }

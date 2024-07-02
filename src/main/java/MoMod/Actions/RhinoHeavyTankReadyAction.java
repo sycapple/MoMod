@@ -15,7 +15,7 @@ public class RhinoHeavyTankReadyAction extends AbstractGameAction {
     private int amount = 0;
 
     public RhinoHeavyTankReadyAction() {
-        this.card = new RhinoHeavyTank(true);
+        this.card = new RhinoHeavyTank();
     }
 
     @Override

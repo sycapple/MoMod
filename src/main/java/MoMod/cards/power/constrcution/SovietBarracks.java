@@ -16,4 +16,5 @@ public class SovietBarracks extends AbstractConstructionCard {
     public SovietBarracks() {
         super(ID, false, CARD_STRINGS, COLOR, RARITY);
     }
+
 }

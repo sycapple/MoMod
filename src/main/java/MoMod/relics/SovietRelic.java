@@ -7,6 +7,7 @@ import MoMod.cards.Abstract.AbstractConstructionCard;
 import MoMod.cards.power.constrcution.SovietBarracks;
 import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.modcore.MoMod;
+import MoMod.power.TechnologyLevelPower;
 import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
 import MoMod.util.TextureLoader;
@@ -33,7 +34,7 @@ public class SovietRelic extends CustomRelic {
     private static final RelicTier RELIC_TIER = RelicTier.STARTER;
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
-    private static final int amount = 4;
+    private static final int amount = 5;
     private static int[] powerList = new int[4];
 
     public SovietRelic() {
@@ -65,6 +66,7 @@ public class SovietRelic extends CustomRelic {
 
     @Override
     public void atBattleStart() {
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechnologyLevelPower(AbstractDungeon.player)));
         CardGroup constructionGroup = ConstructionPileManager.getConstructionPile();
         for (int i = 0; i < constructionGroup.size(); i++) {
             AbstractConstructionCard c = (AbstractConstructionCard) constructionGroup.group.get(i);

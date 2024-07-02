@@ -22,6 +22,7 @@ public class ConstructionPileManager {
         return (CardGroup) PlayerHasConstructionPilePatch.ConstructionPileField.ConstructionPile.get(AbstractDungeon.player);
     }
 
+
     public static Integer getMaxConstruction() {
         return (Integer) PlayerHasConstructionPilePatch.ConstructionPileField.maxConstruction.get(AbstractDungeon.player);
     }

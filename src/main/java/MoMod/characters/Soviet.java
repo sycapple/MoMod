@@ -33,9 +33,9 @@ import java.util.ArrayList;
 public class Soviet extends CustomPlayer {
     private static final String MY_CHARACTER_IMAGE = MoModHelper.assetPath("img/character/soviet_player.png");
     // 火堆的人物立绘（行动前）
-    private static final String MY_CHARACTER_SHOULDER_1 = MoModHelper.assetPath("img/character/soviet_player.png");
+    private static final String MY_CHARACTER_SHOULDER_1 = MoModHelper.assetPath("img/character/shoulder.png");
     // 火堆的人物立绘（行动后）
-    private static final String MY_CHARACTER_SHOULDER_2 = MoModHelper.assetPath("img/character/soviet_player.png");
+    private static final String MY_CHARACTER_SHOULDER_2 = MoModHelper.assetPath("img/character/shoulder.png");
     // 人物死亡图像
     private static final String CORPSE_IMAGE = MoModHelper.assetPath("img/character/soviet_player.png");
     // 战斗界面左下角能量图标的每个图层

@@ -1,5 +1,6 @@
 package MoMod.cards.attack;
 
+import MoMod.cards.Abstract.InfantryUnitCard;
 import MoMod.cards.Abstract.MoCard;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class AttackDog extends MoCard {
+public class AttackDog extends InfantryUnitCard {
     public static final String ID = MoModHelper.makeID(AttackDog.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final int COST = 1;
