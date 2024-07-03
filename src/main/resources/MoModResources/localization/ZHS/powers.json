@@ -15,6 +15,14 @@
       "张坦克单位放入你的手牌中"
     ]
   },
+  "momod:WallsPower": {
+    "NAME": "围墙",
+    "DESCRIPTIONS": [
+      "现在你有",
+      "层 围墙 ,在每回合开始将获得",
+      "点 格挡 "
+    ]
+  },
   "momod:TechnologyLevelPower": {
     "NAME": "科技等级",
     "DESCRIPTIONS": [
@@ -29,10 +37,42 @@
       "层"
     ]
   },
-  "momod:ElectromagneticParalysisPower": {
-    "NAME": "电磁干扰",
+  "momod:EliteRseservesPower": {
+    "NAME": "精英预备队",
     "DESCRIPTIONS": [
-      "本回合无法攻击"
+      "建筑生产的单位自带升级"
+    ]
+  },
+  "momod:ElectromagneticParalysisPower": {
+    "NAME": "电磁紊乱",
+    "DESCRIPTIONS": [
+      "目标在本回合会被 击晕 "
+    ]
+  },
+  "momod:FuryDronepower": {
+    "NAME": "怒焰机器人",
+    "DESCRIPTIONS": [
+      "当受到攻击时,对攻击者造成5点伤害,层数-1"
+    ]
+  },
+  "momod:LargeIterationPlanPower": {
+    "NAME": "大迭代计划",
+    "DESCRIPTIONS": [
+      "当 科技等级 到达4级时,重置 科技等级 并获得 10点 敏捷 力量"
+    ]
+  },
+  "momod:IrradiationGammaPower": {
+    "NAME": "放射性装甲",
+    "DESCRIPTIONS": [
+      "受到X点伤害后,反伤",
+      "%X点伤害"
+    ]
+  },
+  "momod:DebrisShelterPower": {
+    "NAME": "废墟掩体",
+    "DESCRIPTIONS": [
+      "每 消耗 一张建筑牌,获得",
+      "层 格挡 "
     ]
   }
 }

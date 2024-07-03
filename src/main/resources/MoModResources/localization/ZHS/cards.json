@@ -5,43 +5,55 @@
   },
   "momod:RhinoHeavyTank": {
     "NAME": "犀牛重型坦克",
-    "DESCRIPTION": "造成 !D! 点伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害,给予 !M! 层 虚弱 NL 消耗 NL 虚无 。"
+  },
+  "momod:Build0Walls": {
+    "NAME": "围墙",
+    "DESCRIPTION": "建造1层 momod:围墙 。"
   },
   "momod:Walls": {
     "NAME": "围墙",
-    "DESCRIPTION": "获得 !B! 点 格挡 。"
+    "DESCRIPTION": "每回合开始阶段获得格挡 。"
   },
   "momod:Conscript": {
     "NAME": "动员兵",
-    "DESCRIPTION": "对一名随机敌人 !D! 点伤害。 "
+    "DESCRIPTION": "对一名随机敌人 !D! 点伤害 NL 训练后立刻打出 NL 消耗 "
+  },
+  "momod:FlakTrooper": {
+    "NAME": "防空步兵",
+    "DESCRIPTION": "造成 !D! 点伤害,给予 !M! 层 易伤 NL 消耗 NL 虚无 "
   },
   "momod:Pyro": {
     "NAME": "喷火工兵",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。"
+    "DESCRIPTION": "给予 !D! 点伤害 NL momod:点燃 和 !M! 点 momod:点燃值 "
   },
   "momod:ShockTrooper": {
     "NAME": "闪流步兵",
-    "DESCRIPTION": "对一名敌人造成 !D! 点伤害。 NL 同时施加 !M! 点 虚弱 和 脆弱 "
+    "DESCRIPTION": "造成 !D! 点伤害 NL !M! %概率给予1层 momod:电磁紊乱 NL 消耗 NL 虚无 "
   },
   "momod:TeslaCruiser": {
     "NAME": "磁能巡航坦克",
-    "DESCRIPTION": "对一名敌人造成 !D! 点伤害。 NL 同时施加 !M! 点 虚弱 和 脆弱 "
+    "DESCRIPTION": "造成 !D! 点伤害 NL !M! %概率给予1层 momod:电磁紊乱 NL 消耗 NL 虚无 "
   },
   "momod:Arsonist": {
     "NAME": "纵火狂",
-    "DESCRIPTION": "对一名敌人施加 !M! 点 momod:点燃 NL "
+    "DESCRIPTION": "给予 !M! 点 momod:点燃值  NL !M! 点 momod:点燃率 "
+  },
+  "momod:Boris": {
+    "NAME": "鲍里斯",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害X次。"
   },
   "momod:Buratino": {
     "NAME": "布拉提诺",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 NL "
+    "DESCRIPTION": "给予所有敌人 !D! 点伤害 NL 给予 !M! 点 momod:点燃值 "
   },
   "momod:IronDragon": {
     "NAME": "铁龙坦克",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 NL 获得 !M! 层 无实体 NL "
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 NL 获得 !M! 层 无实体 NL 消耗 "
   },
   "momod:Engineer": {
     "NAME": "工程师",
-    "DESCRIPTION": "获得 !B! 点 格挡 。"
+    "DESCRIPTION": "本回合结束回复 !M! 点生命值。"
   },
   "momod:EmptyConstructionSlot": {
     "NAME": "空槽位",
@@ -63,8 +75,53 @@
     "NAME": "苏联重工",
     "DESCRIPTION": "在建筑槽位中建造一座 momod:苏联重工 "
   },
-  "momod:TestLevelUpgrade": {
-    "NAME": "测试升级",
-    "DESCRIPTION": "测试升级"
+  "momod:LevelUpgrade": {
+    "NAME": "科技升级",
+    "DESCRIPTION": "立刻提升 !M! 点 momod:科技等级"
+  },
+  "momod:Wallbuster": {
+    "NAME": "壁垒杀手",
+    "DESCRIPTION": "移除所有敌人的 格挡 , 并造成 !D! 点伤害"
+  },
+  "momod:EliteReserves": {
+    "NAME": "精英预备队",
+    "DESCRIPTION": " !M! 个回合内建筑生产的部队自带升级"
+  },
+  "momod:FuryDrone": {
+    "NAME": "怒焰地雷机器人",
+    "DESCRIPTION": "获得 !M! 层 momod:怒焰地雷机器人 NL 获得 !B! 格挡 "
+  },
+  "momod:CyborgVanguard": {
+    "NAME": "半机械人先驱",
+    "DESCRIPTION": "造成 !D! 点伤害 NL 半机械人先驱伤害 + !M! "
+  },
+  "momod:ApocalypseTank": {
+    "NAME": "天启坦克",
+    "DESCRIPTION": "造成 !D! 点伤害 NL 回复 !M! 点生命值 NL 获得 !B! 点格挡 NL 这张牌每被打出一次，它在本场战斗中的耗能减少1。"
+  },
+  "momod:LargeIterationPlan": {
+    "NAME": "大迭代计划",
+    "DESCRIPTION": "当 momod:科技等级 到达4级时,重置 momod:科技等级 并获得 10层 敏捷 力量"
+  },
+  "momod:IrradiationGamma": {
+    "NAME": "放射性装甲",
+    "DESCRIPTION": "获得2层 momod:放射性装甲",
+    "UPGRADE_DESCRIPTION": "获得3层 momod:放射性装甲"
+  },
+  "momod:DebrisShelter": {
+    "NAME": "废墟掩体",
+    "DESCRIPTION": "每 消耗 一张建筑牌,获得 !M! 层 格挡 "
+  },
+  "momod:MoonDrop": {
+    "NAME": "月球空投",
+    "DESCRIPTION": "在手牌中加入 !M! 张半机械人先驱"
+  },
+  "momod:SmokeBombs": {
+    "NAME": "烟雾弹空袭",
+    "DESCRIPTION": "给予所有敌人 !M! 层 虚弱 2 次"
+  },
+  "momod:ExpandTerritory": {
+    "NAME": "开疆拓土",
+    "DESCRIPTION": "建筑槽位 + !M!"
   }
 }

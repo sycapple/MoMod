@@ -2,9 +2,10 @@ package MoMod.characters;
 
 import MoMod.cards.attack.AttackDog;
 import MoMod.cards.attack.Conscript;
-import MoMod.cards.power.Build0SovietBarracks;
-import MoMod.cards.power.Build0SovietWarFactory;
-import MoMod.cards.skill.Walls;
+import MoMod.cards.skill.Build0SovietBarracks;
+import MoMod.cards.skill.Build0SovietWarFactory;
+import MoMod.cards.skill.Build0Walls;
+import MoMod.cards.skill.FuryDrone;
 import MoMod.relics.SovietRelic;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
@@ -24,7 +25,6 @@ import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.Vajra;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
@@ -87,15 +87,18 @@ public class Soviet extends CustomPlayer {
 
     }
 
-    // 初始卡组的ID，可直接写或引用变量
+    // todo:初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
+        // todo:初始卡组改为 兵营 和 铁卫(每回合结束给予x点格挡)
         ArrayList<String> retVal = new ArrayList<>();
         for (int x = 0; x < 4; x++) {
             retVal.add(AttackDog.ID);
-            retVal.add(Walls.ID);
+        }
+        for (int x = 0; x < 4; x++) {
+            retVal.add(FuryDrone.ID);
         }
         retVal.add(Build0SovietBarracks.ID);
-        retVal.add(Build0SovietWarFactory.ID);
+        retVal.add(Build0Walls.ID);
         return retVal;
     }
 

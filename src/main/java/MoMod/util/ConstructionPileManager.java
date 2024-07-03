@@ -18,6 +18,10 @@ public class ConstructionPileManager {
         AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CardCrawlGame.languagePack.getUIString(MoModHelper.makeID("AddCardToConstructionPileAction")).TEXT[0], true));
     }
 
+    public static void addMaxConstruction(int a) {
+        PlayerHasConstructionPilePatch.ConstructionPileField.maxConstruction.set(AbstractDungeon.player, Math.min(getMaxConstruction() + a, PlayerHasConstructionPilePatch.MaxConstructionAvailable));
+    }
+
     public static CardGroup getConstructionPile() {
         return (CardGroup) PlayerHasConstructionPilePatch.ConstructionPileField.ConstructionPile.get(AbstractDungeon.player);
     }

@@ -1,7 +1,7 @@
 package MoMod.Actions;
 
-import MoMod.cards.attack.Conscript;
 import MoMod.cards.attack.RhinoHeavyTank;
+import MoMod.cards.skill.FuryDrone;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -9,13 +9,19 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class RhinoHeavyTankReadyAction extends AbstractGameAction {
+public class FuryDroneReadyAction extends AbstractGameAction {
 
     private AbstractCard card;
-    private int amount = 0;
 
-    public RhinoHeavyTankReadyAction() {
-        this.card = new RhinoHeavyTank();
+
+    public FuryDroneReadyAction(boolean upgrade) {
+        this.card = new FuryDrone();
+        if (upgrade)
+            this.card.upgrade();
+    }
+
+    public FuryDroneReadyAction() {
+        this.card = new FuryDrone();
     }
 
     @Override

@@ -4,6 +4,7 @@ import MoMod.Actions.AddCardToConstructionPileAction;
 import MoMod.Enums.AbstractTagEnum;
 import MoMod.cards.power.constrcution.SovietBarracks;
 import MoMod.cards.power.constrcution.SovietWarFactory;
+import MoMod.cards.power.constrcution.Walls;
 import MoMod.power.AbstractMoPower;
 import MoMod.power.SovietBarracksPower;
 import MoMod.power.SovietWarFactoryPower;
@@ -37,6 +38,10 @@ public abstract class AbstractBuildingConstructionCard extends MoCard {
             }
             case "SovietWarFactory": {
                 c = new SovietWarFactory();
+                break;
+            }
+            case "Walls": {
+                c = new Walls();
                 break;
             }
         }

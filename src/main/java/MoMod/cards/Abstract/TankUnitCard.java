@@ -14,15 +14,15 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public abstract class TankUnitCard extends MoCard {
-
+    //todo:坦克正常费用,加强数值
     public TankUnitCard(String ID, boolean useTmpArt, CardStrings strings, int COST, CardType TYPE, AbstractCard.CardColor color, AbstractCard.CardRarity RARITY, AbstractCard.CardTarget TARGET) {
         super(ID, useTmpArt, strings, COST, TYPE, color, RARITY, TARGET);
         this.tags.add(AbstractTagEnum.TANK_UNIT);
     }
 
     public void triggerOnEndOfPlayerTurn() {
-        if (this.tags.contains(AbstractTagEnum.TRAINED_UNIT))
-            AbstractDungeon.player.hand.moveToExhaustPile(this);
+//        if (this.tags.contains(AbstractTagEnum.TRAINED_UNIT))
+//            AbstractDungeon.player.hand.moveToExhaustPile(this);
     }
 
     @Override

@@ -40,5 +40,47 @@
       "SovietWarFactory"
     ],
     "DESCRIPTION": "在每回合开始阶段在手牌中加入一张装甲牌"
+  },
+  {
+    "NAMES": [
+      "电磁紊乱",
+      "ElectromagneticParalysisPower"
+    ],
+    "DESCRIPTION": "目标在本回合会被 击晕 "
+  },
+  {
+    "NAMES": [
+      "怒焰地雷机器人",
+      "FuryDronepower"
+    ],
+    "DESCRIPTION": "当受到攻击时,对攻击者造成5点伤害,层数-1"
+  },
+  {
+    "NAMES": [
+      "围墙",
+      "Walls"
+    ],
+    "DESCRIPTION": "在回合开始阶段给予格挡"
+  },
+  {
+    "NAMES": [
+      "点燃率",
+      "FireUpVigour"
+    ],
+    "DESCRIPTION": "每回合增长的点燃值"
+  },
+  {
+    "NAMES": [
+      "点燃值",
+      "FireUpAmount"
+    ],
+    "DESCRIPTION": "决定目标每回合扣除血量的参数"
+  },
+  {
+    "NAMES": [
+      "放射性装甲",
+      "IrradiationGamma"
+    ],
+    "DESCRIPTION": "受到X点伤害后,反伤0.5X点伤害"
   }
 ]

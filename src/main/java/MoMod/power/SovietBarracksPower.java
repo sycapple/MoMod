@@ -38,20 +38,9 @@ public class SovietBarracksPower extends AbstractMoPower {
         this.updateDescription();
     }
 
-    //todo:每回合生产单位
     public void atStartOfTurn() {
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.flash();
-            this.addToBot(new SovietBarracksUnitReadyAction());
-        }
     }
 
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.tags.contains(AbstractTagEnum.TRAINED_UNIT) && card.tags.contains(AbstractTagEnum.INFANTRY_UNIT)) {
-            this.flash();
-            action.exhaustCard = true;
-        }
-    }
 
     public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
         super.renderAmount(sb, x, y, c);

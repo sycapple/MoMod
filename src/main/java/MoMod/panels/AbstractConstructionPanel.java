@@ -181,7 +181,6 @@ public class AbstractConstructionPanel extends AbstractPanel {
                     if (hovered != null) {
 //                        getS2 = TxwzModHelper.MakePath("Mecha" + TxwzModHelper.pureId(hovered.cardID) + c.uuid);
 //                        p2 = AbstractDungeon.player.getPower(getS2);
-                        //Todo: 如果不是空槽位如何显示
                         if (ret != null && ret.hb.hovered && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp)
                             TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, hovered.name, hovered.rawDescription);
                     }

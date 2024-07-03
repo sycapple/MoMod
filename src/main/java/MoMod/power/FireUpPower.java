@@ -1,14 +1,11 @@
 package MoMod.power;
 
 import MoMod.Actions.FireUpLoseHpAction;
-import MoMod.Actions.SovietWarFactoryUnitReadyAction;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,7 +13,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 public class FireUpPower extends AbstractMoPower {
     protected Color greenColor2;
@@ -25,22 +21,38 @@ public class FireUpPower extends AbstractMoPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private final AbstractCreature source;
-    private final int vigour;
+    public int vigour = 0;
 
-    public FireUpPower(AbstractCreature owner, AbstractCreature source, int amount) {
+    //todo:使用两个参数来控制,一个是燃烧值,一个是燃烧率
+    // 燃烧率 决定每回合加多少燃烧值
+    // 燃烧值 决定每回合扣多少血量
+    public void initialFirePower() {
         this.greenColor2 = Color.RED.cpy();
         this.name = NAME;
         this.ID = POWER_ID;
-        this.owner = owner;
-        this.source = source;
         this.type = PowerType.DEBUFF;
-        this.amount = amount;
-        this.vigour = 3;
         this.isTurnBased = true;
         String path128 = MoModHelper.assetPath("img/powers/") + FireUpPower.class.getSimpleName() + "B.png";
         String path48 = MoModHelper.assetPath("img/powers/") + FireUpPower.class.getSimpleName() + ".png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+    }
+
+    public FireUpPower(AbstractCreature owner, AbstractCreature source, int amount) {
+        initialFirePower();
+        this.owner = owner;
+        this.source = source;
+        this.amount = amount;
+        this.updateDescription();
+    }
+
+
+    public FireUpPower(AbstractCreature owner, AbstractCreature source, int amount, int vigour) {
+        initialFirePower();
+        this.owner = owner;
+        this.source = source;
+        this.amount = amount;
+        this.vigour += vigour;
         this.updateDescription();
     }
 

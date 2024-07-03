@@ -30,7 +30,7 @@ public abstract class MoCard extends CustomCard {
     public MoCard(String ID, boolean useTmpArt, CardStrings strings, int COST, AbstractCard.CardType TYPE, AbstractCard.CardColor color, AbstractCard.CardRarity RARITY, AbstractCard.CardTarget TARGET) {
         super(ID, strings.NAME, useTmpArt ? GetTmpImgPath(TYPE) : GetImgPath(TYPE, ID), COST, strings.DESCRIPTION, TYPE, color, RARITY, TARGET);
     }
-
+    //todo:注意使用BASIC来区分不会被抽到的牌
     private static String GetTmpImgPath(AbstractCard.CardType t) {
         String type;
         switch (t) {
@@ -92,7 +92,7 @@ public abstract class MoCard extends CustomCard {
         this.magicNumber = amt;
     }
 
-    //Todo: 不知道干啥的
+
     protected void setupSecondaryMagicNumber(int amt) {
         this.secondaryM = amt;
     }
@@ -146,22 +146,22 @@ public abstract class MoCard extends CustomCard {
 
     }
 
-    // Todo: 不知道
+
     public void limitedUpgrade() {
     }
 
-    // Todo: 应该是看一个能力有几层
+
 //    public boolean checkStrategyBiggerThanWhenUse(int a) {
 //        return TxwzModHelper.getStrategy() >= a;
 //    }
 
-    // Todo: 不知道
+
     protected void upgradeSecondaryM(int amount) {
         this.secondaryM += amount;
         this.upgradesecondaryM = true;
     }
 
-    // Todo: 不知道
+
 //    public ArrayList<AbstractCard> getNearCard(AbstractCard c) {
 //        ArrayList<AbstractCard> cl = new ArrayList();
 //        if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT) {

@@ -17,6 +17,12 @@ public class ConscriptReadyAction extends AbstractGameAction {
         this.card = new Conscript();
     }
 
+    public ConscriptReadyAction(boolean upgrade) {
+        this.card = new Conscript();
+        if (upgrade)
+            this.card.upgrade();
+    }
+
     @Override
     public void update() {
         card.exhaustOnUseOnce = true;

@@ -1,10 +1,8 @@
 package MoMod.Actions;
 
 import MoMod.Enums.AbstractTagEnum;
-import MoMod.cards.attack.Arsonist;
-import MoMod.cards.attack.Pyro;
-import MoMod.cards.attack.RhinoHeavyTank;
-import MoMod.cards.attack.ShockTrooper;
+import MoMod.cards.attack.*;
+import MoMod.power.EliteRseservesPower;
 import MoMod.power.SovietBarracksPower;
 import MoMod.power.SovietWarFactoryPower;
 import MoMod.power.TechnologyLevelPower;
@@ -22,28 +20,31 @@ public class SovietBarracksUnitReadyAction extends AbstractGameAction {
     @Override
     public void update() {
         AbstractCreature p = AbstractDungeon.player;
-        int barracksAmount = p.hasPower(SovietBarracksPower.POWER_ID) ? p.getPower(SovietBarracksPower.POWER_ID).amount : 0;
+        AbstractCard c = null;
         int technologyLevel = p.hasPower(TechnologyLevelPower.POWER_ID) ? p.getPower(TechnologyLevelPower.POWER_ID).amount : 0;
-        if (technologyLevel == 0)
-            for (int i = 0; i < barracksAmount; i++)
+        if (technologyLevel == 0) {
+            if (p.hasPower(EliteRseservesPower.POWER_ID))
+                this.addToBot(new ConscriptReadyAction(true));
+            else
                 this.addToBot(new ConscriptReadyAction());
-        else {
-            AbstractCard c = null;
+        } else {
             switch (technologyLevel) {
                 case 1: {
-                    c = new Pyro();
+                    c = new FlakTrooper();
                     break;
                 }
                 case 2: {
                     c = new ShockTrooper();
+                    break;
                 }
                 case 3: {
-                    c = new Arsonist();
+                    c = new CyborgVanguard();
                 }
             }
             c.tags.add(AbstractTagEnum.TRAINED_UNIT);
-            c.rawDescription = c.rawDescription + " NL 消耗 虚无 ";
-            this.addToBot(new UnitReadyAction(c, barracksAmount));
+            if (p.hasPower(EliteRseservesPower.POWER_ID))
+                c.upgrade();
+            this.addToBot(new UnitReadyAction(c, 1));
         }
         this.isDone = true;
     }

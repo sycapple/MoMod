@@ -23,7 +23,6 @@ public class PlayerHasConstructionPilePatch {
         //ConstructionPile
         //maxConstruction
         //上面这两个东西是hashmap,键是AbstractDungeon.player,就是当前玩家
-        // Todo：猜想SpireField这个按照角色生成键值对
         //CardGroup
         //这个好像是用来管理一组卡组的
         //卡片都放在CardGroup.group里面,类型是ArrayList

@@ -1,7 +1,17 @@
 {
   "momod:AddCardToConstructionPileAction": {
     "TEXT": [
-      "我的建筑槽位已满！",
+      "我的建筑槽位已满！"
+    ]
+  },
+  "momod:TechnologyUpgradeAction": {
+    "TEXT": [
+      "我的科技等级已达上限！",
+      "我的建筑槽位已达到上限！"
+    ]
+  },
+  "momod:ExpandTerritory": {
+    "TEXT": [
       "我的建筑槽位已达到上限！"
     ]
   }
