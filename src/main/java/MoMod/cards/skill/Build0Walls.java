@@ -20,13 +20,13 @@ public class Build0Walls extends AbstractBuildingConstructionCard {
     private static final AbstractCard.CardColor COLOR = AbstractCardEnum.SOVIET;
 
     public Build0Walls() {
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
     }
 
 
     @Override
     public void limitedUpgrade() {
-        super.limitedUpgrade();
+        this.upgradeBaseCost(0);
     }
 
     @Override

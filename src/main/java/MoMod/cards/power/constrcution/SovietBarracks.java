@@ -1,20 +1,15 @@
 package MoMod.cards.power.constrcution;
 
-import MoMod.Actions.ConscriptReadyAction;
 import MoMod.Actions.SovietBarracksUnitReadyAction;
-import MoMod.Actions.UnitReadyAction;
 import MoMod.Enums.AbstractCardEnum;
-import MoMod.Enums.AbstractTagEnum;
 import MoMod.cards.Abstract.AbstractConstructionCard;
-import MoMod.cards.attack.AttackDog;
-import MoMod.cards.attack.Boris;
-import MoMod.cards.attack.FlakTrooper;
-import MoMod.cards.attack.ShockTrooper;
-import MoMod.power.EliteRseservesPower;
-import MoMod.power.TechnologyLevelPower;
+import MoMod.cards.attack.Conscript;
 import MoMod.util.MoModHelper;
+import MoMod.util.UnitToTrain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -26,6 +21,8 @@ public class SovietBarracks extends AbstractConstructionCard {
 
     public SovietBarracks() {
         super(ID, false, CARD_STRINGS, COLOR, RARITY);
+        this.cardsToPreview = new UnitToTrain(this, AbstractDungeon.player).getUnit() == null ? new Conscript() :
+                new UnitToTrain(this, AbstractDungeon.player).getUnit();
     }
 
     @Override

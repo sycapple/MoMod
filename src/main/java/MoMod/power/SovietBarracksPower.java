@@ -39,6 +39,8 @@ public class SovietBarracksPower extends AbstractMoPower {
     }
 
     public void atStartOfTurn() {
+        this.flash();
+        this.addToBot(new SovietBarracksUnitReadyAction());
     }
 
 

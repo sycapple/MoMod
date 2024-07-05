@@ -5,10 +5,8 @@ import MoMod.Enums.AbstractSovietRewardsEnum;
 import MoMod.Rewards.SovietCardReward;
 import MoMod.cards.attack.*;
 import MoMod.cards.power.*;
-import MoMod.cards.power.constrcution.Walls;
+import MoMod.cards.power.constrcution.*;
 import MoMod.cards.skill.*;
-import MoMod.cards.power.constrcution.SovietBarracks;
-import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.characters.Soviet;
 import MoMod.colorSet.SovietColorSet;
 import MoMod.power.*;
@@ -114,6 +112,13 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new MoonDrop());
         BaseMod.addCard(new SmokeBombs());
         BaseMod.addCard(new ExpandTerritory());
+        BaseMod.addCard(new RepairDrone());
+        BaseMod.addCard(new TerrorDrone());
+        BaseMod.addCard(new Build0IndustrialPlant());
+        BaseMod.addCard(new IndustrialPlant());
+        BaseMod.addCard(new GearChange());
+        BaseMod.addCard(new TechOilDerrick());
+        BaseMod.addCard(new Build0TechOilDerrick());
         logger.info("========================= 卡牌加载完毕 =========================");
     }
 

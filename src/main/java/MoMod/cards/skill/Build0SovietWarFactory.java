@@ -2,6 +2,7 @@ package MoMod.cards.skill;
 
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.AbstractBuildingConstructionCard;
+import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,6 +20,7 @@ public class Build0SovietWarFactory extends AbstractBuildingConstructionCard {
 
     public Build0SovietWarFactory() {
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        this.cardsToPreview = new SovietWarFactory();
     }
 
     @Override

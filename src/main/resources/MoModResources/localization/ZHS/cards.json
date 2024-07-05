@@ -13,7 +13,7 @@
   },
   "momod:Walls": {
     "NAME": "围墙",
-    "DESCRIPTION": "每回合开始阶段获得格挡 。"
+    "DESCRIPTION": "每回合开始阶段获得3点 格挡 。且 消耗 时获得3点 格挡"
   },
   "momod:Conscript": {
     "NAME": "动员兵",
@@ -61,19 +61,19 @@
   },
   "momod:SovietBarracks": {
     "NAME": "苏联兵营",
-    "DESCRIPTION": "在每回合开始阶段在手牌中加入一张步兵牌"
+    "DESCRIPTION": "在每回合开始阶段在手牌中加入1张步兵牌"
   },
   "momod:Build0SovietBarracks": {
     "NAME": "苏联兵营",
-    "DESCRIPTION": "在 建筑槽位 中建造一座 momod:苏联兵营 "
+    "DESCRIPTION": "在 momod:建筑栏 中加入1张 苏联兵营 "
   },
   "momod:SovietWarFactory": {
     "NAME": "苏联重工",
-    "DESCRIPTION": "在每回合开始阶段在手牌中加入一张装甲牌"
+    "DESCRIPTION": "在每回合开始阶段在手牌中加入1张装甲牌"
   },
   "momod:Build0SovietWarFactory": {
     "NAME": "苏联重工",
-    "DESCRIPTION": "在建筑槽位中建造一座 momod:苏联重工 "
+    "DESCRIPTION": "在 momod:建筑栏 中加入1张 苏联重工 "
   },
   "momod:LevelUpgrade": {
     "NAME": "科技升级",
@@ -114,14 +114,45 @@
   },
   "momod:MoonDrop": {
     "NAME": "月球空投",
-    "DESCRIPTION": "在手牌中加入 !M! 张半机械人先驱"
+    "DESCRIPTION": "在手牌中加入 !M! 张半机械人先驱 NL 消耗 "
+  },
+  "momod:RepairDrone": {
+    "NAME": "维修无人机",
+    "DESCRIPTION": "获得 !M! 层 多层护甲 1 次",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 多重护甲 2 次"
+  },
+  "momod:TerrorDrone": {
+    "NAME": "恐怖机器人",
+    "DESCRIPTION": "你的 momod:怒焰地雷机器人 将不再消失"
+  },
+  "momod:ExpandTerritory": {
+    "NAME": "开疆拓土",
+    "DESCRIPTION": "你的 momod:建筑栏 槽位 + !M! "
+  },
+  "momod:IndustrialPlant": {
+    "NAME": "工业工厂",
+    "DESCRIPTION": "所有产出的单位 [E] -1"
+  },
+  "momod:Build0IndustrialPlant": {
+    "NAME": "工业工厂",
+    "DESCRIPTION": "在 momod:建筑栏 中加入1张工业工厂"
+  },
+  "momod:Build0TechOilDerrick": {
+    "NAME": "科技钻油井",
+    "DESCRIPTION": "在 momod:建筑栏 中加入1张科技钻油井 NL 获得 [E] ",
+    "UPGRADE_DESCRIPTION": "在 momod:建筑栏 中加入1张科技钻油井 NL 获得 [E] [E] "
+  },
+  "momod:TechOilDerrick": {
+    "NAME": "科技钻油井",
+    "DESCRIPTION": "每回合开始阶段获得 [E] ",
+    "UPGRADED_DESCRIPTION": "在 momod:建筑栏 中加入1张科技钻油井 NL 获得 [E] [E] "
   },
   "momod:SmokeBombs": {
     "NAME": "烟雾弹空袭",
     "DESCRIPTION": "给予所有敌人 !M! 层 虚弱 2 次"
   },
-  "momod:ExpandTerritory": {
-    "NAME": "开疆拓土",
-    "DESCRIPTION": "建筑槽位 + !M!"
+  "momod:GearChange": {
+    "NAME": "工厂维护",
+    "DESCRIPTION": "生产建筑将停工 !M! 回合 NL 结束后, 获得 momod:产能升级 效果"
   }
 }

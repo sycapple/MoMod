@@ -2,10 +2,9 @@ package MoMod.Actions;
 
 import MoMod.Enums.AbstractTagEnum;
 import MoMod.cards.attack.*;
-import MoMod.power.EliteRseservesPower;
-import MoMod.power.SovietBarracksPower;
-import MoMod.power.SovietWarFactoryPower;
-import MoMod.power.TechnologyLevelPower;
+import MoMod.cards.power.constrcution.SovietBarracks;
+import MoMod.power.*;
+import MoMod.util.UnitToTrain;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,33 +18,18 @@ public class SovietBarracksUnitReadyAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        AbstractCreature p = AbstractDungeon.player;
-        AbstractCard c = null;
-        int technologyLevel = p.hasPower(TechnologyLevelPower.POWER_ID) ? p.getPower(TechnologyLevelPower.POWER_ID).amount : 0;
-        if (technologyLevel == 0) {
-            if (p.hasPower(EliteRseservesPower.POWER_ID))
-                this.addToBot(new ConscriptReadyAction(true));
-            else
-                this.addToBot(new ConscriptReadyAction());
-        } else {
-            switch (technologyLevel) {
-                case 1: {
-                    c = new FlakTrooper();
-                    break;
-                }
-                case 2: {
-                    c = new ShockTrooper();
-                    break;
-                }
-                case 3: {
-                    c = new CyborgVanguard();
-                }
-            }
-            c.tags.add(AbstractTagEnum.TRAINED_UNIT);
-            if (p.hasPower(EliteRseservesPower.POWER_ID))
-                c.upgrade();
-            this.addToBot(new UnitReadyAction(c, 1));
+        AbstractCard c = new UnitToTrain(new SovietBarracks(), AbstractDungeon.player).getUnit();
+        int sovietBarracks = AbstractDungeon.player.getPower(SovietBarracksPower.POWER_ID).amount;
+        if (AbstractDungeon.player.hasPower(GearChangePower.POWER_ID))
+            sovietBarracks = 0;
+        if (AbstractDungeon.player.hasPower(CapacityUpgradingPower.POWER_ID)) {
+            sovietBarracks *= (AbstractDungeon.player.getPower(CapacityUpgradingPower.POWER_ID).amount + 1);
+            System.out.println(sovietBarracks);
         }
+        if (c instanceof Conscript)
+            this.addToBot(new ExhaustUnitReadyAction(c, sovietBarracks));
+        else
+            this.addToBot(new UnitReadyAction(c, sovietBarracks));
         this.isDone = true;
     }
 }

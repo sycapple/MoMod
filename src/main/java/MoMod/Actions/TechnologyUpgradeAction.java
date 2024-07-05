@@ -37,6 +37,7 @@ public class TechnologyUpgradeAction extends AbstractGameAction {
                 } else {
                     technologyLevel.flash();
                     technologyLevel.amount++;
+                    this.addToTop(new CardToPreviewUpdateAction());
                     technologyLevel.updateDescription();
                 }
             } else {
@@ -46,11 +47,13 @@ public class TechnologyUpgradeAction extends AbstractGameAction {
                 } else {
                     technologyLevel.flash();
                     technologyLevel.amount++;
+                    this.addToTop(new CardToPreviewUpdateAction());
                     technologyLevel.updateDescription();
                 }
             }
         } else {
             this.addToTop(new ApplyPowerAction(p, p, new TechnologyLevelPower(p, 1)));
+            this.addToTop(new CardToPreviewUpdateAction());
         }
         this.isDone = true;
     }

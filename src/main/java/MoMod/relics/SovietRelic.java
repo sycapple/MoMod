@@ -1,36 +1,18 @@
 package MoMod.relics;
 
-import MoMod.Actions.SovietBarracksUnitReadyAction;
-import MoMod.Actions.SovietWarFactoryUnitReadyAction;
 import MoMod.Actions.TechnologyUpgradeAction;
-import MoMod.Actions.UseConstructionAction;
 import MoMod.Enums.AbstractTagEnum;
-import MoMod.cards.Abstract.AbstractBuildingConstructionCard;
-import MoMod.cards.Abstract.AbstractConstructionCard;
-import MoMod.cards.power.constrcution.SovietBarracks;
-import MoMod.cards.power.constrcution.SovietWarFactory;
-import MoMod.modcore.MoMod;
-import MoMod.power.SovietBarracksPower;
-import MoMod.power.SovietWarFactoryPower;
 import MoMod.power.TechnologyLevelPower;
-import MoMod.power.WallsPower;
 import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
-import MoMod.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import java.util.ArrayList;
 
 public class SovietRelic extends CustomRelic {
     //Todo:科技不会迭代,升到顶就到顶,使用新 技能牌 科技归零 和 能力牌 科技迭代 来代替
@@ -75,6 +57,7 @@ public class SovietRelic extends CustomRelic {
     @Override
     public void atBattleStart() {
         ConstructionPileManager.getConstructionPile().clear();
+        ConstructionPileManager.resetMaxConstruction();
         this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechnologyLevelPower(AbstractDungeon.player)));
 //        CardGroup constructionGroup = ConstructionPileManager.getConstructionPile();
 //        for (int i = 0; i < constructionGroup.size(); i++) {
@@ -89,7 +72,7 @@ public class SovietRelic extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        this.addToBot(new UseConstructionAction());
+//        this.addToBot(new UseConstructionAction());
     }
 
     public AbstractRelic makeCopy() {

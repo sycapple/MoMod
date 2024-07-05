@@ -26,8 +26,6 @@ public abstract class AbstractMoPower extends AbstractPower {
     public void updateTexture() {
     }
 
-    public void onWear() {
-    }
 
     public void upgrade() {
         if (!this.upgraded) {

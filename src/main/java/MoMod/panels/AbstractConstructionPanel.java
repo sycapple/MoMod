@@ -181,10 +181,16 @@ public class AbstractConstructionPanel extends AbstractPanel {
                     if (hovered != null) {
 //                        getS2 = TxwzModHelper.MakePath("Mecha" + TxwzModHelper.pureId(hovered.cardID) + c.uuid);
 //                        p2 = AbstractDungeon.player.getPower(getS2);
-                        if (ret != null && ret.hb.hovered && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp)
-                            TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, hovered.name, hovered.rawDescription);
+                        if (ret != null && ret.hb.hovered && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.isScreenUp) {
+                            if (hovered.cardsToPreview != null)
+                                renderCardPreview(this.tipHitbox.x + leftMove + extendMoveOnce * (float) i, this.tipHitbox.y, sb, c, 0.75F);
+//                                TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, hovered.name, "下回合开始阶段将生产" + hovered.cardsToPreview.name);
+                            else
+                                TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, hovered.name, hovered.rawDescription);
+                        }
                     }
                 }
+
                 // 根据取得的卡牌取得对应的能力牌
 //                    getS2 = TxwzModHelper.MakePath("Mecha" + TxwzModHelper.pureId(c.cardID) + c.uuid);
                 //这个应该是显示这个牌的能力
@@ -199,6 +205,14 @@ public class AbstractConstructionPanel extends AbstractPanel {
         }
     }
 
+    public void renderCardPreview(float x, float y, SpriteBatch sb, AbstractCard card, float scale) {
+        card.cardsToPreview.current_x = x + AbstractCard_HB_W * 0.38F / 2.0F;
+        card.cardsToPreview.current_y = y + AbstractCard_HB_H * 0.38F / 2.0F;
+        card.cardsToPreview.drawScale = scale;
+        card.cardsToPreview.angle = 0.0F;
+        card.lighten(true);
+        card.cardsToPreview.render(sb);
+    }
 
     private static AbstractCard renderCard(float x, float y, SpriteBatch sb, AbstractCard card, int i, float scale, boolean hitbox) {
         AbstractCard hovered = null;

@@ -2,7 +2,6 @@ package MoMod.cards.power.constrcution;
 
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.AbstractConstructionCard;
-import MoMod.cards.Abstract.MoCard;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,6 +28,11 @@ public class Walls extends AbstractConstructionCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.gainBlock();
+    }
+
+    @Override
+    public void triggerOnExhaust() {
         this.gainBlock();
     }
 }

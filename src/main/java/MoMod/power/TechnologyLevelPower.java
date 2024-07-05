@@ -1,5 +1,6 @@
 package MoMod.power;
 
+import MoMod.Actions.CardToPreviewUpdateAction;
 import MoMod.Actions.TechnologyUpgradeAction;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;

@@ -1,13 +1,6 @@
 [
   {
     "NAMES": [
-      "苏联兵营",
-      "SovietBarracksPower"
-    ],
-    "DESCRIPTION": ""
-  },
-  {
-    "NAMES": [
       "科技等级",
       "TechnologyLevelPower"
     ],
@@ -53,7 +46,7 @@
       "怒焰地雷机器人",
       "FuryDronepower"
     ],
-    "DESCRIPTION": "当受到攻击时,对攻击者造成5点伤害,层数-1"
+    "DESCRIPTION": "当受到攻击时,对攻击者造成5点 x 次,x 为能力层数 NL 回合结束时,失去所有怒焰地雷机器人"
   },
   {
     "NAMES": [
@@ -82,5 +75,18 @@
       "IrradiationGamma"
     ],
     "DESCRIPTION": "受到X点伤害后,反伤0.5X点伤害"
+  },
+  {
+    "NAMES": [
+      "建筑栏"
+    ],
+    "DESCRIPTION": "用于容纳建筑卡"
+  },
+  {
+    "NAMES": [
+      "产能升级",
+      "CapacityUpgrading"
+    ],
+    "DESCRIPTION": "重工和兵营每回合生产的数量增加"
   }
 ]

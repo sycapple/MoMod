@@ -20,7 +20,16 @@
     "DESCRIPTIONS": [
       "现在你有",
       "层 围墙 ,在每回合开始将获得",
-      "点 格挡 "
+      "点 格挡 ",
+      "次"
+    ]
+  },
+  "momod:TechOilDerrickPower": {
+    "NAME": "科技钻油井",
+    "DESCRIPTIONS": [
+      "现在你有",
+      "层科技钻油井 ,在每回合开始将获得",
+      "点 [E]"
     ]
   },
   "momod:TechnologyLevelPower": {
@@ -50,9 +59,10 @@
     ]
   },
   "momod:FuryDronepower": {
-    "NAME": "怒焰机器人",
+    "NAME": "怒焰地雷机器人",
     "DESCRIPTIONS": [
-      "当受到攻击时,对攻击者造成5点伤害,层数-1"
+      "当受到攻击时,对攻击者造成5点伤害 ",
+      " 次 NL 每回合结束时失去所有怒焰地雷机器人"
     ]
   },
   "momod:LargeIterationPlanPower": {
@@ -73,6 +83,31 @@
     "DESCRIPTIONS": [
       "每 消耗 一张建筑牌,获得",
       "层 格挡 "
+    ]
+  },
+  "momod:TerrorDronePower": {
+    "NAME": "恐怖机器人",
+    "DESCRIPTIONS": [
+      "你的怒焰地雷机器人将不会再回合结束时消失"
+    ]
+  },
+  "momod:IndustrialPlantPower": {
+    "NAME": "工业工厂",
+    "DESCRIPTIONS": [
+      "所有产出的单位 [E] -"
+    ]
+  },
+  "momod:CapacityUpgradingPower": {
+    "NAME": "产能升级",
+    "DESCRIPTIONS": [
+      "苏联重工 和 苏联兵营 每回合生产的部队数+"
+    ]
+  },
+  "momod:GearChangePower": {
+    "NAME": "工厂维护",
+    "DESCRIPTIONS": [
+      "生产建筑将停工 ",
+      "回合 NL 结束后, 获得 产能升级 效果"
     ]
   }
 }

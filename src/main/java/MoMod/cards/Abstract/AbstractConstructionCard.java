@@ -3,6 +3,7 @@ package MoMod.cards.Abstract;
 import MoMod.Actions.ConstructionDestroyedAction;
 import MoMod.Enums.AbstractTagEnum;
 import MoMod.cards.attack.*;
+import MoMod.cards.power.constrcution.TechOilDerrick;
 import MoMod.cards.power.constrcution.Walls;
 import MoMod.power.*;
 import MoMod.util.MoModHelper;
@@ -79,6 +80,14 @@ public abstract class AbstractConstructionCard extends MoCard {
                 po = new WallsPower(AbstractDungeon.player, AD);
                 break;
             }
+            case "IndustrialPlant": {
+                po = new IndustrialPlantPower(AbstractDungeon.player, AD);
+                break;
+            }
+            case "TechOilDerrick": {
+                po = new TechOilDerrickPower(AbstractDungeon.player, AD);
+                break;
+            }
         }
         return po;
     }
@@ -94,5 +103,6 @@ public abstract class AbstractConstructionCard extends MoCard {
 
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
     }
+
 
 }

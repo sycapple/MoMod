@@ -20,10 +20,6 @@ public abstract class TankUnitCard extends MoCard {
         this.tags.add(AbstractTagEnum.TANK_UNIT);
     }
 
-    public void triggerOnEndOfPlayerTurn() {
-//        if (this.tags.contains(AbstractTagEnum.TRAINED_UNIT))
-//            AbstractDungeon.player.hand.moveToExhaustPile(this);
-    }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {

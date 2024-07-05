@@ -49,7 +49,7 @@ public class MigBombingAction extends AbstractGameAction {
 
         if (effect > 0) {
             CardCrawlGame.sound.playA("MIG_BOMBING", MathUtils.random(0, 0));
-            this.addToTop(new WaitAction(10f));
+            this.addToTop(new WaitAction(1f));
             for (int i = 0; i < effect; ++i) {
                 this.addToBot(new DamageAllEnemiesAction(this.p, this.multiDamage, this.damageType, AttackEffect.FIRE, true));
             }

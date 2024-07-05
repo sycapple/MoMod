@@ -22,7 +22,6 @@ public class UnitReadyAction extends AbstractGameAction {
     public UnitReadyAction(AbstractCard card, int amount) {
         this.isOtherCardInCenter = false;
         this.sameUUID = true;
-        UnlockTracker.markCardAsSeen(card.cardID);
         this.amount = amount;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.c = card;

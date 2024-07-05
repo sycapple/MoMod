@@ -37,6 +37,7 @@ public class Conscript extends InfantryUnitCard {
         this.setupDamage(3);
         this.tags.add(CardTags.STRIKE);
         this.exhaust = true;
+        this.isEthereal = true;
     }
 
 

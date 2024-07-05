@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -41,12 +42,9 @@ public class FuryDronepower extends AbstractMoPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
             this.flash();
-            this.addToTop(new DamageAction(info.owner, new DamageInfo(this.owner, 5, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
-            if (this.amount == 0) {
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-            } else {
-                this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
-            }
+            this.addToTop(new DamageAction(info.owner, new DamageInfo(this.owner, 5 * this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
+            this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount));
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
         return damageAmount;
     }
@@ -63,7 +61,18 @@ public class FuryDronepower extends AbstractMoPower {
         }
     }
 
+    @Override
+    public void atEndOfRound() {
+        //todo:怒焰机器人每回合结束会消失,后面加一个能力让他不会消失
+        if (this.amount != 0) {
+            if(!AbstractDungeon.player.hasPower(TerrorDronePower.POWER_ID)) {
+                this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount));
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            }
+        }
+    }
+
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 }

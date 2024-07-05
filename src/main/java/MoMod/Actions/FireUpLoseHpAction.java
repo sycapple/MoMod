@@ -34,7 +34,7 @@ public class FireUpLoseHpAction extends AbstractGameAction {
             this.tickDuration();
             if (this.isDone) {
                 if (this.target.currentHealth > 0) {
-                    this.target.tint.color.set(Color.CHARTREUSE.cpy());
+                    this.target.tint.color.set(new Color(1f, 0.49f, 0.09f, 1f));
                     this.target.tint.changeColor(Color.WHITE.cpy());
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
                 }

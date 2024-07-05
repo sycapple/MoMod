@@ -28,14 +28,13 @@ public class SmokeBombs extends MoCard {
     public SmokeBombs() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.setupMagicNumber(3);
+        this.setupMagicNumber(1);
     }
 
 
     @Override
     public void limitedUpgrade() {
-        this.upgradeBaseCost(1);
-        this.upgradeMagicNumber(2);
+        this.upgradeMagicNumber(1);
     }
 
     @Override

@@ -1,40 +1,43 @@
-package MoMod.cards.skill;
+package MoMod.cards.power;
 
-import MoMod.Actions.UnitReadyAction;
+
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.MoCard;
-import MoMod.cards.attack.CyborgVanguard;
+import MoMod.power.EliteRseservesPower;
+import MoMod.power.GearChangePower;
+import MoMod.power.IrradiationGammaPower;
+import MoMod.power.LargeIterationPlanPower;
 import MoMod.util.MoModHelper;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class MoonDrop extends MoCard {
-    public static final String ID = MoModHelper.makeID(MoonDrop.class.getSimpleName());
+public class GearChange extends MoCard {
+    public static final String ID = MoModHelper.makeID(GearChange.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final int COST = 2;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 
-    public MoonDrop() {
+    public GearChange() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.cardsToPreview = new CyborgVanguard();
         this.setupMagicNumber(3);
-        this.exhaust = true;
     }
 
 
     @Override
     public void limitedUpgrade() {
-        this.upgradeMagicNumber(2);
+        this.upgradeMagicNumber(-1);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new UnitReadyAction(new CyborgVanguard(), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new GearChangePower(p, this.magicNumber), this.magicNumber));
     }
+
 }

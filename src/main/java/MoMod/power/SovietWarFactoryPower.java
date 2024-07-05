@@ -1,5 +1,6 @@
 package MoMod.power;
 
+import MoMod.Actions.SovietBarracksUnitReadyAction;
 import MoMod.Actions.SovietWarFactoryUnitReadyAction;
 import MoMod.Enums.AbstractTagEnum;
 import MoMod.util.MoModHelper;
@@ -36,8 +37,10 @@ public class SovietWarFactoryPower extends AbstractMoPower {
         this.updateDescription();
     }
 
-    //todo:每回合生产单位
+
     public void atStartOfTurn() {
+        this.flash();
+        this.addToBot(new SovietWarFactoryUnitReadyAction());
     }
 
     public void renderAmount(SpriteBatch sb, float x, float y, Color c) {

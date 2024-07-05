@@ -6,16 +6,21 @@ import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
+
+import java.util.Iterator;
 
 public class IronDragon extends TankUnitCard {
     public static final String ID = MoModHelper.makeID(IronDragon.class.getSimpleName());
@@ -41,10 +46,15 @@ public class IronDragon extends TankUnitCard {
         this.upgradeDamage(10);
         this.upgradeMagicNumber(1);
     }
-    //todo:无实体效果结束时间错误
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        this.damageToAllEnemies(AbstractGameAction.AttackEffect.FIRE);
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new IntangiblePower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
-    }
 
+    //todo:无实体效果结束时间错误
+    public void use(AbstractPlayer p, AbstractMonster mo) {
+        Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+        while (var3.hasNext()) {
+            AbstractMonster m = (AbstractMonster) var3.next();
+            if (m != null && !m.isDead)
+                this.addToBot(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.damage), AbstractGameAction.AttackEffect.FIRE));
+        }
+        this.addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
+    }
 }

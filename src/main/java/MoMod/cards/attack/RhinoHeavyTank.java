@@ -1,6 +1,6 @@
 package MoMod.cards.attack;
 
-import MoMod.Actions.AutoRandomNoSourceDamageAction;
+
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.TankUnitCard;
 import MoMod.util.MoModHelper;

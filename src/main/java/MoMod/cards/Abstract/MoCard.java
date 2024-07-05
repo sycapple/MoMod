@@ -2,10 +2,12 @@
 
 package MoMod.cards.Abstract;
 
+import MoMod.Enums.AbstractTagEnum;
 import MoMod.util.MoModHelper;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.ExhaustAllEtherealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,6 +32,7 @@ public abstract class MoCard extends CustomCard {
     public MoCard(String ID, boolean useTmpArt, CardStrings strings, int COST, AbstractCard.CardType TYPE, AbstractCard.CardColor color, AbstractCard.CardRarity RARITY, AbstractCard.CardTarget TARGET) {
         super(ID, strings.NAME, useTmpArt ? GetTmpImgPath(TYPE) : GetImgPath(TYPE, ID), COST, strings.DESCRIPTION, TYPE, color, RARITY, TARGET);
     }
+
     //todo:注意使用BASIC来区分不会被抽到的牌
     private static String GetTmpImgPath(AbstractCard.CardType t) {
         String type;
@@ -162,7 +165,7 @@ public abstract class MoCard extends CustomCard {
     }
 
 
-//    public ArrayList<AbstractCard> getNearCard(AbstractCard c) {
+    //    public ArrayList<AbstractCard> getNearCard(AbstractCard c) {
 //        ArrayList<AbstractCard> cl = new ArrayList();
 //        if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT) {
 //            AbstractCard leftCard = null;
@@ -243,5 +246,7 @@ public abstract class MoCard extends CustomCard {
         return targetI;
     }
 
-
+    public void triggerOnEndOfPlayerTurn() {
+        this.addToTop(new ExhaustAllEtherealAction());
+    }
 }

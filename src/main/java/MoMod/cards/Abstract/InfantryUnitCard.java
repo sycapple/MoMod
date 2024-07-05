@@ -21,10 +21,6 @@ public abstract class InfantryUnitCard extends MoCard {
         this.tags.add(AbstractTagEnum.INFANTRY_UNIT);
     }
 
-    public void triggerOnEndOfPlayerTurn() {
-//        if(this.tags.contains(AbstractTagEnum.TRAINED_UNIT))
-//            AbstractDungeon.player.hand.moveToExhaustPile(this);
-    }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
