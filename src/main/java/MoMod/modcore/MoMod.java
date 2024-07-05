@@ -119,6 +119,17 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new GearChange());
         BaseMod.addCard(new TechOilDerrick());
         BaseMod.addCard(new Build0TechOilDerrick());
+        BaseMod.addCard(new EMPControlStation());
+        BaseMod.addCard(new Build0EMPControlStation());
+        BaseMod.addCard(new EMPulse());
+        BaseMod.addCard(new Build0SovietOreRefinery());
+        BaseMod.addCard(new SovietOreRefinery());
+        BaseMod.addCard(new WarMiner());
+        BaseMod.addCard(new TacticalNuke());
+        BaseMod.addCard(new Build0TacticalNukeSilo());
+        BaseMod.addCard(new OverCharge());
+        BaseMod.addCard(new TerrorDrop());
+        BaseMod.addCard(new RepairCrane());
         logger.info("========================= 卡牌加载完毕 =========================");
     }
 

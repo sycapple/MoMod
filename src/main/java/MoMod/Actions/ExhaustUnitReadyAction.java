@@ -32,6 +32,7 @@ public class ExhaustUnitReadyAction extends AbstractGameAction {
             card.drawScale = 0.12F;
             card.targetDrawScale = 0.75F;
             card.applyPowers();
+            target = AbstractDungeon.getRandomMonster();
             this.addToTop(new NewQueueCardAction(card, target, false, true));
             if (!Settings.FAST_MODE) {
                 this.addToBot(new WaitAction(Settings.ACTION_DUR_MED));

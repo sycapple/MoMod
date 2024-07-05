@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.RepairPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
+import java.util.Objects;
+
 //todo:有的时候有无法打出的bug,同时伴随能量不足,不知道
 public class ExpandTerritory extends MoCard {
     public static final String ID = MoModHelper.makeID(ExpandTerritory.class.getSimpleName());
@@ -40,7 +42,7 @@ public class ExpandTerritory extends MoCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (ConstructionPileManager.getMaxConstruction()+ this.magicNumber > PlayerHasConstructionPilePatch.MaxConstructionAvailable) {
+        if (Objects.equals(ConstructionPileManager.getMaxConstruction(), PlayerHasConstructionPilePatch.MaxConstructionAvailable)) {
             AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CardCrawlGame.languagePack.getUIString(MoModHelper.makeID(ExpandTerritory.class.getSimpleName())).TEXT[0], true));
             return false;
         }

@@ -3,6 +3,8 @@ package MoMod.Actions;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
+import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
@@ -17,7 +19,7 @@ public class UnitReadyAction extends AbstractGameAction {
     private static final float PADDING;
     private boolean isOtherCardInCenter;
     private boolean sameUUID;
-
+    private boolean use;
 
     public UnitReadyAction(AbstractCard card, int amount) {
         this.isOtherCardInCenter = false;
@@ -25,6 +27,32 @@ public class UnitReadyAction extends AbstractGameAction {
         this.amount = amount;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.c = card;
+        if (this.c.type != CardType.CURSE && this.c.type != CardType.STATUS && AbstractDungeon.player.hasPower("MasterRealityPower")) {
+            this.c.upgrade();
+        }
+
+    }
+
+    public UnitReadyAction(AbstractCard card, int amount, boolean use) {
+        this.isOtherCardInCenter = false;
+        this.sameUUID = true;
+        this.use = use;
+        this.amount = amount;
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.c = card;
+        if (this.c.type != CardType.CURSE && this.c.type != CardType.STATUS && AbstractDungeon.player.hasPower("MasterRealityPower")) {
+            this.c.upgrade();
+        }
+
+    }
+
+    public UnitReadyAction(AbstractCard card) {
+        this.isOtherCardInCenter = false;
+        this.sameUUID = true;
+        this.amount = 1;
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.c = card;
+        this.c.setCostForTurn(0);
         if (this.c.type != CardType.CURSE && this.c.type != CardType.STATUS && AbstractDungeon.player.hasPower("MasterRealityPower")) {
             this.c.upgrade();
         }
@@ -43,9 +71,14 @@ public class UnitReadyAction extends AbstractGameAction {
                 discardAmount = this.amount + AbstractDungeon.player.hand.size() - 10;
                 handAmount -= discardAmount;
             }
-
-            this.addToHand(handAmount);
-            this.addToDiscard(discardAmount);
+            if (!this.use) {
+                this.addToHand(handAmount);
+                this.addToDiscard(discardAmount);
+            } else {
+                for (int i = 0; i < amount; i++) {
+                    this.addToTop(new NewQueueCardAction(makeNewCard(), AbstractDungeon.getRandomMonster(), false, true));
+                }
+            }
             if (this.amount > 0) {
                 this.addToTop(new WaitAction(0.8F));
             }

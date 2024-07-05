@@ -153,5 +153,50 @@
   "momod:GearChange": {
     "NAME": "工厂维护",
     "DESCRIPTION": "生产建筑将停工 !M! 回合 NL 结束后, 获得 momod:产能升级 效果"
+  },
+  "momod:Build0EMPControlStation": {
+    "NAME": "电磁脉冲控制站",
+    "DESCRIPTION": "在 momod:建筑栏 中建造1座电磁脉冲控制站 NL 消耗 "
+  },
+  "momod:Build0TacticalNukeSilo": {
+    "NAME": "战术核弹发射井",
+    "DESCRIPTION": "在 momod:建筑栏 中建造1座战术核弹发射井 NL 消耗 "
+  },
+  "momod:EMPControlStation": {
+    "NAME": "电磁脉冲控制站",
+    "DESCRIPTION": "每3回合在手牌中加入1张 电磁脉冲 "
+  },
+  "momod:TacticalNukeSilo": {
+    "NAME": "战术核弹发射井",
+    "DESCRIPTION": "每 !M! 回合在手牌中加入1张 战术核弹攻击 "
+  },
+  "momod:EMPulse": {
+    "NAME": "电磁脉冲",
+    "DESCRIPTION": "给予所有敌人 momod:电磁紊乱 效果 NL 消耗 ",
+    "UPGRADED_DESCRIPTION": " 固有 NL 给予所有敌人 momod:电磁紊乱 效果 NL 消耗 "
+  },
+  "momod:Build0SovietOreRefinery": {
+    "NAME": "苏联矿石精炼厂",
+    "DESCRIPTION": "在 momod:建筑栏 中建造1个 苏联矿石精炼厂 NL 立刻打出 !M! 张 武装采矿车"
+  },
+  "momod:WarMiner": {
+    "NAME": "武装采矿车",
+    "DESCRIPTION": "获得 !B! 点格挡 NL 造成 !D! 点伤害"
+  },
+  "momod:TacticalNuke": {
+    "NAME": "战术核弹攻击",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害"
+  },
+  "momod:OverCharge": {
+    "NAME": "磁能过载",
+    "DESCRIPTION": " !M! 回合内 momod:电磁紊乱 的成功率上升至 100%"
+  },
+  "momod:TerrorDrop": {
+    "NAME": "恐怖机器人降临",
+    "DESCRIPTION": "立刻打出 !M! 张怒焰地雷机器人并 消耗 "
+  },
+  "momod:RepairCrane": {
+    "NAME": "维修起重机",
+    "DESCRIPTION": "获得 !M! 点 金属化 。"
   }
 }

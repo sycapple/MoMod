@@ -4,6 +4,7 @@ import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.InfantryUnitCard;
 import MoMod.cards.Abstract.MoCard;
 import MoMod.power.ElectromagneticParalysisPower;
+import MoMod.power.OverChargePower;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -52,6 +53,8 @@ public class ShockTrooper extends InfantryUnitCard {
         this.addToBot(ga);
         this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
         this.addToTop(new VFXAction(new LightningEffect(ga.target.hb.cX, ga.target.hb.cY)));
+        if (p.hasPower(OverChargePower.POWER_ID))
+            this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, p), this.magicNumber, true, AbstractGameAction.AttackEffect.LIGHTNING));
         if (MathUtils.random(0, 1) * 100 < this.magicNumber)
             this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, p), this.magicNumber, true, AbstractGameAction.AttackEffect.LIGHTNING));
     }

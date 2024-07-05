@@ -3,6 +3,7 @@ package MoMod.cards.attack;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.TankUnitCard;
 import MoMod.power.ElectromagneticParalysisPower;
+import MoMod.power.OverChargePower;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -37,7 +38,7 @@ public class TeslaCruiser extends TankUnitCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupDamage(15);
-        this.setupMagicNumber(75);
+        this.setupMagicNumber(50);
         this.exhaust = true;
         this.isEthereal = true;
     }
@@ -46,7 +47,7 @@ public class TeslaCruiser extends TankUnitCard {
     public void limitedUpgrade() {
         super.limitedUpgrade();
         this.upgradeDamage(5);
-        this.upgradeMagicNumber(25);
+        this.upgradeMagicNumber(75);
     }
 
     public void use(AbstractPlayer p, AbstractMonster mo) {
@@ -58,6 +59,8 @@ public class TeslaCruiser extends TankUnitCard {
                 this.addToBot(ga);
                 this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
                 this.addToTop(new VFXAction(new LightningEffect(ga.target.hb.cX, ga.target.hb.cY)));
+                if (p.hasPower(OverChargePower.POWER_ID))
+                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, p), this.magicNumber, true, AbstractGameAction.AttackEffect.LIGHTNING));
                 if (MathUtils.random(0, 1) * 100 < this.magicNumber)
                     this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, p), this.magicNumber, true, AbstractGameAction.AttackEffect.LIGHTNING));
             }

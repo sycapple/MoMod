@@ -14,5 +14,15 @@
     "TEXT": [
       "我的建筑槽位已达到上限！"
     ]
+  },
+  "momod:Build0EMPControlStation": {
+    "TEXT": [
+      "我已经拥有1座电磁脉冲控制站了！"
+    ]
+  },
+  "momod:Build0TacticalNukeSilo": {
+    "TEXT": [
+      "我已经拥有1座战术核弹发射井了！"
+    ]
   }
 }

@@ -50,6 +50,10 @@ public abstract class AbstractBuildingConstructionCard extends MoCard {
                 c = new TechOilDerrick();
                 break;
             }
+            case "SovietOreRefinery": {
+                c = new SovietOreRefinery();
+                break;
+            }
         }
         return c;
     }
@@ -65,4 +69,10 @@ public abstract class AbstractBuildingConstructionCard extends MoCard {
         this.building();
     }
 
+    @Override
+    public void triggerOnManualDiscard() {
+        AbstractConstructionCard c = new Walls();
+        this.addToTop(new AddCardToConstructionPileAction(c));
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, c.getPower(true)));
+    }
 }

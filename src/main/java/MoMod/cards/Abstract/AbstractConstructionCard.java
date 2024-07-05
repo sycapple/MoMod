@@ -88,6 +88,10 @@ public abstract class AbstractConstructionCard extends MoCard {
                 po = new TechOilDerrickPower(AbstractDungeon.player, AD);
                 break;
             }
+            case "SovietOreRefinery": {
+                po = new SovietOreRefineryPower(AbstractDungeon.player, AD);
+                break;
+            }
         }
         return po;
     }
