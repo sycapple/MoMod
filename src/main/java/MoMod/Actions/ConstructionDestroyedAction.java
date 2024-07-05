@@ -19,8 +19,7 @@ public class ConstructionDestroyedAction extends AbstractGameAction {
     }
 
     public void update() {
-        for (int i = 0; i < 2; i++)
-            this.addToBot(new ExhaustUnitReadyAction(new Conscript(), 2));
+        this.addToBot(new ExhaustUnitReadyAction(new Conscript(), 2));
         this.addToBot(new GainEnergyAction(1));
         this.isDone = true;
     }

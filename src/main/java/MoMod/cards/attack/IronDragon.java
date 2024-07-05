@@ -25,7 +25,7 @@ import java.util.Iterator;
 public class IronDragon extends TankUnitCard {
     public static final String ID = MoModHelper.makeID(IronDragon.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final int COST = 3;
+    private static final int COST = 4;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
@@ -47,7 +47,7 @@ public class IronDragon extends TankUnitCard {
         this.upgradeMagicNumber(1);
     }
 
-    //todo:无实体效果结束时间错误
+
     public void use(AbstractPlayer p, AbstractMonster mo) {
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
         while (var3.hasNext()) {

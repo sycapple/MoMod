@@ -8,8 +8,10 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
@@ -30,11 +32,10 @@ public class IrradiationGammaPower extends AbstractMoPower {
         this.amount = amount;
         this.isTurnBased = true;
         this.percent = percent;
-        //todo:放射装甲能力贴图
-//        String path128 = MoModHelper.assetPath("img/powers/") + IrradiationGamma.class.getSimpleName() + "B.png";
-//        String path48 = MoModHelper.assetPath("img/powers/") + IrradiationGamma.class.getSimpleName() + ".png";
-//        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
-//        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+        String path128 = MoModHelper.assetPath("img/powers/") + IrradiationGammaPower.class.getSimpleName() + "B.png";
+        String path48 = MoModHelper.assetPath("img/powers/") + IrradiationGammaPower.class.getSimpleName() + ".png";
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
     }
 

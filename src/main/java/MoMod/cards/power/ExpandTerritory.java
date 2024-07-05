@@ -4,6 +4,7 @@ package MoMod.cards.power;
 import MoMod.Actions.TechnologyUpgradeAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.MoCard;
+import MoMod.patches.PlayerHasConstructionPilePatch;
 import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.RepairPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
+//todo:有的时候有无法打出的bug,同时伴随能量不足,不知道
 public class ExpandTerritory extends MoCard {
     public static final String ID = MoModHelper.makeID(ExpandTerritory.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -26,6 +28,7 @@ public class ExpandTerritory extends MoCard {
 
     public ExpandTerritory() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
+        //todo:开疆拓土卡牌贴图
         super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(2);
     }
@@ -37,7 +40,7 @@ public class ExpandTerritory extends MoCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (ConstructionPileManager.getMaxConstruction() <= ConstructionPileManager.getConstructionCnt()) {
+        if (ConstructionPileManager.getMaxConstruction()+ this.magicNumber > PlayerHasConstructionPilePatch.MaxConstructionAvailable) {
             AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, CardCrawlGame.languagePack.getUIString(MoModHelper.makeID(ExpandTerritory.class.getSimpleName())).TEXT[0], true));
             return false;
         }

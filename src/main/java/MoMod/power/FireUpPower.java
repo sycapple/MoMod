@@ -5,6 +5,8 @@ import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.patches.powerInterfaces.HealthBarRenderPowerPatch;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,7 +16,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class FireUpPower extends AbstractMoPower {
+public class FireUpPower extends AbstractMoPower implements HealthBarRenderPower {
     protected Color greenColor2;
     public static final String POWER_ID = MoModHelper.makeID(FireUpPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -22,6 +24,7 @@ public class FireUpPower extends AbstractMoPower {
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private final AbstractCreature source;
     public int vigour = 0;
+    public Color fireUpColor = new Color(0xfff89cff);
 
     //todo:使用两个参数来控制,一个是燃烧值,一个是燃烧率
     // 燃烧率 决定每回合加多少燃烧值
@@ -36,6 +39,14 @@ public class FireUpPower extends AbstractMoPower {
         String path48 = MoModHelper.assetPath("img/powers/") + FireUpPower.class.getSimpleName() + ".png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+    }
+
+    public int getHealthBarAmount() {
+        return this.amount;
+    }
+
+    public Color getColor() {
+        return this.fireUpColor.cpy();
     }
 
     public FireUpPower(AbstractCreature owner, AbstractCreature source, int amount) {

@@ -105,8 +105,7 @@
   },
   "momod:IrradiationGamma": {
     "NAME": "放射性装甲",
-    "DESCRIPTION": "获得2层 momod:放射性装甲",
-    "UPGRADE_DESCRIPTION": "获得3层 momod:放射性装甲"
+    "DESCRIPTION": "获得 !M! 层 momod:放射性装甲"
   },
   "momod:DebrisShelter": {
     "NAME": "废墟掩体",

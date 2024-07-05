@@ -29,15 +29,15 @@ public class Pyro extends InfantryUnitCard {
     public Pyro() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.setupDamage(5);
+        this.setupDamage(3);
         this.setupMagicNumber(5);
     }
 
     @Override
     public void limitedUpgrade() {
         super.limitedUpgrade();
-        this.upgradeDamage(5);
-        this.upgradeMagicNumber(5);
+        this.upgradeDamage(2);
+        this.upgradeMagicNumber(3);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

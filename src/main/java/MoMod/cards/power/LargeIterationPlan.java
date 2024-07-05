@@ -28,7 +28,7 @@ public class LargeIterationPlan extends MoCard {
 
     @Override
     public void limitedUpgrade() {
-        super.limitedUpgrade();
+        this.upgradeBaseCost(1);
     }
 
     @Override

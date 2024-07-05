@@ -24,8 +24,7 @@ public class DebrisShelter extends MoCard {
 
     public DebrisShelter() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:废墟掩体卡牌贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(3);
     }
 

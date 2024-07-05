@@ -36,14 +36,14 @@ public class Buratino extends TankUnitCard {
     public Buratino() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.setupDamage(10);
+        this.setupDamage(7);
         this.setupMagicNumber(5);
     }
 
     @Override
     public void limitedUpgrade() {
         super.limitedUpgrade();
-        this.upgradeDamage(5);
+        this.upgradeDamage(3);
         this.upgradeMagicNumber(5);
     }
 

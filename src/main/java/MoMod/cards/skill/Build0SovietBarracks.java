@@ -25,6 +25,10 @@ public class Build0SovietBarracks extends AbstractBuildingConstructionCard {
         this.cardsToPreview = new SovietBarracks();
     }
 
+    public void limitedUpgrade() {
+        this.upgradeBaseCost(1);
+    }
+
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         super.use(abstractPlayer, abstractMonster);

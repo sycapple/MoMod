@@ -23,19 +23,19 @@ public class IrradiationGamma extends MoCard {
     public IrradiationGamma() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.setupMagicNumber(50);
-        this.setupSecondaryMagicNumber(2);
+        this.setupMagicNumber(2);
+        this.setupSecondaryMagicNumber(50);
     }
 
 
     @Override
     public void limitedUpgrade() {
-        this.upgradeSecondaryM(1);
+        this.upgradeMagicNumber(1);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new IrradiationGammaPower(p, this.secondaryM, this.magicNumber), this.secondaryM));
+        this.addToBot(new ApplyPowerAction(p, p, new IrradiationGammaPower(p, this.magicNumber, this.secondaryM), this.magicNumber));
     }
 
 }

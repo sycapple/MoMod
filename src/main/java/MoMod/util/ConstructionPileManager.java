@@ -36,6 +36,7 @@ public class ConstructionPileManager {
         return (Integer) PlayerHasConstructionPilePatch.ConstructionPileField.maxConstruction.get(AbstractDungeon.player);
     }
 
+
     public static void buildingConstruction(AbstractCard c) {
         CardGroup mp = ConstructionPileManager.getConstructionPile();
         if (mp.size() >= ConstructionPileManager.getMaxConstruction()) {

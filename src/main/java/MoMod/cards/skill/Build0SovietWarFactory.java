@@ -23,6 +23,10 @@ public class Build0SovietWarFactory extends AbstractBuildingConstructionCard {
         this.cardsToPreview = new SovietWarFactory();
     }
 
+    public void limitedUpgrade() {
+        this.upgradeBaseCost(1);
+    }
+
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         super.use(abstractPlayer, abstractMonster);

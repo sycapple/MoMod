@@ -18,10 +18,9 @@ public class Build0IndustrialPlant extends AbstractBuildingConstructionCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 
-    //todo:工业工厂卡牌贴图
+
     public Build0IndustrialPlant() {
-        //todo:工业工厂技能卡贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.cardsToPreview = new IndustrialPlant();
     }
 

@@ -63,7 +63,6 @@ public class FuryDronepower extends AbstractMoPower {
 
     @Override
     public void atEndOfRound() {
-        //todo:怒焰机器人每回合结束会消失,后面加一个能力让他不会消失
         if (this.amount != 0) {
             if(!AbstractDungeon.player.hasPower(TerrorDronePower.POWER_ID)) {
                 this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount));
