@@ -47,7 +47,7 @@ public class TeslaCruiser extends TankUnitCard {
     public void limitedUpgrade() {
         super.limitedUpgrade();
         this.upgradeDamage(5);
-        this.upgradeMagicNumber(75);
+        this.upgradeMagicNumber(25);
     }
 
     public void use(AbstractPlayer p, AbstractMonster mo) {
@@ -60,9 +60,9 @@ public class TeslaCruiser extends TankUnitCard {
                 this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
                 this.addToTop(new VFXAction(new LightningEffect(ga.target.hb.cX, ga.target.hb.cY)));
                 if (p.hasPower(OverChargePower.POWER_ID))
-                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, p), this.magicNumber, true, AbstractGameAction.AttackEffect.LIGHTNING));
+                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, 1, p), 1));
                 if (MathUtils.random(0, 1) * 100 < this.magicNumber)
-                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, p), this.magicNumber, true, AbstractGameAction.AttackEffect.LIGHTNING));
+                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, 1, p), 1));
             }
         }
     }

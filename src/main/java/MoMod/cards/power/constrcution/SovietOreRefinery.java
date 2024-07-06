@@ -19,8 +19,7 @@ public class SovietOreRefinery extends AbstractConstructionCard {
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 
     public SovietOreRefinery() {
-        super(ID, true, CARD_STRINGS, COLOR, RARITY);
-        //todo:苏军矿场能力贴图
+        super(ID, false, CARD_STRINGS, COLOR, RARITY);
     }
 
     @Override

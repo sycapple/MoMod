@@ -4,6 +4,7 @@ import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.InfantryUnitCard;
 import MoMod.cards.Abstract.MoCard;
 import MoMod.power.FireUpPower;
+import MoMod.relics.WhitePhosphorus;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -28,7 +29,7 @@ public class Arsonist extends InfantryUnitCard {
     public Arsonist() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.setupMagicNumber(10);
+        this.setupMagicNumber(7);
     }
 
     @Override
@@ -40,9 +41,17 @@ public class Arsonist extends InfantryUnitCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
-        this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber, this.magicNumber), this.magicNumber));
+        if (AbstractDungeon.player.hasRelic(WhitePhosphorus.ID)) {
+            AbstractDungeon.player.getRelic(WhitePhosphorus.ID).flash();
+            this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber * 2), this.magicNumber * 2));
+        } else
+            this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber, this.magicNumber), this.magicNumber));
         FireUpPower po = (FireUpPower) m.getPower(FireUpPower.POWER_ID);
         if (po != null)
-            po.vigour += this.magicNumber;
+            if (AbstractDungeon.player.hasRelic(WhitePhosphorus.ID)) {
+                AbstractDungeon.player.getRelic(WhitePhosphorus.ID).flash();
+                po.vigour += this.magicNumber * 2;
+            } else
+                po.vigour += this.magicNumber;
     }
 }

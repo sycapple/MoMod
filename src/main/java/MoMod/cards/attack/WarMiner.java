@@ -20,8 +20,7 @@ public class WarMiner extends InfantryUnitCard {
 
     public WarMiner() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:武装采矿车贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupDamage(5);
         this.setupBlock(5);
     }

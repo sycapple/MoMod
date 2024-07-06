@@ -5,11 +5,13 @@ import MoMod.cards.attack.TacticalNuke;
 import MoMod.cards.skill.EMPulse;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -31,10 +33,10 @@ public class TacticalNukeSiloPower extends AbstractMoPower {
         this.Cuuid = uuid;
         this.amount = turns;
         //todo:战术核弹发射井能力贴图
-//        String path128 = MoModHelper.assetPath("img/powers/") + EMPControlStationPower.class.getSimpleName() + "B.png";
-//        String path48 = MoModHelper.assetPath("img/powers/") + EMPControlStationPower.class.getSimpleName() + ".png";
-//        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
-//        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+        String path128 = MoModHelper.assetPath("img/powers/") + TacticalNukeSiloPower.class.getSimpleName() + "B.png";
+        String path48 = MoModHelper.assetPath("img/powers/") + TacticalNukeSiloPower.class.getSimpleName() + ".png";
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
     }
 

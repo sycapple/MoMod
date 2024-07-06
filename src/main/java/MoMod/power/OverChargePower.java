@@ -32,10 +32,10 @@ public class OverChargePower extends AbstractMoPower {
         this.amount = amount;
         this.isTurnBased = true;
         //todo:磁能过载 能力贴图
-//        String path128 = MoModHelper.assetPath("img/powers/") + OverChargePower.class.getSimpleName() + "B.png";
-//        String path48 = MoModHelper.assetPath("img/powers/") + OverChargePower.class.getSimpleName() + ".png";
-//        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
-//        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+        String path128 = MoModHelper.assetPath("img/powers/") + OverChargePower.class.getSimpleName() + "B.png";
+        String path48 = MoModHelper.assetPath("img/powers/") + OverChargePower.class.getSimpleName() + ".png";
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
     }
 

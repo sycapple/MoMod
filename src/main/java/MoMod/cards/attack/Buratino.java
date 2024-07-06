@@ -5,6 +5,7 @@ import MoMod.Enums.AbstractTagEnum;
 import MoMod.cards.Abstract.TankUnitCard;
 import MoMod.power.ElectromagneticParalysisPower;
 import MoMod.power.FireUpPower;
+import MoMod.relics.WhitePhosphorus;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -52,8 +53,12 @@ public class Buratino extends TankUnitCard {
         while (var3.hasNext()) {
             AbstractMonster m = (AbstractMonster) var3.next();
             if (m != null && !m.isDead) {
-                this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber), this.magicNumber));
                 this.addToBot(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.damage), AbstractGameAction.AttackEffect.FIRE));
+                if (AbstractDungeon.player.hasRelic(WhitePhosphorus.ID)) {
+                    AbstractDungeon.player.getRelic(WhitePhosphorus.ID).flash();
+                    this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber * 2), this.magicNumber * 2));
+                } else
+                    this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber), this.magicNumber));
             }
         }
     }

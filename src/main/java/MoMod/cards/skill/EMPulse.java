@@ -26,8 +26,7 @@ public class EMPulse extends MoCard {
 
     public EMPulse() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:电磁脉冲技能贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
     }
 
@@ -43,7 +42,7 @@ public class EMPulse extends MoCard {
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
         while (var3.hasNext()) {
             AbstractMonster mo = (AbstractMonster) var3.next();
-            this.addToBot(new ApplyPowerAction(mo, p, new ElectromagneticParalysisPower(mo, p), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+            this.addToBot(new ApplyPowerAction(mo, p, new ElectromagneticParalysisPower(mo, 1, p), 1));
         }
     }
 }

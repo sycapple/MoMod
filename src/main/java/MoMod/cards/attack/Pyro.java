@@ -5,6 +5,7 @@ import MoMod.cards.Abstract.InfantryUnitCard;
 import MoMod.cards.Abstract.MoCard;
 import MoMod.cards.Abstract.TankUnitCard;
 import MoMod.power.FireUpPower;
+import MoMod.relics.WhitePhosphorus;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -42,7 +43,11 @@ public class Pyro extends InfantryUnitCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.damage), AbstractGameAction.AttackEffect.FIRE));
-        this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber), this.magicNumber));
+        if (AbstractDungeon.player.hasRelic(WhitePhosphorus.ID)) {
+            AbstractDungeon.player.getRelic(WhitePhosphorus.ID).flash();
+            this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber * 2), this.magicNumber * 2));
+        } else
+            this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber), this.magicNumber));
     }
 
 }

@@ -32,8 +32,7 @@ public class Build0EMPControlStation extends AbstractBuildingConstructionCard {
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 
     public Build0EMPControlStation() {
-        //todo:电磁脉冲控制站 技能贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(3);
         this.cardsToPreview = new EMPControlStation();
         this.exhaust = true;
@@ -42,7 +41,8 @@ public class Build0EMPControlStation extends AbstractBuildingConstructionCard {
 
     @Override
     public void limitedUpgrade() {
-        this.upgradeBaseCost(1);
+        this.isInnate = true;
+        this.upgradeDescription(CARD_STRINGS);
     }
 
     @Override

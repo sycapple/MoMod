@@ -2,6 +2,7 @@ package MoMod.power;
 
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -24,14 +26,14 @@ public class ElectromagneticParalysisPower extends AbstractMoPower {
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private final AbstractCreature source;
 
-    public ElectromagneticParalysisPower(AbstractCreature owner, AbstractCreature source) {
+    public ElectromagneticParalysisPower(AbstractCreature owner, int amount, AbstractCreature source) {
         this.greenColor2 = Color.RED.cpy();
         this.name = NAME;
         this.ID = POWER_ID;
+        this.amount = amount;
         this.owner = owner;
         this.source = source;
         this.type = PowerType.DEBUFF;
-        this.isTurnBased = true;
         String path128 = MoModHelper.assetPath("img/powers/") + ElectromagneticParalysisPower.class.getSimpleName() + "B.png";
         String path48 = MoModHelper.assetPath("img/powers/") + ElectromagneticParalysisPower.class.getSimpleName() + ".png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
@@ -42,7 +44,23 @@ public class ElectromagneticParalysisPower extends AbstractMoPower {
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
         this.addToBot(new StunMonsterAction((AbstractMonster) this.owner, AbstractDungeon.player));
+    }
+
+    public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
+        super.renderAmount(sb, x, y, c);
+        if (this.amount == 0) {
+            if (!this.isTurnBased) {
+                this.greenColor2.a = c.a;
+                c = this.greenColor2;
+            }
+            FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(this.amount), x, y, this.fontScale, c);
+        }
     }
 
     public void updateDescription() {
@@ -56,6 +74,5 @@ public class ElectromagneticParalysisPower extends AbstractMoPower {
         } else {
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
-
     }
 }

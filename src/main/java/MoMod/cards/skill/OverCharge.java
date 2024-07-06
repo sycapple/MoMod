@@ -6,11 +6,14 @@ import MoMod.cards.Abstract.MoCard;
 import MoMod.power.IrradiationGammaPower;
 import MoMod.power.OverChargePower;
 import MoMod.util.MoModHelper;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 public class OverCharge extends MoCard {
     public static final String ID = MoModHelper.makeID(OverCharge.class.getSimpleName());
@@ -23,8 +26,7 @@ public class OverCharge extends MoCard {
 
     public OverCharge() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:磁能过载 技能贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(2);
     }
 
@@ -36,6 +38,8 @@ public class OverCharge extends MoCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
+        this.addToTop(new VFXAction(new LightningEffect(p.hb.cX, p.hb.cY)));
         this.addToBot(new ApplyPowerAction(p, p, new OverChargePower(p, this.magicNumber), this.magicNumber));
     }
 

@@ -38,11 +38,10 @@ public class EMPControlStationPower extends AbstractMoPower {
         this.type = PowerType.BUFF;
         this.Cuuid = uuid;
         this.amount = turns;
-        //todo:emp控制站能力贴图
-//        String path128 = MoModHelper.assetPath("img/powers/") + EMPControlStationPower.class.getSimpleName() + "B.png";
-//        String path48 = MoModHelper.assetPath("img/powers/") + EMPControlStationPower.class.getSimpleName() + ".png";
-//        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
-//        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+        String path128 = MoModHelper.assetPath("img/powers/") + EMPControlStationPower.class.getSimpleName() + "B.png";
+        String path48 = MoModHelper.assetPath("img/powers/") + EMPControlStationPower.class.getSimpleName() + ".png";
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
     }
 

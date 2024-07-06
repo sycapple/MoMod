@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class MoonDrop extends MoCard {
     public static final String ID = MoModHelper.makeID(MoonDrop.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final int COST = 2;
+    private static final int COST = 3;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -23,14 +23,13 @@ public class MoonDrop extends MoCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.cardsToPreview = new CyborgVanguard();
-        this.setupMagicNumber(3);
-        this.exhaust = true;
+        this.setupMagicNumber(2);
     }
 
 
     @Override
     public void limitedUpgrade() {
-        this.upgradeMagicNumber(2);
+        this.upgradeBaseCost(2);
     }
 
     @Override

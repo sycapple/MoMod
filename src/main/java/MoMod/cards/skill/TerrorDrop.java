@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class TerrorDrop extends MoCard {
     public static final String ID = MoModHelper.makeID(TerrorDrop.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -21,10 +21,10 @@ public class TerrorDrop extends MoCard {
 
     public TerrorDrop() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:恐怖机器人降临技能贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(2);
         this.cardsToPreview = new FuryDrone();
+        this.exhaust = true;
     }
 
 

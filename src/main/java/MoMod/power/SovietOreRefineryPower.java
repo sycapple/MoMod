@@ -3,12 +3,14 @@ package MoMod.power;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class SovietOreRefineryPower extends AbstractMoPower {
@@ -25,11 +27,10 @@ public class SovietOreRefineryPower extends AbstractMoPower {
         this.owner = owner;
         this.type = PowerType.BUFF;
         this.amount = AD ? 1 : -1;
-        //todo:苏联矿场能力贴图
-//        String path128 = MoModHelper.assetPath("img/powers/") + SovietOreRefinery.class.getSimpleName() + "B.png";
-//        String path48 = MoModHelper.assetPath("img/powers/") + SovietOreRefinery.class.getSimpleName() + ".png";
-//        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
-//        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+        String path128 = MoModHelper.assetPath("img/powers/") + SovietOreRefineryPower.class.getSimpleName() + "B.png";
+        String path48 = MoModHelper.assetPath("img/powers/") + SovietOreRefineryPower.class.getSimpleName() + ".png";
+        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
     }
 

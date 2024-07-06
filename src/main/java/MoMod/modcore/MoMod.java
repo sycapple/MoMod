@@ -11,6 +11,8 @@ import MoMod.characters.Soviet;
 import MoMod.colorSet.SovietColorSet;
 import MoMod.power.*;
 import MoMod.relics.SovietRelic;
+import MoMod.relics.TerrorDrone;
+import MoMod.relics.WhitePhosphorus;
 import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.Enums.AbstractCharactersEnum;
@@ -20,6 +22,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
@@ -113,7 +116,7 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new SmokeBombs());
         BaseMod.addCard(new ExpandTerritory());
         BaseMod.addCard(new RepairDrone());
-        BaseMod.addCard(new TerrorDrone());
+//        BaseMod.addCard(new TerrorDrone());
         BaseMod.addCard(new Build0IndustrialPlant());
         BaseMod.addCard(new IndustrialPlant());
         BaseMod.addCard(new GearChange());
@@ -130,12 +133,22 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new OverCharge());
         BaseMod.addCard(new TerrorDrop());
         BaseMod.addCard(new RepairCrane());
+        BaseMod.addCard(new RadAttack());
+        BaseMod.addCard(new EMPMines());
+        BaseMod.addCard(new WarCash());
+        BaseMod.addCard(new HydraCannon());
+        BaseMod.addCard(new TankKiller());
+        BaseMod.addCard(new TankDrop());
+        BaseMod.addCard(new MortarQuad());
+        BaseMod.addCard(new MotorAmbush());
         logger.info("========================= 卡牌加载完毕 =========================");
     }
 
     public void receiveEditRelics() {
         logger.info("========================= 开始加载遗物 =========================");
-        BaseMod.addRelic(new SovietRelic(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+        BaseMod.addRelicToCustomPool(new SovietRelic(), AbstractCardEnum.SOVIET); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+        BaseMod.addRelicToCustomPool(new TerrorDrone(), AbstractCardEnum.SOVIET); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+        BaseMod.addRelicToCustomPool(new WhitePhosphorus(), AbstractCardEnum.SOVIET); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
         logger.info("========================= 遗物加载完毕 =========================");
     }
 

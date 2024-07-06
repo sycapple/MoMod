@@ -30,8 +30,7 @@ public class Build0TacticalNukeSilo extends AbstractBuildingConstructionCard {
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 
     public Build0TacticalNukeSilo() {
-        //todo:战术核弹发射井 技能贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(5);
         this.cardsToPreview = new TacticalNukeSilo(this.magicNumber);
         this.exhaust = true;

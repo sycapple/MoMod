@@ -22,6 +22,8 @@ public class ExhaustUnitReadyAction extends AbstractGameAction {
     public void update() {
         for (int i = 0; i < amount; i++) {
             AbstractCard card = c.makeCopy();
+            if (c.upgraded)
+                card.upgrade();
             card.exhaustOnUseOnce = true;
             AbstractDungeon.player.limbo.group.add(card);
             card.current_y = -200.0F * Settings.scale;

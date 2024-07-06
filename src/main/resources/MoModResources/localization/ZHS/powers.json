@@ -19,7 +19,7 @@
     "NAME": "围墙",
     "DESCRIPTIONS": [
       "现在你有",
-      "层 围墙 ,在每回合开始将获得",
+      "层 围墙 ,在每回合结束将获得",
       "点 格挡 ",
       "次"
     ]
@@ -71,6 +71,13 @@
     "DESCRIPTIONS": [
       "当受到攻击时,对攻击者造成 ",
       " 点伤害 NL 每回合结束时失去所有怒焰地雷机器人"
+    ]
+  },
+  "momod:EMPMinesPower": {
+    "NAME": "EMP地雷",
+    "DESCRIPTIONS": [
+      "当受到攻击时,有 ",
+      " %的概率对攻击者造成 电磁紊乱效果 NL 每回合结束时失去所有EMP地雷"
     ]
   },
   "momod:LargeIterationPlanPower": {

@@ -1,5 +1,6 @@
 package MoMod.power;
 
+import MoMod.relics.TerrorDrone;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -64,10 +65,11 @@ public class FuryDronepower extends AbstractMoPower {
     @Override
     public void atEndOfRound() {
         if (this.amount != 0) {
-            if (!AbstractDungeon.player.hasPower(TerrorDronePower.POWER_ID)) {
+            if (!AbstractDungeon.player.hasRelic(TerrorDrone.ID)) {
                 this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount));
                 this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-            }
+            } else
+                AbstractDungeon.player.getRelic(TerrorDrone.ID).flash();
         }
     }
 

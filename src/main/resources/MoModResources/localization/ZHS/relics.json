@@ -3,7 +3,21 @@
     "NAME": "苏联徽章",
     "FLAVOR": "战痕累累的徽章",
     "DESCRIPTIONS": [
-      "每建造 5 建筑,提升1次科技等级"
+      "每建造 4 建筑,提升1次科技等级"
+    ]
+  },
+  "momod:TerrorDrone": {
+    "NAME": "恐怖机器人",
+    "FLAVOR": "超恐怖的",
+    "DESCRIPTIONS": [
+      "怒焰机器人 和 EMP地雷不会在回合结束时消失"
+    ]
+  },
+  "momod:WhitePhosphorus": {
+    "NAME": "白磷",
+    "FLAVOR": "拉丁同盟生产,质量保证",
+    "DESCRIPTIONS": [
+      "所有点燃值效果翻倍"
     ]
   }
 }

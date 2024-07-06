@@ -53,7 +53,7 @@
       "围墙",
       "Walls"
     ],
-    "DESCRIPTION": "在回合开始阶段给予格挡"
+    "DESCRIPTION": "在回合结束阶段给予格挡"
   },
   {
     "NAMES": [
@@ -95,5 +95,19 @@
       "EMPulse"
     ],
     "DESCRIPTION": "给予所有敌人电磁紊乱效果"
+  },
+  {
+    "NAMES": [
+      "emp地雷",
+      "EMPMines"
+    ],
+    "DESCRIPTION": "当受到攻击时,有75%的概率对攻击者造成 电磁紊乱效果 NL 每回合结束时失去所有EMP地雷"
+  },
+  {
+    "NAMES": [
+      "坦克歼击车",
+      "TankKiller"
+    ],
+    "DESCRIPTION": "造成 9 点伤害 1 次"
   }
 ]

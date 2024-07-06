@@ -30,8 +30,7 @@ public class EMPControlStation extends AbstractConstructionCard {
 
     public EMPControlStation() {
         //为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:emp控制站能力贴图
-        super(ID, true, CARD_STRINGS, COLOR, RARITY);
+        super(ID, false, CARD_STRINGS, COLOR, RARITY);
         this.cardsToPreview = new EMPulse();
     }
 

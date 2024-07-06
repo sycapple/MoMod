@@ -21,8 +21,7 @@ public class Build0SovietOreRefinery extends AbstractBuildingConstructionCard {
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 
     public Build0SovietOreRefinery() {
-        //todo:苏军矿场技能贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.cardsToPreview = new WarMiner();
         this.setupMagicNumber(1);
     }

@@ -35,8 +35,7 @@ public class WallsPower extends AbstractMoPower {
     }
 
     public void atStartOfTurn() {
-        this.flash();
-        this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount * 3));
+
     }
 
 
@@ -68,4 +67,9 @@ public class WallsPower extends AbstractMoPower {
         }
     }
 
+    @Override
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        this.flash();
+        this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount * 3));
+    }
 }

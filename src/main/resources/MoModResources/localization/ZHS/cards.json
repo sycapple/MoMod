@@ -113,7 +113,7 @@
   },
   "momod:MoonDrop": {
     "NAME": "月球空投",
-    "DESCRIPTION": "在手牌中加入 !M! 张半机械人先驱 NL 消耗 "
+    "DESCRIPTION": "在手牌中加入 !M! 张半机械人先驱 "
   },
   "momod:RepairDrone": {
     "NAME": "维修无人机",
@@ -144,7 +144,7 @@
   "momod:TechOilDerrick": {
     "NAME": "科技钻油井",
     "DESCRIPTION": "每回合开始阶段获得 [E] ",
-    "UPGRADED_DESCRIPTION": "在 momod:建筑栏 中加入1张科技钻油井 NL 获得 [E] [E] "
+    "UPGRADE_DESCRIPTION": "在 momod:建筑栏 中加入1张科技钻油井 NL 获得 [E] [E] "
   },
   "momod:SmokeBombs": {
     "NAME": "烟雾弹空袭",
@@ -156,7 +156,8 @@
   },
   "momod:Build0EMPControlStation": {
     "NAME": "电磁脉冲控制站",
-    "DESCRIPTION": "在 momod:建筑栏 中建造1座电磁脉冲控制站 NL 消耗 "
+    "DESCRIPTION": "在 momod:建筑栏 中建造1座电磁脉冲控制站 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "在 momod:建筑栏 中建造1座电磁脉冲控制站 NL 消耗 NL 固有 "
   },
   "momod:Build0TacticalNukeSilo": {
     "NAME": "战术核弹发射井",
@@ -173,11 +174,15 @@
   "momod:EMPulse": {
     "NAME": "电磁脉冲",
     "DESCRIPTION": "给予所有敌人 momod:电磁紊乱 效果 NL 消耗 ",
-    "UPGRADED_DESCRIPTION": " 固有 NL 给予所有敌人 momod:电磁紊乱 效果 NL 消耗 "
+    "UPGRADE_DESCRIPTION": " 固有 NL 给予所有敌人 momod:电磁紊乱 效果 NL 消耗 "
   },
   "momod:Build0SovietOreRefinery": {
     "NAME": "苏联矿石精炼厂",
     "DESCRIPTION": "在 momod:建筑栏 中建造1个 苏联矿石精炼厂 NL 立刻打出 !M! 张 武装采矿车"
+  },
+  "momod:SovietOreRefinery": {
+    "NAME": "苏联矿石精炼厂",
+    "DESCRIPTION": "每回合开始阶段 获得 [E] "
   },
   "momod:WarMiner": {
     "NAME": "武装采矿车",
@@ -193,10 +198,44 @@
   },
   "momod:TerrorDrop": {
     "NAME": "恐怖机器人降临",
-    "DESCRIPTION": "立刻打出 !M! 张怒焰地雷机器人并 消耗 "
+    "DESCRIPTION": "立刻打出 !M! 张怒焰地雷机器人并 消耗 NL 消耗 "
   },
   "momod:RepairCrane": {
     "NAME": "维修起重机",
     "DESCRIPTION": "获得 !M! 点 金属化 。"
+  },
+  "momod:RadAttack": {
+    "NAME": "辐射空袭",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 !M! 次。"
+  },
+  "momod:EMPMines": {
+    "NAME": "EMP地雷",
+    "DESCRIPTION": "获得 !B! 点格挡 NL 获得 !M! 层 momod:emp地雷 。"
+  },
+  "momod:WarCash": {
+    "NAME": "战争资金",
+    "DESCRIPTION": "获得 [E] [E] NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E] NL 消耗 。"
+  },
+  "momod:HydraCannon": {
+    "NAME": "九头蛇炮",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次"
+  },
+  "momod:TankKiller": {
+    "NAME": "坦克歼击车",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次"
+  },
+  "momod:TankDrop": {
+    "NAME": "空降坦克",
+    "DESCRIPTION": "立刻 打出 九头蛇炮 和 坦克歼击车 !M! 次并 消耗 NL 消耗 "
+  },
+  "momod:MortarQuad": {
+    "NAME": "火炮机车",
+    "DESCRIPTION": "造成 !D! 点伤害 NL 抽 !M! 张牌"
+  },
+  "momod:MotorAmbush": {
+    "NAME": "火炮机车突袭",
+    "DESCRIPTION": "立刻打出 火炮机车 !M! 次并 消耗",
+    "UPGRADE_DESCRIPTION": "立刻打出 火炮机车突袭+ !M! 次并 消耗"
   }
 }
