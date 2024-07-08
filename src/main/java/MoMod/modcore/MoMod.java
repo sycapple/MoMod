@@ -4,6 +4,7 @@ package MoMod.modcore;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.Enums.AbstractCharactersEnum;
 import MoMod.Enums.AbstractSovietRewardsEnum;
+import MoMod.Events.SelfExplosiveCowEvent;
 import MoMod.Rewards.SovietCardReward;
 import MoMod.cards.attack.*;
 import MoMod.cards.power.*;
@@ -57,6 +58,7 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
             SovietCardReward db = new SovietCardReward();
             return db;
         }, (customReward) -> new RewardSave(customReward.type.toString(), (String) null));
+        BaseMod.addEvent(SelfExplosiveCowEvent.ID, SelfExplosiveCowEvent.class);
     }
 
     public static void initialize() {
@@ -151,6 +153,7 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new Build0SensorTower());
         BaseMod.addCard(new Build0InstantShelter());
         BaseMod.addCard(new InstantShelter(3));
+        BaseMod.addCard(new SelfExplosiveCow());
         logger.info("========================= 卡牌加载完毕 =========================");
     }
 
@@ -206,6 +209,7 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.loadCustomStringsFile(UIStrings.class, MoModHelper.assetPath("localization/" + lang + "/ui.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, MoModHelper.assetPath("localization/" + lang + "/powers.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, MoModHelper.assetPath("localization/" + lang + "/relics.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, MoModHelper.assetPath("localization/" + lang + "/events.json"));
     }
 }
 

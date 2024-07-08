@@ -281,5 +281,10 @@
   "momod:SensorTower": {
     "NAME": "侦测塔",
     "DESCRIPTION": "每回合开始阶段 预见 2 抽 1张牌 "
+  },
+  "momod:SelfExplosiveCow": {
+    "NAME": "自爆奶牛",
+    "DESCRIPTION": "给予所有敌人 !D! 点伤害 NL 失去 !M! 点生命 消耗 ",
+    "UPGRADE_DESCRIPTION": "给予所有敌人 !D! 点伤害 NL 失去 !M! 点生命"
   }
 }
