@@ -9,11 +9,19 @@
   },
   "momod:Build0Walls": {
     "NAME": "围墙",
-    "DESCRIPTION": "建造1层 momod:围墙 。"
+    "DESCRIPTION": "建造1层 momod:围墙 NL 每回合结束阶段获得3点 格挡 NL 且 消耗 时获得3点 格挡 "
+  },
+  "momod:Build0InstantShelter": {
+    "NAME": "应急碉堡",
+    "DESCRIPTION": "建造1座应急碉堡 NL 每回合结束阶段获得3点 格挡 NL 且 消耗 时立刻打出 !M! 张动员兵"
   },
   "momod:Walls": {
     "NAME": "围墙",
-    "DESCRIPTION": "每回合开始阶段获得3点 格挡 。且 消耗 时获得3点 格挡"
+    "DESCRIPTION": "每回合结束阶段获得3点 格挡 NL 且 消耗 时获得3点 格挡 "
+  },
+  "momod:InstantShelter": {
+    "NAME": "应急碉堡",
+    "DESCRIPTION": "每回合结束阶段获得3点 格挡 NL 且 消耗 时立刻打出 !M! 张动员兵"
   },
   "momod:Conscript": {
     "NAME": "动员兵",
@@ -156,25 +164,33 @@
   },
   "momod:Build0EMPControlStation": {
     "NAME": "电磁脉冲控制站",
-    "DESCRIPTION": "在 momod:建筑栏 中建造1座电磁脉冲控制站 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "在 momod:建筑栏 中建造1座电磁脉冲控制站 NL 消耗 NL 固有 "
+    "DESCRIPTION": "在 momod:建筑栏 中建造1座电磁脉冲控制站 NL 消耗 每 !M! 回合在手牌中加入1张 电磁脉冲 ",
+    "UPGRADE_DESCRIPTION": "在 momod:建筑栏 中建造1座电磁脉冲控制站 NL 消耗 NL 每 !M! 回合在手牌中加入1张 电磁脉冲 固有 "
   },
   "momod:Build0TacticalNukeSilo": {
     "NAME": "战术核弹发射井",
-    "DESCRIPTION": "在 momod:建筑栏 中建造1座战术核弹发射井 NL 消耗 "
+    "DESCRIPTION": "在 momod:建筑栏 中建造1座战术核弹发射井 NL 消耗 每 !M! 回合在手牌中加入1张 战术核弹攻击  ",
+    "UPGRADE_DESCRIPTION": "在 momod:建筑栏 中建造1座战术核弹发射井 NL 消耗 NL 每 !M! 回合在手牌中加入1张 战术核弹攻击 固有 "
   },
   "momod:EMPControlStation": {
     "NAME": "电磁脉冲控制站",
-    "DESCRIPTION": "每3回合在手牌中加入1张 电磁脉冲 "
+    "DESCRIPTION": "每 !M! 回合在手牌中加入1张 电磁脉冲 "
+  },
+  "momod:IronCurtainDevice": {
+    "NAME": "铁幕装置",
+    "DESCRIPTION": "每 !M! 回合在手牌中加入1张 无敌 "
   },
   "momod:TacticalNukeSilo": {
     "NAME": "战术核弹发射井",
     "DESCRIPTION": "每 !M! 回合在手牌中加入1张 战术核弹攻击 "
   },
+  "momod:Build0IronCurtainDevice": {
+    "NAME": "铁幕装置",
+    "DESCRIPTION": "在 momod:建筑栏 中建造1座铁幕装置 NL 消耗 NL 每 !M! 回合在手牌中加入1张 无敌 "
+  },
   "momod:EMPulse": {
     "NAME": "电磁脉冲",
-    "DESCRIPTION": "给予所有敌人 momod:电磁紊乱 效果 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " 固有 NL 给予所有敌人 momod:电磁紊乱 效果 NL 消耗 "
+    "DESCRIPTION": "给予所有敌人 momod:电磁紊乱 效果 NL 消耗 "
   },
   "momod:Build0SovietOreRefinery": {
     "NAME": "苏联矿石精炼厂",
@@ -237,5 +253,33 @@
     "NAME": "火炮机车突袭",
     "DESCRIPTION": "立刻打出 火炮机车 !M! 次并 消耗",
     "UPGRADE_DESCRIPTION": "立刻打出 火炮机车突袭+ !M! 次并 消耗"
+  },
+  "momod:ConstructionRedo": {
+    "NAME": "建筑递归",
+    "DESCRIPTION": "立刻激活并 消耗 最右侧的建筑,同时在 momod:建筑栏 中加入相同的牌"
+  },
+  "momod:IronCurtain": {
+    "NAME": "无敌",
+    "DESCRIPTION": "获得 !M! 层 无实体 NL 消耗 "
+  },
+  "momod:ConstructionTurbo": {
+    "NAME": "建筑超频",
+    "DESCRIPTION": "立刻激活1次所有 momod:建筑栏 中的建筑"
+  },
+  "momod:NuclearPath": {
+    "NAME": "核能奔涌",
+    "DESCRIPTION": "获得 !M! 点 力量 NL 失去 2 点 敏捷 "
+  },
+  "momod:SellAndDash": {
+    "NAME": "卖家冲锋",
+    "DESCRIPTION": "立刻激活1次所有 momod:建筑栏 中的建筑并将其 消耗 "
+  },
+  "momod:Build0SensorTower": {
+    "NAME": "侦测塔",
+    "DESCRIPTION": "在 momod:建筑栏 中建造1张 侦测塔 NL 每回合开始阶段 预见 2 抽 1张牌 "
+  },
+  "momod:SensorTower": {
+    "NAME": "侦测塔",
+    "DESCRIPTION": "每回合开始阶段 预见 2 抽 1张牌 "
   }
 }

@@ -2,18 +2,15 @@ package MoMod.cards.attack;
 
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.InfantryUnitCard;
-import MoMod.cards.Abstract.MoCard;
 import MoMod.power.FireUpPower;
 import MoMod.relics.WhitePhosphorus;
 import MoMod.util.MoModHelper;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class Arsonist extends InfantryUnitCard {
 

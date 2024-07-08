@@ -1,6 +1,5 @@
 package MoMod.Actions;
 
-import MoMod.cards.attack.RhinoHeavyTank;
 import MoMod.cards.skill.FuryDrone;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;

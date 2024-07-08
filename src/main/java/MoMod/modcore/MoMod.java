@@ -1,6 +1,8 @@
 package MoMod.modcore;
 
 
+import MoMod.Enums.AbstractCardEnum;
+import MoMod.Enums.AbstractCharactersEnum;
 import MoMod.Enums.AbstractSovietRewardsEnum;
 import MoMod.Rewards.SovietCardReward;
 import MoMod.cards.attack.*;
@@ -9,20 +11,15 @@ import MoMod.cards.power.constrcution.*;
 import MoMod.cards.skill.*;
 import MoMod.characters.Soviet;
 import MoMod.colorSet.SovietColorSet;
-import MoMod.power.*;
 import MoMod.relics.SovietRelic;
 import MoMod.relics.TerrorDrone;
 import MoMod.relics.WhitePhosphorus;
 import MoMod.util.MoModHelper;
-import MoMod.Enums.AbstractCardEnum;
-import MoMod.Enums.AbstractCharactersEnum;
 import basemod.BaseMod;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
@@ -130,6 +127,7 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new WarMiner());
         BaseMod.addCard(new TacticalNuke());
         BaseMod.addCard(new Build0TacticalNukeSilo());
+        BaseMod.addCard(new TacticalNukeSilo(5));
         BaseMod.addCard(new OverCharge());
         BaseMod.addCard(new TerrorDrop());
         BaseMod.addCard(new RepairCrane());
@@ -141,14 +139,26 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new TankDrop());
         BaseMod.addCard(new MortarQuad());
         BaseMod.addCard(new MotorAmbush());
+        BaseMod.addCard(new ConstructionRedo());
+        BaseMod.addCard(new IronCurtain());
+        BaseMod.addCard(new Build0IronCurtainDevice());
+        BaseMod.addCard(new IronCurtainDevice(3));
+        BaseMod.addCard(new ConstructionTurbo());
+        BaseMod.addCard(new ConstructionTurbo());
+        BaseMod.addCard(new NuclearPath());
+        BaseMod.addCard(new SellAndDash());
+        BaseMod.addCard(new SensorTower());
+        BaseMod.addCard(new Build0SensorTower());
+        BaseMod.addCard(new Build0InstantShelter());
+        BaseMod.addCard(new InstantShelter(3));
         logger.info("========================= 卡牌加载完毕 =========================");
     }
 
     public void receiveEditRelics() {
         logger.info("========================= 开始加载遗物 =========================");
         BaseMod.addRelicToCustomPool(new SovietRelic(), AbstractCardEnum.SOVIET); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
-        BaseMod.addRelicToCustomPool(new TerrorDrone(), AbstractCardEnum.SOVIET); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
-        BaseMod.addRelicToCustomPool(new WhitePhosphorus(), AbstractCardEnum.SOVIET); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+        BaseMod.addRelicToCustomPool(new TerrorDrone(), AbstractCardEnum.SOVIET);
+        BaseMod.addRelicToCustomPool(new WhitePhosphorus(), AbstractCardEnum.SOVIET);
         logger.info("========================= 遗物加载完毕 =========================");
     }
 

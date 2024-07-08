@@ -3,7 +3,6 @@ package MoMod.cards.power;
 
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.MoCard;
-import MoMod.power.TerrorDronePower;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

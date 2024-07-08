@@ -1,16 +1,15 @@
 package MoMod.characters;
 
+import MoMod.Enums.AbstractCardEnum;
+import MoMod.Enums.AbstractCharactersEnum;
 import MoMod.cards.attack.AttackDog;
 import MoMod.cards.attack.Conscript;
 import MoMod.cards.skill.Build0SovietBarracks;
-import MoMod.cards.skill.Build0SovietWarFactory;
 import MoMod.cards.skill.Build0Walls;
 import MoMod.cards.skill.FuryDrone;
+import MoMod.colorSet.SovietColorSet;
 import MoMod.relics.SovietRelic;
 import MoMod.util.MoModHelper;
-import MoMod.Enums.AbstractCardEnum;
-import MoMod.Enums.AbstractCharactersEnum;
-import MoMod.colorSet.SovietColorSet;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;

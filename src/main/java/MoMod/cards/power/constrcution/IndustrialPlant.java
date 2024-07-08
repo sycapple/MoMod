@@ -1,6 +1,5 @@
 package MoMod.cards.power.constrcution;
 
-import MoMod.Actions.SovietWarFactoryUnitReadyAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.AbstractConstructionCard;
 import MoMod.util.MoModHelper;

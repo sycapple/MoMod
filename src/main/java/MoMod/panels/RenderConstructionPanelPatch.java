@@ -3,7 +3,6 @@
 package MoMod.panels;
 
 import MoMod.Enums.AbstractCharactersEnum;
-import MoMod.panels.AbstractConstructionPanel;
 import MoMod.util.ConstructionPileManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;

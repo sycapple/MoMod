@@ -1,16 +1,12 @@
 package MoMod.cards.skill;
 
 import MoMod.Actions.AddCardToConstructionPileAction;
-import MoMod.Actions.TechnologyUpgradeAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.AbstractBuildingConstructionCard;
 import MoMod.cards.power.constrcution.EMPControlStation;
-import MoMod.cards.power.constrcution.TechOilDerrick;
 import MoMod.power.EMPControlStationPower;
-import MoMod.util.ConstructionPileManager;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -34,7 +30,8 @@ public class Build0EMPControlStation extends AbstractBuildingConstructionCard {
     public Build0EMPControlStation() {
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(3);
-        this.cardsToPreview = new EMPControlStation();
+        this.cardsToPreview = new EMPulse();
+        this.cardsToPreview.modifyCostForCombat(-this.cardsToPreview.cost);
         this.exhaust = true;
     }
 

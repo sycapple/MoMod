@@ -1,10 +1,8 @@
 package MoMod.cards.skill;
 
 import MoMod.Actions.ExhaustUnitReadyAction;
-import MoMod.Actions.UnitReadyAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.MoCard;
-import MoMod.cards.attack.CyborgVanguard;
 import MoMod.cards.attack.HydraCannon;
 import MoMod.cards.attack.TankKiller;
 import MoMod.util.MoModHelper;
@@ -18,7 +16,7 @@ public class TankDrop extends MoCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final int COST = 3;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 

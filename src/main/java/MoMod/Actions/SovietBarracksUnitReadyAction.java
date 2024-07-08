@@ -1,14 +1,13 @@
 package MoMod.Actions;
 
-import MoMod.Enums.AbstractTagEnum;
-import MoMod.cards.attack.*;
+import MoMod.cards.attack.Conscript;
 import MoMod.cards.power.constrcution.SovietBarracks;
-import MoMod.power.*;
+import MoMod.power.CapacityUpgradingPower;
+import MoMod.power.GearChangePower;
+import MoMod.power.SovietBarracksPower;
 import MoMod.util.UnitToTrain;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class SovietBarracksUnitReadyAction extends AbstractGameAction {
@@ -24,7 +23,6 @@ public class SovietBarracksUnitReadyAction extends AbstractGameAction {
             sovietBarracks = 0;
         if (AbstractDungeon.player.hasPower(CapacityUpgradingPower.POWER_ID)) {
             sovietBarracks *= (AbstractDungeon.player.getPower(CapacityUpgradingPower.POWER_ID).amount + 1);
-            System.out.println(sovietBarracks);
         }
         if (c instanceof Conscript)
             this.addToBot(new ExhaustUnitReadyAction(c, sovietBarracks));

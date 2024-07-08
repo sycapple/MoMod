@@ -3,7 +3,6 @@ package MoMod.cards.skill;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.AbstractBuildingConstructionCard;
 import MoMod.cards.power.constrcution.SovietBarracks;
-import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

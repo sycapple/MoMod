@@ -3,10 +3,7 @@ package MoMod.cards.power;
 
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.MoCard;
-import MoMod.power.EliteRseservesPower;
 import MoMod.power.GearChangePower;
-import MoMod.power.IrradiationGammaPower;
-import MoMod.power.LargeIterationPlanPower;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

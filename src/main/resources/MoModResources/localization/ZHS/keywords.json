@@ -109,5 +109,12 @@
       "TankKiller"
     ],
     "DESCRIPTION": "造成 9 点伤害 1 次"
+  },
+  {
+    "NAMES": [
+      "超武建筑",
+      "SuperWeapon"
+    ],
+    "DESCRIPTION": "铁幕装置,核弹发射井,EMP控制站"
   }
 ]

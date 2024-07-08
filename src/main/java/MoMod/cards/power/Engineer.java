@@ -1,9 +1,9 @@
 package MoMod.cards.power;
 
 
+import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.MoCard;
 import MoMod.util.MoModHelper;
-import MoMod.Enums.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

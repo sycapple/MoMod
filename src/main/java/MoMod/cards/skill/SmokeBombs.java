@@ -1,9 +1,7 @@
 package MoMod.cards.skill;
 
-import java.util.Iterator;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.MoCard;
-import MoMod.cards.attack.CyborgVanguard;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,9 +10,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.vfx.ExhaustBlurEffect;
+
+import java.util.Iterator;
 
 public class SmokeBombs extends MoCard {
     public static final String ID = MoModHelper.makeID(SmokeBombs.class.getSimpleName());

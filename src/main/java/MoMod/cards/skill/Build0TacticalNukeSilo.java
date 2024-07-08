@@ -3,9 +3,8 @@ package MoMod.cards.skill;
 import MoMod.Actions.AddCardToConstructionPileAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.AbstractBuildingConstructionCard;
-import MoMod.cards.power.constrcution.EMPControlStation;
+import MoMod.cards.attack.TacticalNuke;
 import MoMod.cards.power.constrcution.TacticalNukeSilo;
-import MoMod.power.EMPControlStationPower;
 import MoMod.power.TacticalNukeSiloPower;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -32,14 +31,16 @@ public class Build0TacticalNukeSilo extends AbstractBuildingConstructionCard {
     public Build0TacticalNukeSilo() {
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(5);
-        this.cardsToPreview = new TacticalNukeSilo(this.magicNumber);
+        this.cardsToPreview = new TacticalNuke();
+        this.cardsToPreview.modifyCostForCombat(-this.cardsToPreview.cost);
         this.exhaust = true;
     }
 
 
     @Override
     public void limitedUpgrade() {
-        this.upgradeMagicNumber(-1);
+        this.isInnate=true;
+        this.upgradeDescription(CARD_STRINGS);
     }
 
     @Override

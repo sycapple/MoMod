@@ -1,7 +1,5 @@
 package MoMod.power;
 
-import MoMod.Actions.SovietWarFactoryUnitReadyAction;
-import MoMod.Enums.AbstractTagEnum;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

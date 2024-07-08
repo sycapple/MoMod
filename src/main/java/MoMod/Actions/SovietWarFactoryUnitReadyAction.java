@@ -1,6 +1,5 @@
 package MoMod.Actions;
 
-import MoMod.cards.power.constrcution.SovietBarracks;
 import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.cards.skill.FuryDrone;
 import MoMod.power.CapacityUpgradingPower;

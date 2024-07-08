@@ -2,15 +2,12 @@ package MoMod.Actions;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
-import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
@@ -52,7 +49,7 @@ public class UnitReadyAction extends AbstractGameAction {
         this.amount = 1;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.c = card;
-        this.c.setCostForTurn(0);
+        this.c.modifyCostForCombat(-card.cost);
         if (this.c.type != CardType.CURSE && this.c.type != CardType.STATUS && AbstractDungeon.player.hasPower("MasterRealityPower")) {
             this.c.upgrade();
         }
@@ -166,7 +163,8 @@ public class UnitReadyAction extends AbstractGameAction {
 
     }
 
-    private AbstractCard makeNewCard() {
+
+    public AbstractCard makeNewCard() {
         return this.makeStatEquivalentCopy(this.c);
     }
 

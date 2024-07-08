@@ -3,7 +3,6 @@ package MoMod.cards.skill;
 
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.MoCard;
-import MoMod.power.IrradiationGammaPower;
 import MoMod.power.OverChargePower;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;

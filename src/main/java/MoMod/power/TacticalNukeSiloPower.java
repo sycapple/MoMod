@@ -2,7 +2,6 @@ package MoMod.power;
 
 import MoMod.Actions.UnitReadyAction;
 import MoMod.cards.attack.TacticalNuke;
-import MoMod.cards.skill.EMPulse;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -24,6 +23,8 @@ public class TacticalNukeSiloPower extends AbstractMoPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    public int initialTurn;
+
     public TacticalNukeSiloPower(AbstractCreature owner, int turns, UUID uuid) {
         this.greenColor2 = Color.GREEN.cpy();
         this.name = NAME;
@@ -32,7 +33,7 @@ public class TacticalNukeSiloPower extends AbstractMoPower {
         this.type = PowerType.BUFF;
         this.Cuuid = uuid;
         this.amount = turns;
-        //todo:战术核弹发射井能力贴图
+        this.initialTurn = turns;
         String path128 = MoModHelper.assetPath("img/powers/") + TacticalNukeSiloPower.class.getSimpleName() + "B.png";
         String path48 = MoModHelper.assetPath("img/powers/") + TacticalNukeSiloPower.class.getSimpleName() + ".png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
@@ -46,14 +47,16 @@ public class TacticalNukeSiloPower extends AbstractMoPower {
             if (this.amount == 1) {
                 this.addToBot(new UnitReadyAction(new TacticalNuke()));
                 AbstractCreature p = AbstractDungeon.player;
-                AbstractPower po = new TacticalNukeSiloPower(p, this.amount, this.Cuuid);
-                this.addToTop(new ApplyPowerAction(p, p, po));
+                AbstractPower po = new TacticalNukeSiloPower(p, this.initialTurn, this.Cuuid);
+                this.addToBot(new ApplyPowerAction(p, p, po));
             }
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this, 1));
         }
 
     }
-
+    public void resetPower(){
+        this.amount = this.initialTurn;
+    }
     public void updateDescription() {
         if (this.amount > 0) {
             this.description = this.amount + DESCRIPTIONS[0];

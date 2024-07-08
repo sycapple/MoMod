@@ -2,7 +2,6 @@
 
 package MoMod.cards.Abstract;
 
-import MoMod.Enums.AbstractTagEnum;
 import MoMod.util.MoModHelper;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

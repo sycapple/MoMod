@@ -2,19 +2,14 @@ package MoMod.cards.Abstract;
 
 import MoMod.Actions.ConstructionDestroyedAction;
 import MoMod.Enums.AbstractTagEnum;
-import MoMod.cards.attack.*;
-import MoMod.cards.power.constrcution.TechOilDerrick;
-import MoMod.cards.power.constrcution.Walls;
 import MoMod.power.*;
 import MoMod.util.MoModHelper;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractConstructionCard extends MoCard {
 
@@ -92,6 +87,14 @@ public abstract class AbstractConstructionCard extends MoCard {
                 po = new SovietOreRefineryPower(AbstractDungeon.player, AD);
                 break;
             }
+            case "SensorTower": {
+                po = new SensorTowerPower(AbstractDungeon.player, AD);
+                break;
+            }
+            case "InstantShelter": {
+                po = new InstantShelterPower(AbstractDungeon.player, AD);
+                break;
+            }
         }
         return po;
     }
@@ -99,7 +102,7 @@ public abstract class AbstractConstructionCard extends MoCard {
     public void triggerOnExhaust() {
         AbstractMoPower po = this.getPower(false);
         this.addToBot(new ConstructionDestroyedAction());
-        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, po));
+        this.addToBot(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, po.ID, 1));
         DebrisShelterPower pd = (DebrisShelterPower) AbstractDungeon.player.getPower(DebrisShelterPower.POWER_ID);
         if (pd != null)
             this.gainBlock(pd.BlockArg);

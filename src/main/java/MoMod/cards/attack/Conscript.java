@@ -2,24 +2,15 @@ package MoMod.cards.attack;
 
 
 import MoMod.Actions.AutoRandomNoSourceDamageAction;
-import MoMod.cards.Abstract.InfantryUnitCard;
-import MoMod.cards.Abstract.MoCard;
-import MoMod.util.MoModHelper;
 import MoMod.Enums.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import MoMod.cards.Abstract.InfantryUnitCard;
+import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 public class Conscript extends InfantryUnitCard {
     public static final String ID = MoModHelper.makeID(Conscript.class.getSimpleName());

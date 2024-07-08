@@ -1,6 +1,5 @@
 package MoMod.power;
 
-import MoMod.cards.power.constrcution.Walls;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

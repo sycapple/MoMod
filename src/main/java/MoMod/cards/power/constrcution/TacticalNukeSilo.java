@@ -4,8 +4,6 @@ import MoMod.Actions.ConstructionDestroyedAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.AbstractConstructionCard;
 import MoMod.cards.attack.TacticalNuke;
-import MoMod.cards.skill.EMPulse;
-import MoMod.power.EMPControlStationPower;
 import MoMod.power.TacticalNukeSiloPower;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -26,9 +24,9 @@ public class TacticalNukeSilo extends AbstractConstructionCard {
 
     public TacticalNukeSilo(int truns) {
         //为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:战术核弹发射井能力贴图
-        super(ID, true, CARD_STRINGS, COLOR, RARITY);
+        super(ID, false, CARD_STRINGS, COLOR, RARITY);
         this.cardsToPreview = new TacticalNuke();
+        this.cardsToPreview.modifyCostForCombat(-this.cardsToPreview.cost);
         this.setupMagicNumber(truns);
     }
 

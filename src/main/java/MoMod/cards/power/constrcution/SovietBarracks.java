@@ -7,7 +7,6 @@ import MoMod.cards.attack.Conscript;
 import MoMod.util.MoModHelper;
 import MoMod.util.UnitToTrain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;

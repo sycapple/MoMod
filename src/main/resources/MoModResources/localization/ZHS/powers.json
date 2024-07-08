@@ -24,6 +24,24 @@
       "次"
     ]
   },
+  "momod:InstantShelterPower": {
+    "NAME": "应急碉堡",
+    "DESCRIPTIONS": [
+      "现在你有",
+      "座 应急碉堡 ,在每回合结束将获得",
+      "点 格挡 ",
+      "次"
+    ]
+  },
+  "momod:SensorTowerPower": {
+    "NAME": "侦测塔",
+    "DESCRIPTIONS": [
+      "现在你有",
+      "层 侦测塔 ,在每回合开始将获得",
+      "点 预见 ,",
+      "张牌"
+    ]
+  },
   "momod:TechOilDerrickPower": {
     "NAME": "科技钻油井",
     "DESCRIPTIONS": [
@@ -135,6 +153,12 @@
     "NAME": "战术核弹发射井",
     "DESCRIPTIONS": [
       "回合后在手牌中加入一张 战术核弹攻击"
+    ]
+  },
+  "momod:IronCurtainDevicePower": {
+    "NAME": "铁幕装置",
+    "DESCRIPTIONS": [
+      "回合后在手牌中加入一张 无敌"
     ]
   },
   "momod:OverChargePower": {

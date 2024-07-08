@@ -4,7 +4,6 @@ import MoMod.Actions.ExhaustUnitReadyAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.AbstractBuildingConstructionCard;
 import MoMod.cards.attack.WarMiner;
-import MoMod.cards.power.constrcution.SovietWarFactory;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

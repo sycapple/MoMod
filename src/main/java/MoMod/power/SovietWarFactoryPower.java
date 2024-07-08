@@ -1,6 +1,5 @@
 package MoMod.power;
 
-import MoMod.Actions.SovietBarracksUnitReadyAction;
 import MoMod.Actions.SovietWarFactoryUnitReadyAction;
 import MoMod.Enums.AbstractTagEnum;
 import MoMod.util.MoModHelper;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;

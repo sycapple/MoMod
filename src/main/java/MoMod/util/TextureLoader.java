@@ -8,7 +8,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class TextureLoader {
     private static HashMap<String, Texture> textures = new HashMap<>();

@@ -24,5 +24,15 @@
     "TEXT": [
       "我已经拥有1座战术核弹发射井了！"
     ]
+  },
+  "momod:Build0IronCurtainDevice": {
+    "TEXT": [
+      "我已经拥有1座铁幕装置了！"
+    ]
+  },
+  "momod:ConstructionRedo": {
+    "TEXT": [
+      "我最右侧的建筑牌不能是 核弹发射井 或 EMP控制站 或 铁幕装置 ！"
+    ]
   }
 }

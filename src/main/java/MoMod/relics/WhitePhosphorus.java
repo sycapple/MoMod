@@ -9,7 +9,6 @@ public class WhitePhosphorus extends CustomRelic {
     //遗物ID（此处的ModHelper在“04 - 本地化”中提到）
     public static final String ID = MoModHelper.makeID(WhitePhosphorus.class.getSimpleName());
     // 图片路径
-    //todo:恐怖机器人遗物贴图
     private static final String IMG_PATH = MoModHelper.assetPath("img/relics/WhitePhosphorus.png");
     private static final String IMG_PATH_O = MoModHelper.assetPath("img/relics/outline/WhitePhosphorus.png");
     // 遗物类型

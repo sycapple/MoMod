@@ -33,6 +33,7 @@ public class Walls extends AbstractConstructionCard {
 
     @Override
     public void triggerOnExhaust() {
+        super.triggerOnExhaust();
         this.gainBlock();
     }
 }

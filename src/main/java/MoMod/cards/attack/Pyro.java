@@ -2,8 +2,6 @@ package MoMod.cards.attack;
 
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.InfantryUnitCard;
-import MoMod.cards.Abstract.MoCard;
-import MoMod.cards.Abstract.TankUnitCard;
 import MoMod.power.FireUpPower;
 import MoMod.relics.WhitePhosphorus;
 import MoMod.util.MoModHelper;

@@ -32,5 +32,6 @@ public class TechOilDerrick extends AbstractConstructionCard {
 
     @Override
     public void triggerOnExhaust() {
+        super.triggerOnExhaust();
     }
 }
