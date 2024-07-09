@@ -4,6 +4,7 @@ import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.InfantryUnitCard;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -20,8 +21,7 @@ public class SelfExplosiveCow extends InfantryUnitCard {
 
     public SelfExplosiveCow() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:自爆奶牛贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupDamage(10);
         this.setupMagicNumber(1);
         this.exhaust = true;
@@ -35,6 +35,7 @@ public class SelfExplosiveCow extends InfantryUnitCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new LoseHPAction(p, p, 1));
         this.damageToAllEnemies(AbstractGameAction.AttackEffect.FIRE);
     }
 

@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class ConstructionTurbo extends MoCard {
     public static final String ID = MoModHelper.makeID(ConstructionTurbo.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -27,7 +27,7 @@ public class ConstructionTurbo extends MoCard {
 
     @Override
     public void limitedUpgrade() {
-        this.upgradeBaseCost(2);
+        this.upgradeBaseCost(1);
     }
 
 

@@ -95,6 +95,10 @@ public abstract class AbstractConstructionCard extends MoCard {
                 po = new InstantShelterPower(AbstractDungeon.player, AD);
                 break;
             }
+            case "FlameTower": {
+                po = new FlameTowerPower(AbstractDungeon.player, AD);
+                break;
+            }
         }
         return po;
     }

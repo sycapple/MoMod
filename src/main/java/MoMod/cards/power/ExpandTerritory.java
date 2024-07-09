@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import java.util.Objects;
 
-//todo:有的时候有无法打出的bug,同时伴随能量不足,不知道
 public class ExpandTerritory extends MoCard {
     public static final String ID = MoModHelper.makeID(ExpandTerritory.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -27,8 +26,7 @@ public class ExpandTerritory extends MoCard {
 
     public ExpandTerritory() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        //todo:开疆拓土卡牌贴图
-        super(ID, true, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
         this.setupMagicNumber(2);
     }
 

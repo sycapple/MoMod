@@ -25,9 +25,7 @@ public class FireUpPower extends AbstractMoPower implements HealthBarRenderPower
     public int vigour = 0;
     public Color fireUpColor = new Color(0xfff89cff);
 
-    //todo:使用两个参数来控制,一个是燃烧值,一个是燃烧率
-    // 燃烧率 决定每回合加多少燃烧值
-    // 燃烧值 决定每回合扣多少血量
+
     public void initialFirePower() {
         this.greenColor2 = Color.RED.cpy();
         this.name = NAME;

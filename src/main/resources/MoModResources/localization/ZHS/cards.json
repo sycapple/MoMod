@@ -13,7 +13,7 @@
   },
   "momod:Build0InstantShelter": {
     "NAME": "应急碉堡",
-    "DESCRIPTION": "建造1座应急碉堡 NL 每回合结束阶段获得3点 格挡 NL 且 消耗 时立刻打出 !M! 张动员兵"
+    "DESCRIPTION": "建造1座应急碉堡 NL 每回合结束阶段获得3点 格挡 NL 且 消耗 时额外打出 !M! 张动员兵"
   },
   "momod:Walls": {
     "NAME": "围墙",
@@ -21,7 +21,7 @@
   },
   "momod:InstantShelter": {
     "NAME": "应急碉堡",
-    "DESCRIPTION": "每回合结束阶段获得3点 格挡 NL 且 消耗 时立刻打出 !M! 张动员兵"
+    "DESCRIPTION": "每回合结束阶段获得3点 格挡 NL 且 消耗 时额外打出 !M! 张动员兵"
   },
   "momod:Conscript": {
     "NAME": "动员兵",
@@ -93,7 +93,7 @@
   },
   "momod:EliteReserves": {
     "NAME": "精英预备队",
-    "DESCRIPTION": " !M! 个回合内建筑生产的部队自带升级"
+    "DESCRIPTION": " !M! 个回合内建筑生产和 消耗 生成的部队自带升级"
   },
   "momod:FuryDrone": {
     "NAME": "怒焰地雷机器人",
@@ -284,7 +284,27 @@
   },
   "momod:SelfExplosiveCow": {
     "NAME": "自爆奶牛",
-    "DESCRIPTION": "给予所有敌人 !D! 点伤害 NL 失去 !M! 点生命 消耗 ",
+    "DESCRIPTION": "给予所有敌人 !D! 点伤害 NL 失去 !M! 点生命 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "给予所有敌人 !D! 点伤害 NL 失去 !M! 点生命"
+  },
+  "momod:Build0FlameTower": {
+    "NAME": "烈焰炮台",
+    "DESCRIPTION": "给予所有敌人 !M! 点 momod:点燃值 NL 在 momod:建筑栏 中加入1张烈焰炮台 NL 每回合开始给予1名随机敌人 2点 momod:点燃值 "
+  },
+  "momod:FlameTower": {
+    "NAME": "烈焰炮台",
+    "DESCRIPTION": "每回合开始给予1名随机敌人 2点 momod:点燃值 "
+  },
+  "momod:FortressBesieged": {
+    "NAME": "围城",
+    "DESCRIPTION": "在每回合结束获得 !M! 点 格挡 momod:建筑栏 中的 建筑数量 次"
+  },
+  "momod:SovietCloningVats": {
+    "NAME": "克隆缸",
+    "DESCRIPTION": "所有的动员兵会被额外打出 !M! 次"
+  },
+  "momod:Consconscript": {
+    "NAME": "动员动员兵",
+    "DESCRIPTION": "所有的动员兵造成的伤害+ !M! "
   }
 }

@@ -186,7 +186,7 @@ public class AbstractConstructionPanel extends AbstractPanel {
                                 renderCardPreview(this.tipHitbox.x + leftMove + extendMoveOnce * (float) i, this.tipHitbox.y, sb, c, 0.75F);
 //                                TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, hovered.name, "下回合开始阶段将生产" + hovered.cardsToPreview.name);
                             else
-                                TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, hovered.name, hovered.rawDescription);
+                                TipHelper.renderGenericTip((float) InputHelper.mX + 20.0F * Settings.scale, (float) InputHelper.mY, hovered.name, (hovered.rawDescription).replace("momod:", ""));
                         }
                     }
                 }

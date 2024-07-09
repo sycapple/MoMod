@@ -154,6 +154,11 @@ public class MoMod implements EditCardsSubscriber, EditCharactersSubscriber, Edi
         BaseMod.addCard(new Build0InstantShelter());
         BaseMod.addCard(new InstantShelter(3));
         BaseMod.addCard(new SelfExplosiveCow());
+        BaseMod.addCard(new FlameTower());
+        BaseMod.addCard(new Build0FlameTower());
+        BaseMod.addCard(new FortressBesieged());
+        BaseMod.addCard(new SovietCloningVats());
+        BaseMod.addCard(new Consconscript());
         logger.info("========================= 卡牌加载完毕 =========================");
     }
 

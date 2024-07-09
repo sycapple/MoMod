@@ -4,11 +4,13 @@ package MoMod.cards.attack;
 import MoMod.Actions.AutoRandomNoSourceDamageAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.InfantryUnitCard;
+import MoMod.power.ConsconscriptPower;
 import MoMod.util.MoModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -25,7 +27,11 @@ public class Conscript extends InfantryUnitCard {
     public Conscript() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.setupDamage(3);
+        if (AbstractDungeon.player != null) {
+            if (AbstractDungeon.player.hasPower(ConsconscriptPower.POWER_ID))
+                this.setupDamage(3 + AbstractDungeon.player.getPower(ConsconscriptPower.POWER_ID).amount);
+            else this.setupDamage(3);
+        } else this.setupDamage(3);
         this.tags.add(CardTags.STRIKE);
         this.exhaust = true;
         this.isEthereal = true;

@@ -27,6 +27,7 @@ public class UseConstructionAction extends AbstractGameAction {
         AbstractConstructionCard c;
         boolean sb = true;
         boolean sw = true;
+        boolean ft = true;
         for (int i = 0; i < gp.size(); i++) {
             c = (AbstractConstructionCard) gp.group.get(i);
             if (c instanceof SovietBarracks && sb) {
@@ -73,6 +74,17 @@ public class UseConstructionAction extends AbstractGameAction {
                 AbstractPower po = p.getPower(TechOilDerrickPower.POWER_ID);
                 po.flash();
                 this.addToBot(new GainEnergyAction(1));
+            }
+            if (c instanceof InstantShelter) {
+                AbstractPower po = p.getPower(InstantShelterPower.POWER_ID);
+                po.flash();
+                this.addToBot(new GainBlockAction(p, c.block));
+            }
+            if (c instanceof FlameTower && ft) {
+                ft = false;
+                AbstractPower po = p.getPower(FlameTowerPower.POWER_ID);
+                po.flash();
+                this.addToBot(new FireUpAction(AbstractDungeon.getRandomMonster(), p, po.amount));
             }
         }
         this.isDone = true;

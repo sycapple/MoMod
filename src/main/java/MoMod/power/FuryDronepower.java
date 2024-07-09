@@ -43,7 +43,7 @@ public class FuryDronepower extends AbstractMoPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
             this.flash();
-            this.addToTop(new DamageAction(info.owner, new DamageInfo(this.owner, 5 * this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
+            this.addToBot(new DamageAction(info.owner, new DamageInfo(this.owner, 5 * this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount));
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }

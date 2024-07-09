@@ -52,6 +52,10 @@ public abstract class AbstractBuildingConstructionCard extends MoCard {
                 c = new InstantShelter(this.magicNumber);
                 break;
             }
+            case "FlameTower": {
+                c = new FlameTower();
+                break;
+            }
         }
         return c;
     }

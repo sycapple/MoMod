@@ -42,6 +42,14 @@
       "张牌"
     ]
   },
+  "momod:FlameTowerPower": {
+    "NAME": "烈焰炮台",
+    "DESCRIPTIONS": [
+      "现在你有",
+      "层 烈焰炮台 ,在每回合开始将给予1名随机敌人",
+      "点 点燃值 ,"
+    ]
+  },
   "momod:TechOilDerrickPower": {
     "NAME": "科技钻油井",
     "DESCRIPTIONS": [
@@ -165,6 +173,27 @@
     "NAME": "磁能过载",
     "DESCRIPTIONS": [
       "回合内 电磁紊乱 的成功率上升至 100%"
+    ]
+  },
+  "momod:FortressBesiegedPower": {
+    "NAME": "围城",
+    "DESCRIPTIONS": [
+      "在每回合结束获得 ",
+      " 点 格挡",
+      "次"
+    ]
+  },
+  "momod:SovietCloningVatsPower": {
+    "NAME": "克隆缸",
+    "DESCRIPTIONS": [
+      "所有的动员兵会被额外打出",
+      "次"
+    ]
+  },
+  "momod:ConsconscriptPower": {
+    "NAME": "动员动员兵",
+    "DESCRIPTIONS": [
+      "所有的动员兵伤害+"
     ]
   }
 }

@@ -1,11 +1,11 @@
 package MoMod.cards.attack;
 
+import MoMod.Actions.FireUpAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.InfantryUnitCard;
 import MoMod.power.FireUpPower;
 import MoMod.relics.WhitePhosphorus;
 import MoMod.util.MoModHelper;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -38,11 +38,7 @@ public class Arsonist extends InfantryUnitCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
-        if (AbstractDungeon.player.hasRelic(WhitePhosphorus.ID)) {
-            AbstractDungeon.player.getRelic(WhitePhosphorus.ID).flash();
-            this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber * 2), this.magicNumber * 2));
-        } else
-            this.addToBot(new ApplyPowerAction(m, p, new FireUpPower(m, p, this.magicNumber, this.magicNumber), this.magicNumber));
+        this.addToBot(new FireUpAction(m, p, this.magicNumber, this.magicNumber));
         FireUpPower po = (FireUpPower) m.getPower(FireUpPower.POWER_ID);
         if (po != null)
             if (AbstractDungeon.player.hasRelic(WhitePhosphorus.ID)) {
