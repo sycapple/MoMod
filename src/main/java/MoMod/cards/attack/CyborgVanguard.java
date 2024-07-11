@@ -3,11 +3,13 @@ package MoMod.cards.attack;
 import MoMod.Actions.CyborgVanguardAction;
 import MoMod.Enums.AbstractCardEnum;
 import MoMod.cards.Abstract.InfantryUnitCard;
+import MoMod.util.CyborgVanguardDamageAddonManager;
 import MoMod.util.MoModHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,8 +31,10 @@ public class CyborgVanguard extends InfantryUnitCard {
     public CyborgVanguard() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.setupDamage(7);
+        int addOnDamage = CyborgVanguardDamageAddonManager.getDamage();
+        this.setupDamage(addOnDamage + 7);
         this.setupMagicNumber(3);
+        this.setupBlock(3);
     }
 
     @Override
@@ -44,8 +48,10 @@ public class CyborgVanguard extends InfantryUnitCard {
         if (m != null) {
             this.addToBot(new VFXAction(new ClawEffect(m.hb.cX, m.hb.cY, Color.CYAN, Color.WHITE), 0.1F));
         }
+        this.addToBot(new GainBlockAction(p, this.block));
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
         this.addToBot(new CyborgVanguardAction(this, this.magicNumber));
+        CyborgVanguardDamageAddonManager.addDamage(this.magicNumber);
     }
 
 }

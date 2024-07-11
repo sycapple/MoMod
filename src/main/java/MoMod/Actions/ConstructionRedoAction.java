@@ -28,32 +28,39 @@ public class ConstructionRedoAction extends AbstractGameAction {
             AbstractConstructionCard lc = (AbstractConstructionCard) gp.group.get(ConstructionPileManager.getConstructionCnt() - 1);
             AbstractConstructionCard nc = null;
             if (!(lc instanceof EMPControlStation) && !(lc instanceof TacticalNukeSilo) && !(lc instanceof IronCurtainDevice)) {
-                nc = (AbstractConstructionCard) lc.makeCopy();
                 if (lc instanceof SovietBarracks) {
                     this.addToBot(new SovietBarracksUnitReadyAction());
+                    nc = new SovietBarracks();
                 }
                 if (lc instanceof SovietWarFactory) {
                     this.addToBot(new SovietWarFactoryUnitReadyAction());
+                    nc = new SovietWarFactory();
                 }
                 if (lc instanceof Walls) {
                     this.addToBot(new GainBlockAction(p, lc.block));
+                    nc = new Walls();
                 }
                 if (lc instanceof SovietOreRefinery) {
                     this.addToBot(new GainEnergyAction(1));
+                    nc = new SovietOreRefinery();
                 }
                 if (lc instanceof TechOilDerrick) {
                     this.addToBot(new GainEnergyAction(1));
+                    nc = new TechOilDerrick();
+                }
+                if (lc instanceof InstantShelter) {
+                    this.addToBot(new GainBlockAction(p, lc.block));
+                    nc = new InstantShelter(lc.magicNumber);
                 }
                 gp.moveToExhaustPile(lc);
                 this.addToBot(new ApplyPowerAction(p, p, nc.getPower(true)));
                 ConstructionPileManager.buildingConstruction(nc);
             } else {
-                nc = (AbstractConstructionCard) lc.makeCopy();
                 int amount = 0;
                 if (lc instanceof EMPControlStation) {
                     AbstractPower po = p.getPower(EMPControlStationPower.POWER_ID);
                     amount = po.amount;
-//                    nc = new EMPControlStation();
+                    nc = new EMPControlStation();
                     ConstructionPileManager.buildingConstruction(nc);
                     gp.moveToExhaustPile(lc);
                     this.addToBot(new UnitReadyAction(nc.cardsToPreview));
@@ -62,7 +69,7 @@ public class ConstructionRedoAction extends AbstractGameAction {
                 if (lc instanceof TacticalNukeSilo) {
                     AbstractPower po = p.getPower(TacticalNukeSiloPower.POWER_ID);
                     amount = po.amount;
-//                    nc = new Tack();
+                    nc = new TacticalNukeSilo(lc.magicNumber);
                     ConstructionPileManager.buildingConstruction(nc);
                     gp.moveToExhaustPile(lc);
                     this.addToBot(new UnitReadyAction(nc.cardsToPreview));
@@ -71,7 +78,7 @@ public class ConstructionRedoAction extends AbstractGameAction {
                 if (lc instanceof IronCurtainDevice) {
                     AbstractPower po = p.getPower(IronCurtainDevicePower.POWER_ID);
                     amount = po.amount;
-//                    nc = new EMPControlStation();
+                    nc = new EMPControlStation();
                     ConstructionPileManager.buildingConstruction(nc);
                     gp.moveToExhaustPile(lc);
                     this.addToBot(new UnitReadyAction(nc.cardsToPreview));

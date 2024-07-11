@@ -14,22 +14,21 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class SovietCloningVats extends MoCard {
     public static final String ID = MoModHelper.makeID(SovietCloningVats.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.POWER;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardColor COLOR = AbstractCardEnum.SOVIET;
 
     public SovietCloningVats() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, false, CARD_STRINGS, COST, TYPE, COLOR, RARITY, TARGET);
-        this.setupMagicNumber(1);
+        this.setupMagicNumber(2);
     }
 
     @Override
     public void limitedUpgrade() {
-        this.upgradeMagicNumber(2);
-
+        this.upgradeBaseCost(1);
     }
 
     @Override

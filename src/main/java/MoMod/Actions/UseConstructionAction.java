@@ -8,8 +8,10 @@ import MoMod.cards.skill.IronCurtain;
 import MoMod.power.*;
 import MoMod.util.ConstructionPileManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -79,6 +81,12 @@ public class UseConstructionAction extends AbstractGameAction {
                 AbstractPower po = p.getPower(InstantShelterPower.POWER_ID);
                 po.flash();
                 this.addToBot(new GainBlockAction(p, c.block));
+            }
+            if (c instanceof SensorTower) {
+                AbstractPower po = p.getPower(SensorTowerPower.POWER_ID);
+                po.flash();
+                this.addToBot(new ScryAction(2));
+                this.addToBot(new DrawCardAction(p, this.amount));
             }
             if (c instanceof FlameTower && ft) {
                 ft = false;

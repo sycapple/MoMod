@@ -14,4 +14,6 @@ public class AbstractTagEnum {
     public static AbstractCard.CardTags INFANTRY_UNIT;
     @SpireEnum
     public static AbstractCard.CardTags TANK_UNIT;
+    @SpireEnum
+    public static AbstractCard.CardTags CLONED;
 }

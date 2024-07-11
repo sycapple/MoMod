@@ -61,7 +61,7 @@
   },
   "momod:Engineer": {
     "NAME": "工程师",
-    "DESCRIPTION": "本回合结束回复 !M! 点生命值。"
+    "DESCRIPTION": "本次战斗结束回复 !M! 点生命值。"
   },
   "momod:EmptyConstructionSlot": {
     "NAME": "空槽位",
@@ -101,7 +101,7 @@
   },
   "momod:CyborgVanguard": {
     "NAME": "半机械人先驱",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 半机械人先驱伤害 + !M! "
+    "DESCRIPTION": "获得 !B! 点格挡 NL 造成 !D! 点伤害 NL 将来所有打出的半机械人先驱伤害 + !M! "
   },
   "momod:ApocalypseTank": {
     "NAME": "天启坦克",

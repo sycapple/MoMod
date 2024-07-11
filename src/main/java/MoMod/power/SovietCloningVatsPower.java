@@ -2,6 +2,7 @@ package MoMod.power;
 
 import MoMod.cards.attack.Conscript;
 import MoMod.util.MoModHelper;
+import MoMod.Enums.AbstractTagEnum;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -52,7 +53,7 @@ public class SovietCloningVatsPower extends AbstractMoPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card instanceof Conscript) {
+        if (card instanceof Conscript && !card.tags.contains(AbstractTagEnum.CLONED)) {
             if (!card.purgeOnUse) {
                 this.flash();
                 for (int i = 0; i < this.amount; i++) {
@@ -70,7 +71,7 @@ public class SovietCloningVatsPower extends AbstractMoPower {
                     if (m != null) {
                         tmp.calculateCardDamage(m);
                     }
-
+                    tmp.tags.add(AbstractTagEnum.CLONED);
                     tmp.purgeOnUse = true;
                     AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
                 }

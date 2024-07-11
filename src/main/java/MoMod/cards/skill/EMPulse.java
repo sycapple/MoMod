@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class EMPulse extends MoCard {
     public static final String ID = MoModHelper.makeID(EMPulse.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final int COST = 2;
+    private static final int COST = 3;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;

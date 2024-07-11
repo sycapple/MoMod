@@ -4,6 +4,7 @@ import MoMod.Actions.TechnologyUpgradeAction;
 import MoMod.Enums.AbstractTagEnum;
 import MoMod.power.TechnologyLevelPower;
 import MoMod.util.ConstructionPileManager;
+import MoMod.util.CyborgVanguardDamageAddonManager;
 import MoMod.util.MoModHelper;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -58,6 +59,7 @@ public class SovietRelic extends CustomRelic {
     public void atBattleStart() {
         ConstructionPileManager.getConstructionPile().clear();
         ConstructionPileManager.resetMaxConstruction();
+        CyborgVanguardDamageAddonManager.resetDamage();
         this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TechnologyLevelPower(AbstractDungeon.player)));
 //        CardGroup constructionGroup = ConstructionPileManager.getConstructionPile();
 //        for (int i = 0; i < constructionGroup.size(); i++) {

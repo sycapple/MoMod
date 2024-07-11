@@ -53,9 +53,15 @@ public class EMPMinesPower extends AbstractMoPower {
             this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
             this.addToTop(new VFXAction(new LightningEffect(m.hb.cX, m.hb.cY)));
             if (p.hasPower(OverChargePower.POWER_ID))
-                this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, 2, p), 2));
+                if (m.hasPower(ElectromagneticParalysisPower.POWER_ID))
+                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, 1, p), 1));
+                else
+                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, 2, p), 2));
             if (MathUtils.random(0, 1) * 100 < percent)
-                this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, 2, p), 2));
+                if (m.hasPower(ElectromagneticParalysisPower.POWER_ID))
+                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, 1, p), 1));
+                else
+                    this.addToBot(new ApplyPowerAction(m, p, new ElectromagneticParalysisPower(m, 2, p), 2));
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
             if (this.amount == 0)
                 this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
