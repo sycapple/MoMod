@@ -86,7 +86,7 @@ public class UseConstructionAction extends AbstractGameAction {
                 AbstractPower po = p.getPower(SensorTowerPower.POWER_ID);
                 po.flash();
                 this.addToBot(new ScryAction(2));
-                this.addToBot(new DrawCardAction(p, this.amount));
+                this.addToBot(new DrawCardAction(p, 1));
             }
             if (c instanceof FlameTower && ft) {
                 ft = false;
